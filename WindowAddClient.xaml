@@ -1,0 +1,31 @@
+﻿<Window x:Class="AdminInterface.WindowAddClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdminInterface"
+        mc:Ignorable="d"
+        Title="WindowAddClient" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+            
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row ="0" Content="AddClient" Margin="5"/>
+        <TextBox Grid.Row="1" x:Name="Name" Margin="5" >zdes nujen tekst</TextBox>
+        <TextBox Grid.Row="2" Name="Phones" Margin="5"/>
+        <TextBox Grid.Row="3" Name="Adresses" Margin="5"/>
+        <TextBox Grid.Row="4" Name="comment" Margin="5"/>
+        <Label Grid.Row ="5" Content="* - обязательно к заполнению" Margin="5"/>
+        <Button Grid.Row="6" Content="OK" Margin="5" Click="Button_Click"/>
+        
+    
+    </Grid>
+</Window>
