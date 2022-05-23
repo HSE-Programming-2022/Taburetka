@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AdminInterface
+namespace TaburetkaProject
 {
     /// <summary>
     /// Логика взаимодействия для Page2.xaml

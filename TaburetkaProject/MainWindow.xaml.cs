@@ -30,13 +30,13 @@ namespace TaburetkaProject
 
         private void Dashboard_Click(object sender, RoutedEventArgs e)
         {
-            //MyFrame.Content = new Dashboard();
+            MyFrame.Content = new Dashboard();
         }
         private void TempOrders_Click(object sender, RoutedEventArgs e)
 
         {
             
-            //MyFrame.Content = new TempOrders();
+            MyFrame.Content = new TempOrders();
         }
         private void ToDo_Click(object sender, RoutedEventArgs e)
         {
@@ -44,17 +44,17 @@ namespace TaburetkaProject
         }
         private void Contracts_Click(object sender, RoutedEventArgs e)
         {
-            //MyFrame.Content = new Contracts();
+            MyFrame.Content = new Contracts();
         }
         private void Notes_Click(object sender, RoutedEventArgs e)
         {
-            //MyFrame.Content = new Notes();
+            MyFrame.Content = new Notes();
         }
 
         private void Clients_Click(object sender, RoutedEventArgs e)
         {
             
-            //MyFrame.Content = new Clients();
+            MyFrame.Content = new Clients();
 
         }
     }

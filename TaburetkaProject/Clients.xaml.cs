@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AdminInterface
+namespace TaburetkaProject
 {
     /// <summary>
     /// Логика взаимодействия для Clients.xaml
@@ -47,7 +47,7 @@ namespace AdminInterface
 
         private void BtnAddClient_Click(object sender, RoutedEventArgs e)
         {
-            WindowAddClient addClient = new();
+            WindowAddClient addClient = new WindowAddClient();
             
             addClient.ShowDialog();
             // check input

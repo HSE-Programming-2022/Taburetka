@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace AdminInterface
+namespace TaburetkaProject
 {
     public class WPFHelper
     {
@@ -14,7 +14,7 @@ namespace AdminInterface
         {
             DataTable dataTable = new DataTable("dataBase");                // создаём таблицу в приложении
                                                                             // подключаемся к базе данных
-            SqlConnection sqlConnection = new("server=DESKTOP-86BHT2G\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=QQMber;");
+            SqlConnection sqlConnection = new SqlConnection("server=DESKTOP-86BHT2G\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=QQMber;");
             sqlConnection.Open();                                           // открываем базу данных
             SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
             sqlCommand.CommandText = selectSQL;                             // присваиваем команде текст
@@ -26,7 +26,7 @@ namespace AdminInterface
 
         public static void Insert(string insertSQL)
         {
-            SqlConnection sqlConnection = new("server=DESKTOP-86BHT2G\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=QQMber;");
+            SqlConnection sqlConnection = new SqlConnection("server=DESKTOP-86BHT2G\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=QQMber;");
             sqlConnection.Open();
             SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
             sqlCommand.CommandText = insertSQL;                             // присваиваем команде текст
