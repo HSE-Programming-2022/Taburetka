@@ -3,10 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TaburetkaProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="AdminInterface" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="Auto"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <Button x:Name="Dashboard" Content="Дэшборд" Height="35" MinWidth="100" Margin="5, 5, 5, 5" Click="Dashboard_Click"></Button>
+            <Button x:Name="TEMP" Content="Заказы ТЕМП" Height="35" MinWidth="100" Margin="5, 5, 5, 5" Click="TempOrders_Click"></Button>
+            <Button x:Name="TODO" Content="To do" Height="35" MinWidth="100" Margin="5, 5, 5, 5" Click="ToDo_Click"></Button>
+            <Button x:Name="Clients" Content="Клиенты" Height="35" MinWidth="100" Margin="5, 5, 5, 5" Click="Clients_Click"></Button>
+            <Button x:Name="Contracts" Content="Контракты" Height="35" MinWidth="100" Margin="5, 5, 5, 5" Click="Contracts_Click"></Button>
+            <Button x:Name="Notes" Content="Заметки" Height="35" MinWidth="100" Margin="5, 5, 5, 5" Click="Notes_Click"></Button>
+        </StackPanel>
+        <Frame x:Name="MyFrame" Grid.Column="1" Background="AliceBlue" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
