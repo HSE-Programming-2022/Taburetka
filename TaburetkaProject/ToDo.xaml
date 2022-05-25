@@ -55,11 +55,11 @@
 
                         </StackPanel>
 
-                        <Button Style="{StaticResource button}" Width="40" Height="40" HorizontalAlignment="Right">
+                        <Button Style="{StaticResource button}" Width="35" Height="40" HorizontalAlignment="Right" Margin="12,0,10,0">
                             <fa:ImageAwesome Icon="PlusCircle" Width="25"/>
                         </Button>
 
-                        <Button Style="{StaticResource button}" Width="40" Height="40" HorizontalAlignment="Right" Margin="0 0 45 0">
+                        <Button Style="{StaticResource button}" Width="35" Height="40" HorizontalAlignment="Right" Margin="0,0,50,0" Click="Button_Click">
                             <fa:ImageAwesome Icon="Paperclip" Height="25" Width="25"/>
                         </Button>
 

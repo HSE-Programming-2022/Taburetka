@@ -112,6 +112,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+<<<<<<< Updated upstream
   <ItemGroup>
     <Resource Include="Images\add.png" />
   </ItemGroup>
@@ -124,5 +125,8 @@
   <ItemGroup>
     <Resource Include="Images\Bell.png" />
   </ItemGroup>
+=======
+  <ItemGroup />
+>>>>>>> Stashed changes
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
