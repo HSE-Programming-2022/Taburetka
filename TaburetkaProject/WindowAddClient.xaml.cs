@@ -33,7 +33,17 @@ namespace TaburetkaProject
         }
         public string ClientComment
         {
-            get { return comment.Text; }
+            get { return Comment.Text; }
+        }
+        public string CompanyIdentificator
+        {
+            get { return CompanyName.Text; }
+        }
+        public string TypeClient
+        {
+            get {
+                return ClientType.Text;
+            }
         }
         public WindowAddClient()
         {
@@ -43,6 +53,11 @@ namespace TaburetkaProject
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void companyType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

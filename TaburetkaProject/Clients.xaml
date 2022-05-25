@@ -18,12 +18,14 @@
                 ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="id" Binding="{Binding Path='ClientID'}" IsReadOnly="True" />
-                <DataGridTextColumn Header="ИмяКлиента" Binding="{Binding Path='ClientName'}" IsReadOnly="True" />
+                <DataGridTextColumn Header="ИмяКлиента" Binding="{Binding Path='ClientName'}" />
                 <DataGridTextColumn Header="Телефоны" Binding="{Binding Path='Phones'}" />
                 <DataGridTextColumn Header="Адрес" Binding="{Binding Path='Adresses'}" />
-                <DataGridTextColumn Header="Комментарий" Binding="{Binding Path='Comment'}" />
+               
                 <DataGridTextColumn Header="Тип клиента" Binding="{Binding Path='ClientType'}" />
-                         
+                <DataGridTextColumn Header="Название компании" Binding="{Binding Path='CompanyName'}" />
+                <DataGridTextColumn Header="Комментарий" Binding="{Binding Path='Comment'}" />
+
             </DataGrid.Columns>
         </DataGrid>
         <Button Name="BtnAddClient" Content="Добавить" HorizontalAlignment="Left" Margin="0,399,0,0" Width="400" Click="BtnAddClient_Click"></Button>

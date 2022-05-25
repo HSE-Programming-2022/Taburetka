@@ -52,11 +52,13 @@ namespace TaburetkaProject
             addClient.ShowDialog();
             // check input
 
-            string insertCommand = String.Format("INSERT INTO dbo.Clients (CompanyName, ClientName, Phones, Adresses, Comment, ClientType)" +
-                 " VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", "111", addClient.ClientName, addClient.ClientPhones, addClient.ClientAdresses, addClient.ClientComment, "Компания");
+            string insertCommand = String.Format(
+                "INSERT INTO dbo.Clients (CompanyName, ClientName, Phones, Adresses, Comment, ClientType)" +
+                " VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
+                addClient.CompanyIdentificator, addClient.ClientName, addClient.ClientPhones, addClient.ClientAdresses, addClient.ClientComment, addClient.TypeClient
+                );
             WPFHelper.Insert(insertCommand);
             DG1.DataContext = WPFHelper.Select("SELECT * FROM [dbo].[Clients]");
-            // DataTable DTClients = WPFHelper.Select("SELECT * FROM [dbo].[Clients]");
         }
 
         private void BtnDeleteClient_Click(object sender, RoutedEventArgs e)
