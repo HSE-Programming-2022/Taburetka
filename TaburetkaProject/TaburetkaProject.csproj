@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -58,9 +58,37 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Clients.xaml.cs">
+      <DependentUpon>Clients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contracts.xaml.cs">
+      <DependentUpon>Contracts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.xaml.cs">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TempOrders.xaml.cs">
+      <DependentUpon>TempOrders.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ToDo.xaml.cs">
       <DependentUpon>ToDo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowAddClient.xaml.cs">
+      <DependentUpon>WindowAddClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFHelper.cs" />
+    <Page Include="Clients.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Contracts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dashboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,9 +105,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TempOrders.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ToDo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowAddClient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -112,21 +148,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-<<<<<<< Updated upstream
-  <ItemGroup>
-    <Resource Include="Images\add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\pencil.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\clip.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Bell.png" />
-  </ItemGroup>
-=======
-  <ItemGroup />
->>>>>>> Stashed changes
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

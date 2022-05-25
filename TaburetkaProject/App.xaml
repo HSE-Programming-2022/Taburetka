@@ -1,17 +1,17 @@
-﻿<Application x:Class="TaburetkaProject.App"
+<Application x:Class="TaburetkaProject.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TaburetkaProject"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-<<<<<<< Updated upstream
-=======
+
 
         <Style x:Key="button" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="#bababa" />
             <Setter Property="FontSize" Value="22"/>
             <Setter Property="Margin" Value="12 0"/>
+
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -30,7 +30,7 @@
             </Setter>
         </Style>
 
->>>>>>> Stashed changes
+
         <Style x:Key="txtHint" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#F5F5F5"/>
             <Setter Property="FontSize" Value="14"/>
