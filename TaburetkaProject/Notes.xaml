@@ -11,17 +11,17 @@
 
     <Border CornerRadius="8" Background="#003B46">
         <Grid>
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="180"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.RowSpan="2" TextWrapping="Wrap" FontSize="30" FontWeight="Bold" Foreground="#F5F5F5" Width="123" Margin="45,20,0,0">Заметки</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" Grid.RowSpan="2" TextWrapping="Wrap" FontSize="30" FontWeight="Bold" Foreground="#F5F5F5" Width="123" Margin="0,20,0,0">Заметки</TextBlock>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" Margin="0,80,0,0">
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.RowSpan="2" Width="600" VerticalAlignment="Top" Margin="0,80,0,0">
                 <!--Titles-->
-                <Border Background="#66A5AD" CornerRadius="12" Width="715" Padding="17 15 5 15" Margin="42,0,42,0">
+                <Border Background="#66A5AD" CornerRadius="12" Width="600" Padding="17 15 5 15">
                     <Grid Height="36">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -37,8 +37,8 @@
                                 </Grid.ColumnDefinitions>
 
                                 <fa:ImageAwesome Icon="Pencil" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25"/>
-                                <TextBlock x:Name="lblNote" Style="{StaticResource ResourceKey=txtHint}" MouseDown="lblNote_MouseDown" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Width="550" Text="Добавить заметку" Margin="10,10,0,0"/>
-                                <TextBox x:Name="txtNote" Style="{StaticResource ResourceKey=textBox}" TextChanged="txtNote_TextChanged" Grid.Column="1" Grid.ColumnSpan="2" Width="550" VerticalAlignment="Center" Margin="10,10,0,0"/>
+                                <TextBlock x:Name="lblNote" Style="{StaticResource ResourceKey=txtHint}" MouseDown="lblNote_MouseDown" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Text="Добавить заметку" Margin="10,10,0,0"/>
+                                <TextBox x:Name="txtNote" Style="{StaticResource ResourceKey=textBox}" TextChanged="txtNote_TextChanged" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="10,10,14,0"/>
 
                             </Grid>
                         </StackPanel>
