@@ -8,9 +8,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
-
+   
     <Grid >
         <wpf:ChromiumWebBrowser x:Name="Browser" Address="http://127.0.0.1:3000/"/>
-
     </Grid>
 </Page>
