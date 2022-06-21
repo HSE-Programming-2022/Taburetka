@@ -25,7 +25,6 @@ namespace TaburetkaProject
         public MainWindow()
         {
             InitializeComponent();
-            
         }
 
         private void Dashboard_Click(object sender, RoutedEventArgs e)
@@ -35,7 +34,7 @@ namespace TaburetkaProject
         private void TempOrders_Click(object sender, RoutedEventArgs e)
 
         {
-            
+
             MyFrame.Content = new TempOrders();
         }
         private void ToDo_Click(object sender, RoutedEventArgs e)
@@ -53,9 +52,10 @@ namespace TaburetkaProject
 
         private void Clients_Click(object sender, RoutedEventArgs e)
         {
-            
+
             MyFrame.Content = new Clients();
 
         }
+
     }
 }
