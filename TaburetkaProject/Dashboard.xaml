@@ -8,8 +8,13 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
 
+<<<<<<< Updated upstream
     <Grid Background="Yellow">
         <TextBlock FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center">Page1</TextBlock>
         
+=======
+    <Grid>
+        <wpf:ChromiumWebBrowser x:Name="Browser" Address="http://127.0.0.1:3000/"/>
+>>>>>>> Stashed changes
     </Grid>
 </Page>
