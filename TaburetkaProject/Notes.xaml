@@ -43,11 +43,11 @@
                             </Grid>
                         </StackPanel>
 
-                        <Button Style="{StaticResource button}" Width="35" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2" Height="35">
+                        <Button Style="{StaticResource AddNotesbutton}" Width="35" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2" Height="35">
                             <fa:ImageAwesome Icon="PlusCircle" Width="25"/>
                         </Button>
 
-                        <Button Style="{StaticResource button}" Width="35" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,50,0" Height="35">
+                        <Button Style="{StaticResource AddNotesbutton}" Width="35" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,50,0" Height="35">
                             <fa:ImageAwesome Icon="Paperclip" Width="25"/>
                         </Button>
 
