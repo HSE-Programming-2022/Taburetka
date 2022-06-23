@@ -17,7 +17,6 @@
         <Style x:Key="MenuButton" TargetType="RadioButton">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="#d9daff"/>
-            <!--цвет текста, когда наносишь на кнопку-->
             <Setter Property="Margin" Value="0 2 0 0"/>
             <Setter Property="Height" Value="60"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -34,14 +33,11 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="False">
                     <Setter Property="Foreground" Value="WhiteSmoke" />
-                    <!--цвет текста, когда не подносим мышку-->
                     <Setter Property="Tag" Value="WhiteSmoke"/>
-                    <!--????-->
                     <Setter Property="Background">
                         <Setter.Value>
                             <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
                                 <GradientStop Color="#003b46" Offset="0"/>
-                                <!--градиент кнопки меню-->
                                 <GradientStop Color="#d9daff" Offset="3"/>
                             </LinearGradientBrush>
                         </Setter.Value>
@@ -52,13 +48,11 @@
                         <Setter.Value>
                             <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
                                 <GradientStop Color="#D9DAFF" Offset="0"/>
-                                <!--градиент кнопки меню-->
                                 <GradientStop Color="#07575b" Offset="2.5"/>
                             </LinearGradientBrush>
                         </Setter.Value>
                     </Setter>
                     <Setter Property="Foreground" Value="#096469"/>
-                    <!--цвет текста, когда наносишь на кнопку-->
                     <Setter Property="Height" Value="60"/>
                     <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                     <Setter Property="Tag" Value="#07575b"/>
@@ -66,7 +60,6 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="RadioButton">
                                 <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="WhiteSmoke" CornerRadius="5">
-                                    <!--боковая грань-->
                                     <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                                 </Border>
                             </ControlTemplate>
@@ -99,13 +92,11 @@
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Color="#D9DAFF" Offset="0"/>
-                        <!--градиент кнопки меню-->
                         <GradientStop Color="#07575b" Offset="2.5"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
             <Setter Property="Foreground" Value="#096469"/>
-            <!--цвет текста, когда наносишь на кнопку-->
             <Setter Property="Margin" Value="0 0 0 5"/>
             <Setter Property="Height" Value="45"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -114,7 +105,6 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="WhiteSmoke">
-                            <!--боковая грань-->
                             <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -234,7 +224,6 @@
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" Value="#66a5ad"/>
                     <Setter Property="Foreground" Value="WhiteSmoke"/>
-                    <!--цвет текста, когда наносишь на кнопку-->
                     <Setter Property="Height" Value="30"/>
                     <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                 </Trigger>
@@ -370,13 +359,6 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
 
-        <ContextMenu x:Key="itemMenu">
-            <MenuItem Header="_Edit Item" Name="EditItem" Click="EditItem_Click"/>
-            <MenuItem Header="Open Image" Name="OpenImage" Click="OpenImage_Click"/>
-            <MenuItem Header="_Open File" Name="OpenFile" Click="OpenFile_Click"/>
-            <MenuItem Header="_Mark as done" Name="MarkAsDone" Click="MarkAsDone_Click"/>
-            <MenuItem Header="_Delete" Name="DeleteItem" Click="DeleteItem_Click"/>
-        </ContextMenu>
         <Style x:Key="DatePickerStyle" TargetType="{x:Type DatePicker}">
             <Setter Property="Foreground" Value="black"/>
             <Setter Property="IsTodayHighlighted" Value="True"/>
