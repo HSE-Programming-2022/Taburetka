@@ -8,7 +8,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ToDo">
+<<<<<<< Updated upstream
 
+=======
+    <Page.Resources>
+        <ContextMenu x:Key="itemMenu">
+            <MenuItem Header="_Edit Item" Name="EditItem" Click="EditItem_Click"/>
+            <MenuItem Header="Open Image" Name="OpenImage" Click="OpenImage_Click"/>
+            <MenuItem Header="_Open File" Name="OpenFile" Click="OpenFile_Click"/>
+            <MenuItem Header="_Mark as done" Name="MarkAsDone" Click="MarkAsDone_Click"/>
+            <MenuItem Header="_Delete" Name="DeleteItem" Click="DeleteItem_Click"/>
+        </ContextMenu>
+    </Page.Resources>
+>>>>>>> Stashed changes
     <Border CornerRadius="8" Background="#003B46">
         <Grid>
 
