@@ -23,9 +23,9 @@ namespace TaburetkaProject
     /// </summary>
     public partial class ToDo : Page
     {
-        private string folderImages = "../../ToDoData/Images/";
+        private string folderImages = "../../Data/Images/";
 
-        private string folderFiles = "../../ToDoData/Files/";
+        private string folderFiles = "../../Data/Files/";
 
         List<ToDoItem> tdl = new List<ToDoItem>();
         public ToDo()
@@ -77,7 +77,7 @@ namespace TaburetkaProject
         {
             if (!string.IsNullOrEmpty(textNote.Text) && datePicker1.SelectedDate != null)
             {
-                ToDoItem item = new ToDoItem(textNote.Text, datePicker1.SelectedDate.ToString(), imagePath.Text, fileName.Text, "Not done");
+                ToDoItem item = new ToDoItem(textNote.Text, datePicker1.SelectedDate.Value.ToShortDateString(), imagePath.Text, fileName.Text, "Not done");
 
                 tdl.Insert(0, item);
 
@@ -179,17 +179,12 @@ namespace TaburetkaProject
         {
             if (lvToDo.SelectedItem != null)
             {
-                EditItem ep = new EditItem(lvToDo.SelectedItem as ToDoItem);
+                string filmsource = (lvToDo.SelectedItem as ToDoItem).FileSource;
+                string imagesource = (lvToDo.SelectedItem as ToDoItem).ImageSource;
+                EditItem ep = new EditItem(lvToDo.SelectedItem as ToDoItem, filmsource, imagesource);
 
                 ep.ShowDialog();
 
-                if ((lvToDo.SelectedItem as ToDoItem).FileSource != null && (lvToDo.SelectedItem as ToDoItem).FileSource != ep.editItem.FileSource)
-                    File.Delete(folderFiles + (lvToDo.SelectedItem as ToDoItem).FileSource);
-
-                if ((lvToDo.SelectedItem as ToDoItem).ImageSource != null && (lvToDo.SelectedItem as ToDoItem).ImageSource != ep.editItem.ImageSource)
-                    File.Delete(folderImages + (lvToDo.SelectedItem as ToDoItem).ImageSource);
-
-                lvToDo.SelectedItem = ep.editItem;
 
                 lvToDo.ItemsSource = tdl;
                 lvToDo.Items.Refresh();

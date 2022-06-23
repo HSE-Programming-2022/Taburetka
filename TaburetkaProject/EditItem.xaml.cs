@@ -15,13 +15,16 @@ namespace TaburetkaProject
 
         string fullImagePath;
         string fullFilePath;
-        string folderFiles = "../../ToDoData/Files/";
-        string folderImages = "../../ToDoData/Images/";
-        public EditItem(ToDoItem item)
+        string oldFileFource;
+        string oldImageSource;
+        string folderFiles = "../../Data/Files/";
+        string folderImages = "../../Data/Images/";
+        public EditItem(ToDoItem item, string oldfilesource, string oldimagesource)
         {
             InitializeComponent();
             editItem = item;
-
+            oldFileFource = oldfilesource;
+            oldImageSource = oldimagesource;
             DataContext = item;
         }
 
@@ -29,25 +32,29 @@ namespace TaburetkaProject
         {
             if (Description.Text != "" && Deadline.Text != "")
             {
-                editItem.Description = Description.Text;
-                editItem.Deadline = Deadline.Text;
 
-                if (ImageSource.Text != "" && editItem.ImageSource != ImageSource.Text)
+                if ((!string.IsNullOrEmpty(ImageSource.Text)) && (oldImageSource != ImageSource.Text))
                 {
                     editItem.ImageSource = ImageSource.Text;
                     File.Copy(fullImagePath, System.IO.Path.Combine(folderImages, ImageSource.Text));
                 }
-                else editItem.ImageSource = ImageSource.Text;
 
-                if (FileSource.Text != "" && editItem.FileSource != FileSource.Text)
+
+                if (!(string.IsNullOrEmpty(FileSource.Text)) && (oldFileFource != FileSource.Text))
                 {
-                    editItem.FileSource = FileSource.Text;
                     File.Copy(fullFilePath, System.IO.Path.Combine(folderFiles, FileSource.Text));
                 }
-                else editItem.FileSource = FileSource.Text;
 
-                editItem.IsDone = "Not done";
 
+                if ((!string.IsNullOrEmpty(oldImageSource)) && (oldFileFource != FileSource.Text))
+                {
+                    File.Delete(folderFiles + oldFileFource);
+
+                    System.Windows.MessageBox.Show("Deleted");
+                }
+
+                if ((!string.IsNullOrEmpty(oldImageSource)) && (oldImageSource != ImageSource.Text))
+                    File.Delete(folderImages + oldImageSource);
 
                 System.Windows.MessageBox.Show("Saved successfully", "Edit Page", MessageBoxButton.OK);
             }

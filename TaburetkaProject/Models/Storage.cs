@@ -23,18 +23,18 @@ namespace TaburetkaProject.Models
 
         public static void SaveItem(List<ToDoItem> item)
         {
-            string itemInfo = JsonConvert.SerializeObject(item);
+            string itemInfo = JsonConvert.SerializeObject(item, Formatting.Indented);
             File.WriteAllText(filePath, itemInfo);
         }
 
         public static void DeleteItem(ToDoItem item)
         {
-            if (item.FileSource != "" || item.FileSource != null)
+            if (!string.IsNullOrEmpty(item.FileSource))
             {
                 string folderFiles = "../../Data/Files/";
                 File.Delete(folderFiles + item.FileSource);
             }
-            if (item.ImageSource != "" || item.ImageSource != null)
+            if (!string.IsNullOrEmpty(item.FileSource))
             {
                 string folderImages = "../../Data/Images/";
                 File.Delete(folderImages + item.ImageSource);
