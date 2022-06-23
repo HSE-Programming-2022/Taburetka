@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,11 +8,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TaburetkaProject.Models;
 
 namespace TaburetkaProject
 {
@@ -20,9 +23,18 @@ namespace TaburetkaProject
     /// </summary>
     public partial class ToDo : Page
     {
+        private string folderImages = "../../ToDoData/Images/";
+
+        private string folderFiles = "../../ToDoData/Files/";
+
+        List<ToDoItem> tdl = new List<ToDoItem>();
         public ToDo()
         {
+            Storage.ReadItems();
             InitializeComponent();
+            tdl = Storage.items;
+            DataContext = tdl;
+            lvToDo.ItemsSource = tdl;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -55,24 +67,142 @@ namespace TaburetkaProject
             }
         }
 
-        private void lblTime_MouseDown(object sender, MouseButtonEventArgs e)
+        private void lvToDo_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            txtTime.Focus();
+            MarkAsDone_Click(sender, e);
         }
 
-        private void txtTime_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtTime.Text) && txtTime.Text.Length > 0)
+            if (!string.IsNullOrEmpty(textNote.Text) && datePicker1.SelectedDate != null)
             {
-                lblTime.Visibility = Visibility.Collapsed;
+                ToDoItem item = new ToDoItem(textNote.Text, datePicker1.SelectedDate.ToString(), imagePath.Text, fileName.Text, "Not done");
+
+                tdl.Insert(0, item);
+
+                Storage.SaveItem(tdl);
             }
-            else
-            {
-                lblTime.Visibility = Visibility.Visible;
-            }
+
+            textNote.Text = "";
+            datePicker1.Text = "";
+            imagePath.Text = "";
+            fileName.Text = "";
+            lvToDo.ItemsSource = tdl;
+            lvToDo.Items.Refresh();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = "Image files|*.bmp;*jpg;*.png";
+            openDialog.FilterIndex = 1;
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (File.Exists(System.IO.Path.Combine(folderImages, System.IO.Path.GetFileName(openDialog.FileName))))
+                {
+                    System.Windows.MessageBox.Show($"Image with name {System.IO.Path.GetFileName(openDialog.FileName)} exists. Rename it and try again to upload", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+
+                    imagePath.Text = System.IO.Path.GetFileName(openDialog.FileName);
+                    File.Copy(openDialog.FileName, System.IO.Path.Combine(folderImages, imagePath.Text));
+                    MessageBoxResult done = System.Windows.MessageBox.Show($"Image uploaded", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
+
+        private void FileUpload_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = true;
+            openFileDialog.Filter = "Text files (*.txt)|*.txt|Pdf files (*.pdf)|*.pdf";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (File.Exists(System.IO.Path.Combine(folderFiles, System.IO.Path.GetFileName(openFileDialog.FileName))))
+                {
+                    System.Windows.MessageBox.Show($"File with name {System.IO.Path.GetFileName(openFileDialog.FileName)} exists. Rename it and try again to upload", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    fileName.Text = System.IO.Path.GetFileName(openFileDialog.FileName);
+                    File.Copy(openFileDialog.FileName, System.IO.Path.Combine(folderFiles, fileName.Text));
+                    System.Windows.MessageBox.Show($"File {fileName.Text} uploaded", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
+
+        private void chkShowNotDone_Checked(object sender, RoutedEventArgs e)
+        {
+            lvToDo.ItemsSource = tdl.Where(item => item.IsDone == "Not done");
+        }
+
+        private void chkShowNotDone_Unchecked(object sender, RoutedEventArgs e)
+        {
+            lvToDo.ItemsSource = tdl;
+        }
+
+        private void MarkAsDone_Click(object sender, RoutedEventArgs e)
+        {
+            if (lvToDo.SelectedItem != null)
+            {
+                MessageBoxResult done = System.Windows.MessageBox.Show("Mark this as done?", "Done?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+                if (done == MessageBoxResult.Yes)
+                {
+                    (lvToDo.SelectedItem as ToDoItem).IsDone = "Done";
+                    lvToDo.ItemsSource = tdl;
+                    lvToDo.Items.Refresh();
+                    Storage.SaveItem(tdl);
+
+                }
+            }
+        }
+
+        private void DeleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (lvToDo.SelectedItem != null)
+            {
+                MessageBoxResult del = System.Windows.MessageBox.Show("Delete this item?", "Delete?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+                if (del == MessageBoxResult.Yes)
+                {
+                    tdl.Remove(lvToDo.SelectedItem as ToDoItem);
+                    Storage.DeleteItem(lvToDo.SelectedItem as ToDoItem);
+                }
+                lvToDo.Items.Refresh();
+
+            }
+        }
+
+        private void EditItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (lvToDo.SelectedItem != null)
+            {
+                EditItem ep = new EditItem(lvToDo.SelectedItem as ToDoItem);
+
+                ep.ShowDialog();
+
+                if ((lvToDo.SelectedItem as ToDoItem).FileSource != null && (lvToDo.SelectedItem as ToDoItem).FileSource != ep.editItem.FileSource)
+                    File.Delete(folderFiles + (lvToDo.SelectedItem as ToDoItem).FileSource);
+
+                if ((lvToDo.SelectedItem as ToDoItem).ImageSource != null && (lvToDo.SelectedItem as ToDoItem).ImageSource != ep.editItem.ImageSource)
+                    File.Delete(folderImages + (lvToDo.SelectedItem as ToDoItem).ImageSource);
+
+                lvToDo.SelectedItem = ep.editItem;
+
+                lvToDo.ItemsSource = tdl;
+                lvToDo.Items.Refresh();
+                Storage.SaveItem(tdl);
+            }
+        }
+
+        private void OpenImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
 
         }
