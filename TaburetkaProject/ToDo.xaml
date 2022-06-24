@@ -26,15 +26,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10" Width="auto" Height="auto" HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Width="auto" Height="auto" HorizontalAlignment="Center">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <ListView Background="#003B46" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="650" Grid.Row="1" Grid.ColumnSpan="3" MouseDoubleClick="lvToDo_MouseDoubleClick" 
+                    <ListView Style="{DynamicResource ListViewStyle}" Background="#003B46" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" MinWidth="650" Grid.Row="1" Grid.ColumnSpan="3" MouseDoubleClick="lvToDo_MouseDoubleClick" 
                           ContextMenu="{StaticResource itemMenu}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -51,15 +45,15 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <CheckBox x:Name="chkShowNotDone" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Show not done items" Checked="chkShowNotDone_Checked" Unchecked="chkShowNotDone_Unchecked"/>
+                    <CheckBox Style="{DynamicResource CheckBoxStyle}" x:Name="chkShowNotDone" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Show not done items" FontSize="10" Foreground="white" Checked="chkShowNotDone_Checked" Unchecked="chkShowNotDone_Unchecked" Margin="0,0,5,2"/>
                 </Grid>
             </StackPanel>
 
             <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" TextWrapping="Wrap" FontSize="30" FontWeight="Bold" Foreground="#F5F5F5" Width="80" Height="35" Margin="0,20,0,0">To do</TextBlock>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Bottom" Margin="10" Width="600" Height="100" HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Bottom" Margin="10" Width="600" HorizontalAlignment="Stretch">
                 <!--Titles-->
-                <Border Background="#66A5AD" CornerRadius="12" MinWidth="600" Padding="17 15 0 17" Height="98" HorizontalAlignment="Stretch">
+                <Border Background="#66A5AD" CornerRadius="12" MinWidth="600" Padding="17 15 0 17" Height="103" HorizontalAlignment="Stretch">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -98,29 +92,29 @@
 
                                 <fa:ImageAwesome Icon="Bell" Margin="0" Width="15"/>
 
-                                <DatePicker Height="25" Name="datePicker1"  Background="#66A5AD" DisplayDateStart="{x:Static sys:DateTime.Now}" 
-                                            VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" Width="150" Margin="10,0,94,0" HorizontalAlignment="Left" IsDropDownOpen="False" 
+                                <DatePicker Style="{DynamicResource DatePickerStyle}" Height="25" Name="datePicker1"  Background="Transparent" DisplayDateStart="{x:Static sys:DateTime.Now}" 
+                                            VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" Width="150" Margin="10,0,0,0" HorizontalAlignment="Left" IsDropDownOpen="False" 
                                             SelectedDateFormat="Short" IsTodayHighlighted="True"/>
 
                             </Grid>
 
                         </StackPanel>
 
-                        <Button Style="{StaticResource button}" Width="35" Height="35" HorizontalAlignment="Right" Margin="0,0,55,0" Click="Button_Click">
+                        <Button Style="{StaticResource button}" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,62,0" Click="Button_Click">
                             <fa:ImageAwesome Icon="image" Height="25" Width="18"/>
                         </Button>
-                        <TextBlock HorizontalAlignment="Right" Margin="0,0,55,-15" >
+                        <TextBlock HorizontalAlignment="Right" Margin="0,0,57,-15" >
                             <TextBox Visibility="Hidden" Name="imagePath"/>
                         </TextBlock>
                         
-                        <Button Style="{StaticResource button}" Name="FileUpload" Width="35" Height="35" HorizontalAlignment="Right" Margin="0,0,28,0" Click="FileUpload_Click">
+                        <Button Style="{StaticResource button}" Name="FileUpload" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,33,0" Click="FileUpload_Click">
                             <fa:ImageAwesome x:Name="fileUpload" Icon="PaperClip" Height="18" Width="19"/>
                         </Button>
                         <TextBlock HorizontalAlignment="Right" Width="20" Height="20" Margin="0,50,28,0" >
                             <TextBox Visibility="Hidden" Name="fileName"/>
                         </TextBlock>
                         
-                        <Button Style="{StaticResource button}" Name="BtnAdd" Width="35" Height="35" HorizontalAlignment="Right" Margin="12,0,0,0" Click="BtnAdd_Click">
+                        <Button Style="{StaticResource button}" Name="BtnAdd" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,4,0" Click="BtnAdd_Click">
                             <fa:ImageAwesome Icon="PlusCircle" Width="18" Height="18"/>
                         </Button>
                     </Grid>
