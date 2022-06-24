@@ -40,7 +40,7 @@
                                     <TextBlock Name="Image" Text="{Binding ImageSource}"/>
                                     <TextBlock Text="File:" FontWeight="Bold"/>
                                     <TextBlock Name="File" Text="{Binding FileSource}"/>
-                                    <TextBlock Name="IsDone" FontWeight="Bold" Grid.Column="2" HorizontalAlignment="Right" Text="{Binding IsDone}"/>
+                                    <TextBlock Name="IsDone" FontWeight="Bold" Grid.Column="2" HorizontalAlignment="Left" Text="{Binding IsDone}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -81,7 +81,7 @@
                             </Grid>
 
 
-                            <Separator Margin="25 16 90 11" Height="0.8" Background="#F5F5F5"/>
+                            <Separator Margin="25 16 90 11" Height="0.8" Background="#F5F5F5" HorizontalAlignment="Left" VerticalAlignment="Center" Width="440"/>
 
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -100,21 +100,21 @@
 
                         </StackPanel>
 
-                        <Button Style="{StaticResource button}" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,62,0" Click="Button_Click">
+                        <Button Style="{StaticResource button}" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,82,0" Click="Button_Click">
                             <fa:ImageAwesome Icon="image" Height="25" Width="18"/>
                         </Button>
-                        <TextBlock HorizontalAlignment="Right" Margin="0,0,57,-15" >
+                        <TextBlock HorizontalAlignment="Right" Margin="0,0,75,-15" >
                             <TextBox Visibility="Hidden" Name="imagePath"/>
                         </TextBlock>
                         
-                        <Button Style="{StaticResource button}" Name="FileUpload" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,33,0" Click="FileUpload_Click">
+                        <Button Style="{StaticResource button}" Name="FileUpload" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,48,0" Click="FileUpload_Click">
                             <fa:ImageAwesome x:Name="fileUpload" Icon="PaperClip" Height="18" Width="19"/>
                         </Button>
-                        <TextBlock HorizontalAlignment="Right" Width="20" Height="20" Margin="0,50,28,0" >
+                        <TextBlock HorizontalAlignment="Right" Width="20" Height="20" Margin="0,50,42,0" >
                             <TextBox Visibility="Hidden" Name="fileName"/>
                         </TextBlock>
                         
-                        <Button Style="{StaticResource button}" Name="BtnAdd" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,4,0" Click="BtnAdd_Click">
+                        <Button Style="{StaticResource button}" Name="BtnAdd" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,14,0" Click="BtnAdd_Click">
                             <fa:ImageAwesome Icon="PlusCircle" Width="18" Height="18"/>
                         </Button>
                     </Grid>
