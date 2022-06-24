@@ -1,0 +1,56 @@
+﻿<Page x:Class="DesignTaburetka.Pages.Clients"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:f="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+      xmlns:local="clr-namespace:DesignTaburetka.Pages"
+      mc:Ignorable="d" 
+      Height="Auto" Width="Auto"
+      Title="Clients">
+
+    <Grid Background="Transparent" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource TextHello}" Grid.Row="0" >Клиенты</TextBlock >
+        <DataGrid Name="ClientsData" Grid.Row="1" 
+                  Margin="5,5,5,50" 
+                  ItemsSource="{Binding }"  RowStyle="{StaticResource DataRowStyle}"
+                  CellStyle="{StaticResource DataCellStyle}"
+                  Style="{StaticResource DataStyle}"
+                  ColumnHeaderStyle="{StaticResource HeaderStyle}" 
+                 >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id" Binding="{Binding Path='client_id'}" IsReadOnly="True" Width="Auto" SortDirection="Ascending" CanUserSort="True"/>
+                <DataGridTextColumn Header="Имя Клиента" Binding="{Binding client_name}" Width="*" CanUserSort="True"/>
+                <DataGridTextColumn Header="Телефоны" Binding="{Binding Path='client_phone'}" Width="*" CanUserSort="True"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Path='client_address'}" Width="*" CanUserSort="True"/>
+                <DataGridTextColumn Header="Тип клиента" Binding="{Binding Path='ClientType'}" Width="*" CanUserSort="True"/>
+                <DataGridTextColumn Header="Комментарий" Binding="{Binding Path='Comment'}" Width="*" CanUserSort="False"/>
+                <DataGridTemplateColumn Width="Auto" CanUserSort="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnDeleteClient" Click="BtnDeleteClient_Click" Style="{StaticResource IconButtonsStyle}" 
+                                    Tag="IsCloseButton" Cursor="Hand" Content="{f:Icon MinusCircle}">
+                                
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="BtnAddClient" Content="Добавить" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Grid.Row="2" 
+                Margin="10" Click="BtnAddClient_Click"  Width="100" Height="30" Style="{StaticResource btnAddClient}" >
+            <Button.Template>
+                <ControlTemplate>
+                    <Border CornerRadius="5" Background="{TemplateBinding Background}">
+                        <ContentPresenter Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+    </Grid>
+</Page>
