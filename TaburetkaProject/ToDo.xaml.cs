@@ -6,10 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 using TaburetkaProject.Models;
-using System.Diagnostics;
-using System.Text;
 
 namespace TaburetkaProject
 {
@@ -19,9 +16,9 @@ namespace TaburetkaProject
     public partial class ToDo : Page
     {
 
-        private string folderImages = "../../Data/Images/";
+        private string folderImages = "../../ToDoData/Images/";
 
-        private string folderFiles = "../../Data/Files/";
+        private string folderFiles = "../../ToDoData/Files/";
 
         List<ToDoItem> tdl = new List<ToDoItem>();
         public ToDo()
@@ -101,7 +98,7 @@ namespace TaburetkaProject
                 }
                 else
                 {
-                    
+
                     imagePath.Text = System.IO.Path.GetFileName(openDialog.FileName);
                     File.Copy(openDialog.FileName, System.IO.Path.Combine(folderImages, imagePath.Text));
                     MessageBoxResult done = System.Windows.MessageBox.Show($"Image uploaded", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -190,7 +187,7 @@ namespace TaburetkaProject
 
         private void OpenImage_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void OpenFile_Click(object sender, RoutedEventArgs e)

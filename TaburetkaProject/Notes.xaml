@@ -9,6 +9,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Notes">
 
+    <Page.Resources>
+        <ContextMenu x:Key="itemMenu">
+            <MenuItem Header="_Edit Item" Name="EditItem" Click="EditItem_Click"/>
+            <MenuItem Header="Open Image" Name="OpenImage" Click="OpenImage_Click"/>
+            <MenuItem Header="_Open File" Name="OpenFile" Click="OpenFile_Click"/>
+            <MenuItem Header="_Mark as done" Name="MarkAsDone" Click="MarkAsDone_Click"/>
+            <MenuItem Header="_Delete" Name="DeleteItem" Click="DeleteItem_Click"/>
+        </ContextMenu>
+    </Page.Resources>
     <Border CornerRadius="8" Background="#003B46">
         <Grid>
 
@@ -16,6 +25,34 @@
                 <RowDefinition Height="180"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10" Width="auto" Height="auto" HorizontalAlignment="Stretch">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <ListView Background="#003B46" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="650" Grid.Row="1" Grid.ColumnSpan="3" MouseDoubleClick="lvToDo_MouseDoubleClick" 
+                          ContextMenu="{StaticResource itemMenu}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="Description:" FontWeight="Bold"/>
+                                    <TextBlock Name="Description" Text="{Binding Description}"/>
+                                    <TextBlock Text="Image:" FontWeight="Bold"/>
+                                    <TextBlock Name="Image" Text="{Binding ImageSource}"/>
+                                    <TextBlock Text="File:" FontWeight="Bold"/>
+                                    <TextBlock Name="File" Text="{Binding FileSource}"/>
+                                    <TextBlock Name="IsDone" FontWeight="Bold" Grid.Column="2" HorizontalAlignment="Right" Text="{Binding IsDone}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <CheckBox x:Name="chkShowNotDone" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Show not done items" Checked="chkShowNotDone_Checked" Unchecked="chkShowNotDone_Unchecked"/>
+                </Grid>
+            </StackPanel>
 
             <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" Grid.RowSpan="2" TextWrapping="Wrap" FontSize="30" FontWeight="Bold" Foreground="#F5F5F5" Width="123" Margin="0,20,0,0">Заметки</TextBlock>
 
@@ -43,12 +80,22 @@
                             </Grid>
                         </StackPanel>
 
-                        <Button Style="{StaticResource button}" Width="35" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2" Height="35">
-                            <fa:ImageAwesome Icon="PlusCircle" Width="25"/>
+                        <Button Style="{StaticResource button}" Width="35" Height="35" HorizontalAlignment="Right" Margin="0,0,55,0" Click="Button_Click">
+                            <fa:ImageAwesome Icon="image" Height="25" Width="18"/>
                         </Button>
+                        <TextBlock HorizontalAlignment="Right" Margin="0,0,55,-15" >
+                            <TextBox Visibility="Hidden" Name="imagePath"/>
+                        </TextBlock>
 
-                        <Button Style="{StaticResource button}" Width="35" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,50,0" Height="35">
-                            <fa:ImageAwesome Icon="Paperclip" Width="25"/>
+                        <Button Style="{StaticResource button}" Name="FileUpload" Width="35" Height="35" HorizontalAlignment="Right" Margin="0,0,28,0" Click="FileUpload_Click">
+                            <fa:ImageAwesome x:Name="fileUpload" Icon="PaperClip" Height="18" Width="19"/>
+                        </Button>
+                        <TextBlock HorizontalAlignment="Right" Width="20" Height="20" Margin="0,50,28,0" >
+                            <TextBox Visibility="Hidden" Name="fileName"/>
+                        </TextBlock>
+
+                        <Button Style="{StaticResource button}" Name="BtnAdd" Width="35" Height="35" HorizontalAlignment="Right" Margin="12,0,0,0" Click="BtnAdd_Click">
+                            <fa:ImageAwesome Icon="PlusCircle" Width="18" Height="18"/>
                         </Button>
 
 

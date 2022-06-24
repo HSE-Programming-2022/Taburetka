@@ -1,15 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Forms;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using TaburetkaProject.Models;
 
 namespace TaburetkaProject
 {
     /// <summary>
-    /// Логика взаимодействия для EditItem.xaml
+    /// Логика взаимодействия для EditNote.xaml
     /// </summary>
-    public partial class EditItem : Window
+    public partial class EditNote : Window
     {
         public ToDoItem editItem = new ToDoItem();
 
@@ -17,9 +28,9 @@ namespace TaburetkaProject
         string fullFilePath;
         string oldFileFource;
         string oldImageSource;
-        string folderFiles = "../../ToDoData/Files/";
-        string folderImages = "../../ToDoData/Images/";
-        public EditItem(ToDoItem item, string oldfilesource, string oldimagesource)
+        string folderFiles = "../../NotesData/Files/";
+        string folderImages = "../../NotesData/Images/";
+        public EditNote(ToDoItem item, string oldfilesource, string oldimagesource)
         {
             InitializeComponent();
             editItem = item;
@@ -30,7 +41,7 @@ namespace TaburetkaProject
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (Description.Text != "" && Deadline.Text != "")
+            if (!string.IsNullOrEmpty(Description.Text))
             {
 
                 if ((!string.IsNullOrEmpty(ImageSource.Text)) && (oldImageSource != ImageSource.Text))
@@ -75,14 +86,14 @@ namespace TaburetkaProject
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (File.Exists(Path.Combine(folderFiles, Path.GetFileName(openFileDialog.FileName))))
+                if (File.Exists(System.IO.Path.Combine(folderFiles, System.IO.Path.GetFileName(openFileDialog.FileName))))
                 {
-                    System.Windows.MessageBox.Show($"File with name {Path.GetFileName(openFileDialog.FileName)} exists. Rename it and try again to upload", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.MessageBox.Show($"File with name {System.IO.Path.GetFileName(openFileDialog.FileName)} exists. Rename it and try again to upload", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
                     fullFilePath = openFileDialog.FileName;
-                    FileSource.Text = Path.GetFileName(openFileDialog.FileName);
+                    FileSource.Text = System.IO.Path.GetFileName(openFileDialog.FileName);
                     System.Windows.MessageBox.Show($"File {FileSource.Text} uploaded", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
@@ -95,14 +106,14 @@ namespace TaburetkaProject
             openDialog.FilterIndex = 1;
             if (openDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (File.Exists(Path.Combine(folderImages, Path.GetFileName(openDialog.FileName))))
+                if (File.Exists(System.IO.Path.Combine(folderImages, System.IO.Path.GetFileName(openDialog.FileName))))
                 {
                     System.Windows.MessageBox.Show($"Image with name {System.IO.Path.GetFileName(openDialog.FileName)} exists. Rename it and try again to upload", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
                     fullImagePath = openDialog.FileName;
-                    ImageSource.Text = Path.GetFileName(openDialog.FileName);
+                    ImageSource.Text = System.IO.Path.GetFileName(openDialog.FileName);
                     MessageBoxResult done = System.Windows.MessageBox.Show($"Image uploaded", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
