@@ -156,6 +156,22 @@ namespace TaburetkaProject
             }
         }
 
+        private void MarkAsDone_Check(object sender, RoutedEventArgs e)
+        {
+            if (lvToDo.SelectedItem != null)
+            {
+                MessageBoxResult done = System.Windows.MessageBox.Show("Mark this as done?", "Done?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+                if (done == MessageBoxResult.Yes)
+                {
+                    (lvToDo.SelectedItem as ToDoItem).IsDone = "Done";
+                    lvToDo.ItemsSource = tdl;
+                    lvToDo.Items.Refresh();
+                    Storage.SaveItem(tdl);
+
+                }
+            }
+        }
+
         private void DeleteItem_Click(object sender, RoutedEventArgs e)
         {
             if (lvToDo.SelectedItem != null)

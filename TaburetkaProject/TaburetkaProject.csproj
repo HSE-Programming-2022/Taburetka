@@ -106,7 +106,11 @@
     <Compile Include="EditItem.xaml.cs">
       <DependentUpon>EditItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditNote.xaml.cs">
+      <DependentUpon>EditNote.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Storage.cs" />
+    <Compile Include="Models\StorageNotes.cs" />
     <Compile Include="Models\ToDoItem.cs" />
     <Compile Include="TempOrders.xaml.cs">
       <DependentUpon>TempOrders.xaml</DependentUpon>
@@ -131,6 +135,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="EditItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -184,7 +192,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Data\ToDoList.json" />
+    <None Include="NotesData\Notes.json" />
+    <None Include="ToDoData\ToDoList.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -195,8 +204,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\Files\" />
-    <Folder Include="Data\Images\" />
+    <Folder Include="NotesData\Files\" />
+    <Folder Include="NotesData\Images\" />
+    <Folder Include="ToDoData\Files\" />
+    <Folder Include="ToDoData\Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

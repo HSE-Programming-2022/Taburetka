@@ -1,12 +1,12 @@
-﻿<Window x:Class="TaburetkaProject.EditItem"
+﻿<Window x:Class="TaburetkaProject.EditNote"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:TaburetkaProject"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="Edit Item" Height="300" Width="300">
+        Title="EditNote" Height="250" Width="300">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -14,23 +14,20 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.ColumnSpan="2" Background="#003B46">
 
-            <TextBlock Text="Description:" FontWeight="Bold" Foreground="white"/>
+            <TextBlock Text="Description:" FontWeight="Bold" Foreground="White"/>
             <TextBox Grid.ColumnSpan="2" Name="Description" Text="{Binding Path=Description, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
 
-            <TextBlock Text="Deadline:" FontWeight="Bold" Foreground="white"/>
-            <DatePicker Name="Deadline" Text="{Binding Path=Deadline, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
-
-            <TextBlock Text="Image:" Grid.Column="0" Width="100" HorizontalAlignment="Left" FontWeight="Bold" Foreground="white"/>
+            <TextBlock Text="Image:" Grid.Column="0" Width="100" HorizontalAlignment="Left" FontWeight="Bold" Foreground="White"/>
             <Button Style="{StaticResource button}" Width="25" Height="35" VerticalAlignment="Top" Name="ImageUpload" HorizontalAlignment="Right" Click="ImageUpload_Click" Margin="12,0,12,8">
                 <fa:ImageAwesome Icon="image" Height="25" Width="18"/>
             </Button>
-            <TextBox Name="ImageSource" Text="{Binding Path=ImageSource, Mode=TwoWay}" Background="#66A5AD" Foreground="White"/>
+            <TextBox Name="ImageSource" Text="{Binding Path=ImageSource, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
 
-            <TextBlock Text="File:" FontWeight="Bold" Grid.ColumnSpan="1" Grid.Column="0" Foreground="white"/>
+            <TextBlock Text="File:" FontWeight="Bold" Grid.ColumnSpan="1" Grid.Column="0" Foreground="White"/>
             <Button Style="{StaticResource button}" Name="FileUpload" Grid.ColumnSpan="1" Grid.Column="1" Width="25" Height="35" HorizontalAlignment="Right"  Click="FileUpload_Click" Margin="12,0,12,8">
                 <fa:ImageAwesome x:Name="fileUpload" Icon="PaperClip" Height="18" Width="19"/>
             </Button>
-            <TextBox Name="FileSource" Text="{Binding Path=FileSource, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
+            <TextBox Name="FileSource" Text="{Binding Path=FileSource, Mode=TwoWay}" Background="#66A5AD" Foreground="White"/>
             <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>

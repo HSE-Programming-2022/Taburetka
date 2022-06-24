@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace TaburetkaProject.Models
 {
-    internal class Storage
+    internal class StorageNotes
     {
-        private const string filePath = "../../ToDoData/ToDoList.json";
+        private const string filePath = "../../NotesData/Notes.json";
 
         static public List<ToDoItem> items = new List<ToDoItem>();
 
@@ -22,7 +22,7 @@ namespace TaburetkaProject.Models
             List<ToDoItem> itemsInfo = JsonConvert.DeserializeObject<List<ToDoItem>>(item);
 
             if (itemsInfo != null) { items = itemsInfo; }
-            else { items = new List<ToDoItem>();}
+            else { items = new List<ToDoItem>(); }
         }
 
         public static void SaveItem(List<ToDoItem> items)
@@ -35,12 +35,12 @@ namespace TaburetkaProject.Models
         {
             if (!string.IsNullOrEmpty(item.FileSource))
             {
-                string folderFiles = "../../Data/Files/";
+                string folderFiles = "../../NotesData/Files/";
                 File.Delete(folderFiles + item.FileSource);
             }
             if (!string.IsNullOrEmpty(item.FileSource))
             {
-                string folderImages = "../../Data/Images/";
+                string folderImages = "../../NotesData/Images/";
                 File.Delete(folderImages + item.ImageSource);
             }
             items.Remove(item);
