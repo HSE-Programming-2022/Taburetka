@@ -6,39 +6,39 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:TaburetkaProject"
         mc:Ignorable="d"
-        Title="Edit Item" Height="Auto" Width="300">
+        Title="Edit Item" Height="300" Width="300">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="2">
+        <StackPanel Grid.ColumnSpan="2" Background="#003B46">
 
             <TextBlock Text="Description:" FontWeight="Bold"/>
-            <TextBox Grid.ColumnSpan="2" Name="Description" Text="{Binding Path=Description, Mode=TwoWay}"/>
+            <TextBox Grid.ColumnSpan="2" Name="Description" Text="{Binding Path=Description, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
 
             <TextBlock Text="Deadline:" FontWeight="Bold"/>
-            <DatePicker Name="Deadline" Text="{Binding Path=Deadline, Mode=TwoWay}"/>
+            <DatePicker Name="Deadline" Text="{Binding Path=Deadline, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
 
             <TextBlock Text="Image:" Grid.Column="0" Width="100" HorizontalAlignment="Left" FontWeight="Bold"/>
-            <Button Style="{StaticResource button}" Width="32" Height="35" VerticalAlignment="Top" Name="ImageUpload" HorizontalAlignment="Right" Click="ImageUpload_Click">
+            <Button Style="{StaticResource button}" Width="25" Height="35" VerticalAlignment="Top" Name="ImageUpload" HorizontalAlignment="Right" Click="ImageUpload_Click" Margin="12,0,12,8">
                 <fa:ImageAwesome Icon="image" Height="25" Width="18"/>
             </Button>
-            <TextBox Name="ImageSource" Text="{Binding Path=ImageSource, Mode=TwoWay}"/>
+            <TextBox Name="ImageSource" Text="{Binding Path=ImageSource, Mode=TwoWay}" Background="#66A5AD" Foreground="White"/>
 
             <TextBlock Text="File:" FontWeight="Bold" Grid.ColumnSpan="1" Grid.Column="0"/>
-            <Button Style="{StaticResource button}" Name="FileUpload" Grid.ColumnSpan="1" Grid.Column="1" Width="35" Height="35" HorizontalAlignment="Right"  Click="FileUpload_Click">
+            <Button Style="{StaticResource button}" Name="FileUpload" Grid.ColumnSpan="1" Grid.Column="1" Width="25" Height="35" HorizontalAlignment="Right"  Click="FileUpload_Click" Margin="12,0,12,8">
                 <fa:ImageAwesome x:Name="fileUpload" Icon="PaperClip" Height="18" Width="19"/>
             </Button>
-            <TextBox Name="FileSource" Text="{Binding Path=FileSource, Mode=TwoWay}"/>
+            <TextBox Name="FileSource" Text="{Binding Path=FileSource, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
             <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button IsDefault="True" Name="Save" Grid.Column="0" Click="Save_Click">OK</Button>
-                <Button IsCancel="True" Name="Cancel" Grid.Column="2" Click="Cancel_Click">Cancel</Button>
+                <Button IsDefault="True" Name="Save" Grid.Column="0" Click="Save_Click" Background="#66A5AD" Foreground="White">OK</Button>
+                <Button IsCancel="True" Name="Cancel" Grid.Column="2" Click="Cancel_Click" Background="#66A5AD" Foreground="White">Cancel</Button>
             </Grid>
         </StackPanel>
     </Grid>
