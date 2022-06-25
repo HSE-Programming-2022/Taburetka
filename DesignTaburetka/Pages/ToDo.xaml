@@ -4,19 +4,59 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TaburetkaProject"
-      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ToDo">
 
+    <Page.Resources>
+        <ContextMenu x:Key="itemMenu">
+            <MenuItem Header="_Edit Item" Name="EditItem" Click="EditItem_Click"/>
+            <MenuItem Header="Open Image" Name="OpenImage" Click="OpenImage_Click"/>
+            <MenuItem Header="_Open File" Name="OpenFile" Click="OpenFile_Click"/>
+            <MenuItem Header="_Mark as done" Name="MarkAsDone" Click="MarkAsDone_Click"/>
+            <MenuItem Header="_Delete" Name="DeleteItem" Click="DeleteItem_Click"/>
+        </ContextMenu>
+    </Page.Resources>
     <Border CornerRadius="8" Background="#003B46">
         <Grid>
 
-            <TextBlock Margin="44,14,0,386" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="30" FontWeight="Bold" Foreground="#F5F5F5" Width="123">To do</TextBlock>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-            <StackPanel Margin="0,0,0,229" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Width="auto" Height="auto" HorizontalAlignment="Center">
+                <Grid>
+                    <ListView Style="{DynamicResource ListViewStyle}" Background="#003B46" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" MinWidth="650" Grid.Row="1" Grid.ColumnSpan="3" MouseDoubleClick="lvToDo_MouseDoubleClick" 
+                          ContextMenu="{StaticResource itemMenu}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="Description:" FontWeight="Bold"/>
+                                    <TextBlock Name="Description" Text="{Binding Description}"/>
+                                    <TextBlock Text="Deadline:" FontWeight="Bold"/>
+                                    <TextBlock Name="Deadline" Text="{Binding Deadline}"/>
+                                    <TextBlock Text="Image:" FontWeight="Bold"/>
+                                    <TextBlock Name="Image" Text="{Binding ImageSource}"/>
+                                    <TextBlock Text="File:" FontWeight="Bold"/>
+                                    <TextBlock Name="File" Text="{Binding FileSource}"/>
+                                    <TextBlock Name="IsDone" FontWeight="Bold" Grid.Column="2" HorizontalAlignment="Left" Text="{Binding IsDone}"/>
+                                    <Separator Height="0.8" Background="#66A5AD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="620"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <CheckBox Style="{DynamicResource CheckBoxStyle}" x:Name="chkShowNotDone" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Show not done items" FontSize="10" Foreground="white" Checked="chkShowNotDone_Checked" Unchecked="chkShowNotDone_Unchecked" Margin="0,0,5,2"/>
+                </Grid>
+            </StackPanel>
+
+            <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" TextWrapping="Wrap" FontSize="30" FontWeight="Bold" Foreground="#F5F5F5" Width="80" Height="35" Margin="0,20,0,0">To do</TextBlock>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Bottom" Margin="10" Width="600" HorizontalAlignment="Stretch">
                 <!--Titles-->
-                <Border Background="#66A5AD" CornerRadius="12" Width="715" Padding="17 15 5 17" Height="96" Margin="42 80 80 42">
+                <Border Background="#66A5AD" CornerRadius="12" MinWidth="600" Padding="17 15 0 17" Height="103" HorizontalAlignment="Stretch">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -33,12 +73,18 @@
                                     <ColumnDefinition Width="117*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <fa:IconImage Icon="Pen" Margin="0" Width="15"/>
-                                <TextBlock Text="Добавить заметку" x:Name="leblNote" Style="{StaticResource ResourceKey=txtHint}" MouseDown="lblNote_MouseDown" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,94,0"/>
-                                <TextBox x:Name="textNote" Style="{StaticResource ResourceKey=textBox}" TextChanged="txtNote_TextChanged"/>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <fa:ImageAwesome Icon="Pencil" Margin="0" Width="15"/>
+                                <TextBlock Text="Добавить заметку" x:Name="leblNote" Style="{StaticResource ResourceKey=txtHint}" MouseDown="lblNote_MouseDown" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,0,0" HorizontalAlignment="Left" Width="459"/>
+                                <TextBox x:Name="textNote" Style="{StaticResource ResourceKey=textBox}" TextChanged="txtNote_TextChanged" Width="459"/>
                             </Grid>
 
-                            <Separator Margin="25 16 90 11" Height="0.8" Background="#F5F5F5"/>
+
+                            <Separator Margin="25 16 90 11" Height="0.8" Background="#F5F5F5" HorizontalAlignment="Left" VerticalAlignment="Center" Width="440"/>
 
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -47,28 +93,43 @@
                                     <ColumnDefinition Width="117*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <fa:IconImage Icon="Bell" Margin="0" Width="15"/>
-                                <TextBlock Text="_ _ : _ _ - _ _ : _ _" x:Name="lblTime" Style="{StaticResource ResourceKey=txtHint}" MouseDown="lblTime_MouseDown" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,94,0"/>
-                                <TextBox x:Name="txtTime" Style="{StaticResource ResourceKey=textBox}" TextChanged="txtTime_TextChanged"/>
+                                <fa:ImageAwesome Icon="Bell" Margin="0" Width="15"/>
+
+                                <DatePicker Style="{DynamicResource DatePickerStyle}" Height="25" Name="datePicker1"  Background="Transparent" DisplayDateStart="{x:Static sys:DateTime.Now}" 
+                                            VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" Width="150" Margin="10,0,0,0" HorizontalAlignment="Left" IsDropDownOpen="False" 
+                                            SelectedDateFormat="Short" IsTodayHighlighted="True"/>
 
                             </Grid>
 
                         </StackPanel>
 
-                        <Button Style="{StaticResource button}" Width="40" Height="40" HorizontalAlignment="Right">
-                            <fa:IconImage Icon="PlusCircle" Width="25"/>
+                        <Button Style="{StaticResource button}" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,82,0" Click="Button_Click">
+                            <fa:ImageAwesome Icon="image" Height="25" Width="18"/>
                         </Button>
+                        <TextBlock HorizontalAlignment="Right" Margin="0,0,75,-15" >
+                            <TextBox Visibility="Hidden" Name="imagePath"/>
+                        </TextBlock>
 
-                        <Button Style="{StaticResource button}" Width="40" Height="40" HorizontalAlignment="Right" Margin="0 0 45 0">
-                            <fa:IconImage Icon="Paperclip" Height="25" Width="25"/>
+                        <Button Style="{StaticResource button}" Name="FileUpload" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,48,0" Click="FileUpload_Click">
+                            <fa:ImageAwesome x:Name="fileUpload" Icon="PaperClip" Height="18" Width="19"/>
                         </Button>
+                        <TextBlock HorizontalAlignment="Right" Width="20" Height="20" Margin="0,50,42,0" >
+                            <TextBox Visibility="Hidden" Name="fileName"/>
+                        </TextBlock>
 
+                        <Button Style="{StaticResource button}" Name="BtnAdd" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,14,0" Click="BtnAdd_Click">
+                            <fa:ImageAwesome Icon="PlusCircle" Width="18" Height="18"/>
+                        </Button>
                     </Grid>
+
+
 
                 </Border>
 
 
             </StackPanel>
+
+
         </Grid>
     </Border>
 </Page>
