@@ -35,12 +35,12 @@ namespace TaburetkaProject.Models
         {
             if (!string.IsNullOrEmpty(item.FileSource))
             {
-                string folderFiles = "../../Data/Files/";
+                string folderFiles = "../../ToDoData/Files/";
                 File.Delete(folderFiles + item.FileSource);
             }
             if (!string.IsNullOrEmpty(item.FileSource))
             {
-                string folderImages = "../../Data/Images/";
+                string folderImages = "../../ToDoData/Images/";
                 File.Delete(folderImages + item.ImageSource);
             }
             items.Remove(item);

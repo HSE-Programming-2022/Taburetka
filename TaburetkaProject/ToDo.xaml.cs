@@ -206,12 +206,20 @@ namespace TaburetkaProject
 
         private void OpenImage_Click(object sender, RoutedEventArgs e)
         {
-            
+            string path = @"ToDoData\Images\" + (lvToDo.SelectedItem as ToDoItem).FileSource;
+            string imagePath = Path.GetFullPath(path);
+            imagePath = imagePath.Replace(@"\bin\Debug", "");
+            System.Windows.MessageBox.Show(imagePath);
+            Process.Start(imagePath);
         }
 
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
-
+            string path = @"ToDoData\Files\" + (lvToDo.SelectedItem as ToDoItem).FileSource;
+            string filePath = Path.GetFullPath(path);
+            filePath = filePath.Replace(@"\bin\Debug", "");
+            System.Windows.MessageBox.Show(filePath);
+            Process.Start(filePath);
         }
     }
 }

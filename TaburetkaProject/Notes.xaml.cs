@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using TaburetkaProject.Models;
+using System.Diagnostics;
 
 namespace TaburetkaProject
 {
@@ -153,12 +154,20 @@ namespace TaburetkaProject
 
         private void OpenImage_Click(object sender, RoutedEventArgs e)
         {
-
+            string path = @"Notes\Images\" + (lvToDo.SelectedItem as ToDoItem).FileSource;
+            string imagePath = Path.GetFullPath(path);
+            imagePath = imagePath.Replace(@"\bin\Debug", "");
+            System.Windows.MessageBox.Show(imagePath);
+            Process.Start(imagePath);
         }
 
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
-
+            string path = @"Notes\Files\" + (lvToDo.SelectedItem as ToDoItem).FileSource;
+            string filePath = Path.GetFullPath(path);
+            filePath = filePath.Replace(@"\bin\Debug", "");
+            System.Windows.MessageBox.Show(filePath);
+            Process.Start(filePath);
         }
 
     }

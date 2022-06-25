@@ -28,8 +28,8 @@ namespace TaburetkaProject
         string fullFilePath;
         string oldFileFource;
         string oldImageSource;
-        string folderFiles = "../../Data/Files/";
-        string folderImages = "../../Data/Images/";
+        string folderFiles = "../../ToDoData/Files/";
+        string folderImages = "../../ToDoData/Images/";
         public EditItem(ToDoItem item, string oldfilesource, string oldimagesource)
         {
             InitializeComponent();
@@ -50,22 +50,22 @@ namespace TaburetkaProject
                     File.Copy(fullImagePath, System.IO.Path.Combine(folderImages, ImageSource.Text));
                 }
 
-                
+
                 if (!(string.IsNullOrEmpty(FileSource.Text)) && (oldFileFource != FileSource.Text))
                 {
+
+                    editItem.FileSource = FileSource.Text;
                     File.Copy(fullFilePath, System.IO.Path.Combine(folderFiles, FileSource.Text));
                 }
 
-                
-                if ((!string.IsNullOrEmpty(oldImageSource)) && (oldFileFource != FileSource.Text))
-                {
-                    File.Delete(folderFiles + oldFileFource);
-
-                    System.Windows.MessageBox.Show("Deleted");
-                }
 
                 if ((!string.IsNullOrEmpty(oldImageSource)) && (oldImageSource != ImageSource.Text))
+                {
                     File.Delete(folderImages + oldImageSource);
+                }
+
+                if ((!string.IsNullOrEmpty(oldFileFource)) && (oldFileFource != FileSource.Text))
+                    File.Delete(folderFiles + oldFileFource);
 
                 System.Windows.MessageBox.Show("Saved successfully", "Edit Page", MessageBoxButton.OK);
             }
