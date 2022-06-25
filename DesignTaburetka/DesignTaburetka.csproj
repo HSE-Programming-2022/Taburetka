@@ -131,6 +131,9 @@
       <DependentUpon>EditNote.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\WPFHelper.cs" />
+    <Compile Include="ManagerUslugi.xaml.cs">
+      <DependentUpon>ManagerUslugi.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Storage.cs" />
     <Compile Include="Models\StorageNotes.cs" />
     <Compile Include="Models\ToDoItem.cs" />
@@ -149,6 +152,9 @@
     <Compile Include="Pages\WindowAddClient.xaml.cs">
       <DependentUpon>WindowAddClient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WorkerUslugi.xaml.cs">
+      <DependentUpon>WorkerUslugi.xaml</DependentUpon>
+    </Compile>
     <Page Include="EditItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManagerUslugi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,6 +218,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\WindowAddClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkerUslugi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
