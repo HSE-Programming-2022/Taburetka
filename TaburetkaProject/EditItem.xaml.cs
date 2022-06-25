@@ -42,15 +42,14 @@ namespace TaburetkaProject
 
                 if (!(string.IsNullOrEmpty(FileSource.Text)) && (oldFileFource != FileSource.Text))
                 {
+                    editItem.FileSource = FileSource.Text;
                     File.Copy(fullFilePath, System.IO.Path.Combine(folderFiles, FileSource.Text));
                 }
 
 
-                if ((!string.IsNullOrEmpty(oldImageSource)) && (oldFileFource != FileSource.Text))
+                if ((!string.IsNullOrEmpty(oldFileFource)) && (oldFileFource != FileSource.Text))
                 {
                     File.Delete(folderFiles + oldFileFource);
-
-                    System.Windows.MessageBox.Show("Deleted");
                 }
 
                 if ((!string.IsNullOrEmpty(oldImageSource)) && (oldImageSource != ImageSource.Text))
