@@ -44,10 +44,12 @@ namespace DesignTaburetka.Pages
         {
             this.Close();
         }
-        // Починить!!!!!!!!!!!!!!!!!!!!!!! Я хуй знает, что здесь
+
         private void clientType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ClientType.SelectionBoxItem.ToString() == "Компания")
+            string type = ((ComboBoxItem)ClientType.SelectedItem).Content.ToString();
+
+            if (type.ToString() == "Компания")
             {
                 TypeClientId = 1;
             }

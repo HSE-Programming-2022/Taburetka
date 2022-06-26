@@ -32,8 +32,8 @@
         <TextBox Grid.Row="1" Grid.Column="1" x:Name="Phones" Margin="5"/>
         <TextBox Grid.Row="2" Grid.Column="1" x:Name="Adresses" Margin="5"/>
         <ComboBox x:Name="ClientType" Grid.Row="3" Grid.Column="1" Margin="5" SelectionChanged="clientType_SelectionChanged">
-            <TextBlock>Компания</TextBlock>
-            <TextBlock>Физическое лицо</TextBlock>
+            <ComboBoxItem>Компания</ComboBoxItem>
+            <ComboBoxItem>Физическое лицо</ComboBoxItem>
         </ComboBox>
         <Button Grid.Row="4" Grid.Column="1" Content="OK" Margin="5" Click="Button_Click"/>
 
