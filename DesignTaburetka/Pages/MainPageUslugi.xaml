@@ -17,7 +17,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Style="{StaticResource TextHello}"  >Здравствуй, Mister!</TextBlock>
+            <TextBlock Style="{StaticResource TextHello}"  >Здравствуйте!</TextBlock>
             <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top">
                 <Button Style="{StaticResource btnAddOrder}" Click="btnAddOrder_Click">
                     <StackPanel Orientation="Vertical" Height="80" Margin="10,0,10,0">
