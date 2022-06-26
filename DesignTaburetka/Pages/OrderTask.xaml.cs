@@ -25,7 +25,7 @@ namespace DesignTaburetka.Pages
         public OrderTask()
         {
             InitializeComponent();
-            DataTable DTOrderTask = WPFHelper.Select("SELECT * FROM [dbo].[OrderTask] ");
+            DataTable DTOrderTask = WPFHelper.Select("SELECT * FROM OrderTask");
             OrderTaskData.DataContext = DTOrderTask;
         }
 

@@ -82,7 +82,7 @@ namespace DesignTaburetka
             //DataTable table4 = WPFHelper.Select(queryString4);
 
 
-            if (table1.Rows.Count == 1 & (table3.Rows[0]["rank_name"].ToString() == "1" || table3.Rows[0]["rank_name"].ToString() == "2"))
+            if (table1.Rows.Count == 1 & (table3.Rows[0]["rank_name"].ToString() == "Director" || table3.Rows[0]["rank_name"].ToString() == "Designer"))
             {
                 AdminUslugi adminUslugi = new AdminUslugi();
                 adminUslugi.UserFullName.Text = $"{table2.Rows[0]["emp_name"].ToString()}\n{table2.Rows[0]["emp_surname"].ToString()}";
@@ -92,15 +92,21 @@ namespace DesignTaburetka
                 adminUslugi.Show();
                 this.Close();
             }
-            else if (table1.Rows.Count == 1 & table3.Rows[0]["rank_name"].ToString() == "3")
+            else if (table1.Rows.Count == 1 & table3.Rows[0]["rank_name"].ToString() == "Manager")
             {
                 ManagerUslugi managerUslugi = new ManagerUslugi();
+                //managerUslugi.UserFullName.Text = $"{table2.Rows[0]["emp_name"].ToString()}\n{table2.Rows[0]["emp_surname"].ToString()}";
+                //managerUslugi.Department.Text = $"Отдел: {table2.Rows[0]["dep_name"].ToString()}";
+                //managerUslugi.Position.Text = $"Должность: {table3.Rows[0]["rank_name"].ToString()}";
                 managerUslugi.Show();
                 this.Close();
             }
-            else if (table1.Rows.Count == 1 & table3.Rows[0]["rank_name"].ToString() == "4")
+            else if (table1.Rows.Count == 1 & table3.Rows[0]["rank_name"].ToString() == "Worker")
             {
                 WorkerUslugi workerUslugi = new WorkerUslugi();
+                //workerUslugi.UserFullName.Text = $"{table2.Rows[0]["emp_name"].ToString()}\n{table2.Rows[0]["emp_surname"].ToString()}";
+                //workerUslugi.Department.Text = $"Отдел: {table2.Rows[0]["dep_name"].ToString()}";
+                //workerUslugi.Position.Text = $"Должность: {table3.Rows[0]["rank_name"].ToString()}";
                 workerUslugi.Show();
                 this.Close();
             }
