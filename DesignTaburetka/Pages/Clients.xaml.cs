@@ -66,7 +66,15 @@ namespace DesignTaburetka.Pages
 
         private void BtnDeleteClient_Click(object sender, RoutedEventArgs e)
         {
+            //DataRowView row = (DataRowView)((Button)e.Source).DataContext;
 
+            DataRowView dataRowView = (DataRowView)((Button)e.Source).DataContext;
+
+            string id = dataRowView[0].ToString();
+
+            string deleteCommand = $"delete from Client where client_id = {int.Parse(id)}";
+            WPFHelper.Delete(deleteCommand);
+            ClientsData.DataContext = WPFHelper.Select("SELECT * FROM [dbo].[Client]");
         }
     }
 }
