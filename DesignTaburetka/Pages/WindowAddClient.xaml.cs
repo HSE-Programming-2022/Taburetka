@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignTaburetka.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,21 +32,9 @@ namespace DesignTaburetka.Pages
         {
             get { return Adresses.Text; }
         }
-        public string ClientComment
-        {
-            get { return Comment.Text; }
-        }
-        public string CompanyIdentificator
-        {
-            get { return CompanyName.Text; }
-        }
-        public string TypeClient
-        {
-            get
-            {
-                return ClientType.Text;
-            }
-        }
+
+        public int TypeClientId;
+
         public WindowAddClient()
         {
             InitializeComponent();
@@ -55,10 +44,17 @@ namespace DesignTaburetka.Pages
         {
             this.Close();
         }
-
-        private void companyType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        // Починить!!!!!!!!!!!!!!!!!!!!!!! Я хуй знает, что здесь
+        private void clientType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (ClientType.SelectionBoxItem.ToString() == "Компания")
+            {
+                TypeClientId = 1;
+            }
+            else
+            {
+                TypeClientId = 2;
+            }
         }
     }
 }

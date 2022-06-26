@@ -152,6 +152,9 @@
     <Compile Include="Pages\WindowAddClient.xaml.cs">
       <DependentUpon>WindowAddClient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\WindowAddOrder.xaml.cs">
+      <DependentUpon>WindowAddOrder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WorkerUslugi.xaml.cs">
       <DependentUpon>WorkerUslugi.xaml</DependentUpon>
     </Compile>
@@ -218,6 +221,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\WindowAddClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WindowAddOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

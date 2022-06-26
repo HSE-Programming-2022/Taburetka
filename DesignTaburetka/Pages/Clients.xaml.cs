@@ -56,9 +56,9 @@ namespace DesignTaburetka.Pages
             // check input
 
             string insertCommand = String.Format(
-                "INSERT INTO dbo.Client (CompanyName, ClientName, Phones, Adresses, Comment, ClientType)" +
-                " VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
-                addClient.CompanyIdentificator, addClient.ClientName, addClient.ClientPhones, addClient.ClientAdresses, addClient.ClientComment, addClient.TypeClient
+                "INSERT INTO dbo.Client (client_name, client_address, client_phone, client_type)" +
+                " VALUES ('{0}', '{1}', '{2}', '{3}')",
+                addClient.ClientName, addClient.ClientAdresses, addClient.ClientPhones, addClient.TypeClientId
                 );
             WPFHelper.Insert(insertCommand);
             ClientsData.DataContext = WPFHelper.Select("SELECT * FROM [dbo].[Client]");
