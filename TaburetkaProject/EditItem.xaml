@@ -14,19 +14,19 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.ColumnSpan="2">
 
-            <TextBlock Text="Description:" FontWeight="Bold"/>
+            <TextBlock Text="Описание:" FontWeight="Bold"/>
             <TextBox Grid.ColumnSpan="2" Name="Description" Text="{Binding Path=Description, Mode=TwoWay}"/>
 
-            <TextBlock Text="Deadline:" FontWeight="Bold"/>
+            <TextBlock Text="Срок:" FontWeight="Bold"/>
             <DatePicker Name="Deadline" Text="{Binding Path=Deadline, Mode=TwoWay}"/>
 
-            <TextBlock Text="Image:" Grid.Column="0" Width="100" HorizontalAlignment="Left" FontWeight="Bold"/>
+            <TextBlock Text="Изображение:" Grid.Column="0" Width="100" HorizontalAlignment="Left" FontWeight="Bold"/>
             <Button Style="{StaticResource button}" Width="32" Height="35" VerticalAlignment="Top" Name="ImageUpload" HorizontalAlignment="Right" Click="ImageUpload_Click">
                 <fa:ImageAwesome Icon="image" Height="25" Width="18"/>
             </Button>
             <TextBox Name="ImageSource" Text="{Binding Path=ImageSource, Mode=TwoWay}"/>
 
-            <TextBlock Text="File:" FontWeight="Bold" Grid.ColumnSpan="1" Grid.Column="0"/>
+            <TextBlock Text="Файл:" FontWeight="Bold" Grid.ColumnSpan="1" Grid.Column="0"/>
             <Button Style="{StaticResource button}" Name="FileUpload" Grid.ColumnSpan="1" Grid.Column="1" Width="35" Height="35" HorizontalAlignment="Right"  Click="FileUpload_Click">
                 <fa:ImageAwesome x:Name="fileUpload" Icon="PaperClip" Height="18" Width="19"/>
             </Button>

@@ -70,7 +70,7 @@ namespace TaburetkaProject
         {
             if (!string.IsNullOrEmpty(txtNote.Text))
             {
-                ToDoItem item = new ToDoItem(txtNote.Text, imagePath.Text, fileName.Text, "Not done");
+                ToDoItem item = new ToDoItem(txtNote.Text, imagePath.Text, fileName.Text, "Не выполнено");
 
                 tdl.Insert(0, item);
 
@@ -93,14 +93,14 @@ namespace TaburetkaProject
             {
                 if (File.Exists(Path.Combine(folderImages, Path.GetFileName(openDialog.FileName))))
                 {
-                    System.Windows.MessageBox.Show($"Image with name {Path.GetFileName(openDialog.FileName)} exists. Rename it and try again to upload", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.MessageBox.Show($"Изображение с названием {Path.GetFileName(openDialog.FileName)} существует. Переименуйте его и загрузите снова.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
 
                     imagePath.Text = Path.GetFileName(openDialog.FileName);
                     File.Copy(openDialog.FileName, Path.Combine(folderImages, imagePath.Text));
-                    MessageBoxResult done = System.Windows.MessageBox.Show($"Image uploaded", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
+                    System.Windows.MessageBox.Show($"Изображение загружено", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -115,20 +115,20 @@ namespace TaburetkaProject
             {
                 if (File.Exists(Path.Combine(folderFiles, Path.GetFileName(openFileDialog.FileName))))
                 {
-                    System.Windows.MessageBox.Show($"File with name {Path.GetFileName(openFileDialog.FileName)} exists. Rename it and try again to upload", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.MessageBox.Show($"Файл с названием {Path.GetFileName(openFileDialog.FileName)} существует. Переименуйте его и загрузите снова.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
                     fileName.Text = Path.GetFileName(openFileDialog.FileName);
                     File.Copy(openFileDialog.FileName, Path.Combine(folderFiles, fileName.Text));
-                    System.Windows.MessageBox.Show($"File {fileName.Text} uploaded", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
+                    System.Windows.MessageBox.Show($"Файл {fileName.Text} загружен", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
 
         private void chkShowNotDone_Checked(object sender, RoutedEventArgs e)
         {
-            lvToDo.ItemsSource = tdl.Where(item => item.IsDone == "Not done");
+            lvToDo.ItemsSource = tdl.Where(item => item.IsDone == "Не выполнено");
         }
 
         private void chkShowNotDone_Unchecked(object sender, RoutedEventArgs e)
@@ -140,10 +140,10 @@ namespace TaburetkaProject
         {
             if (lvToDo.SelectedItem != null)
             {
-                MessageBoxResult done = System.Windows.MessageBox.Show("Mark this as done?", "Done?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+                MessageBoxResult done = System.Windows.MessageBox.Show("Отметить как выполненное?", "Выполнено?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
                 if (done == MessageBoxResult.Yes)
                 {
-                    (lvToDo.SelectedItem as ToDoItem).IsDone = "Done";
+                    (lvToDo.SelectedItem as ToDoItem).IsDone = "Выполнено";
                     lvToDo.ItemsSource = tdl;
                     lvToDo.Items.Refresh();
                     StorageNotes.SaveItem(tdl);
@@ -156,7 +156,7 @@ namespace TaburetkaProject
         {
             if (lvToDo.SelectedItem != null)
             {
-                MessageBoxResult del = System.Windows.MessageBox.Show("Delete this item?", "Delete?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+                MessageBoxResult del = System.Windows.MessageBox.Show("Удалить это задание?", "Delete?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
                 if (del == MessageBoxResult.Yes)
                 {
                     tdl.Remove(lvToDo.SelectedItem as ToDoItem);
@@ -171,9 +171,10 @@ namespace TaburetkaProject
         {
             if (lvToDo.SelectedItem != null)
             {
+                string description = (lvToDo.SelectedItem as ToDoItem).Description;
                 string filmsource = (lvToDo.SelectedItem as ToDoItem).FileSource;
                 string imagesource = (lvToDo.SelectedItem as ToDoItem).ImageSource;
-                EditNote ep = new EditNote(lvToDo.SelectedItem as ToDoItem, filmsource, imagesource);
+                EditNote ep = new EditNote(lvToDo.SelectedItem as ToDoItem, description, filmsource, imagesource);
 
                 ep.ShowDialog();
 
@@ -186,10 +187,9 @@ namespace TaburetkaProject
 
         private void OpenImage_Click(object sender, RoutedEventArgs e)
         {
-            string path = @"Notes\Images\" + (lvToDo.SelectedItem as ToDoItem).FileSource;
+            string path = @"Notes\Images\" + (lvToDo.SelectedItem as ToDoItem).ImageSource;
             string imagePath = Path.GetFullPath(path);
             imagePath = imagePath.Replace(@"\bin\Debug", "");
-            System.Windows.MessageBox.Show(imagePath);
             Process.Start(imagePath);
 
         }
@@ -199,7 +199,6 @@ namespace TaburetkaProject
             string path = @"Notes\Files\" + (lvToDo.SelectedItem as ToDoItem).FileSource;
             string filePath = Path.GetFullPath(path);
             filePath = filePath.Replace(@"\bin\Debug", "");
-            System.Windows.MessageBox.Show(filePath);
             Process.Start(filePath);
         }
 
