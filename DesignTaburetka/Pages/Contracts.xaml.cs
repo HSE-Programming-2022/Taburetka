@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 
 namespace DesignTaburetka.Pages
 {
-    /// <summary>
+    /// <summary>   
     /// Логика взаимодействия для Contracts.xaml
     /// </summary>
     public partial class Contracts : Page
@@ -25,16 +25,19 @@ namespace DesignTaburetka.Pages
         public Contracts()
         {
             InitializeComponent();
-            DataTable DTOrderProject = WPFHelper.Select("SELECT * FROM [dbo].[OrderTask] inner join [dbo].[OrderProject] " +
-                "on [dbo].[OrderTask].order_id = [dbo].[OrderProject].order_id"
+            DataTable DTOrderProject = WPFHelper.Select("SELECT a.order_id, a.project_name, d.client_name, a.created_at, a.suppose_days, a.comment, c.emp_name, c.emp_surname, " +
+                "b.design_link, b.measures_link FROM OrderTask a inner join OrderProject b on a.order_id = b.order_id inner join Employee c on a.added_by = c.emp_id inner join Client d on a.client_id = d.client_id" 
                 );
             ProjectData.DataContext = DTOrderProject;
 
-            DataTable DTOrderService = WPFHelper.Select("SELECT * FROM [dbo].[OrderTask] inner join [dbo].[OrderService] " +
-                "on [dbo].[OrderTask].order_id = [dbo].[OrderService].order_id"
+            DataTable DTOrderService = WPFHelper.Select("SELECT a.order_id, a.project_name, d.client_name, a.created_at, a.suppose_days, a.comment, c.emp_name, c.emp_surname, a.order_emergency " +
+                "FROM OrderTask a inner join OrderService b " +
+                "on a.order_id = b.order_id inner join Employee c on a.added_by = c.emp_id inner join Client d on a.client_id = d.client_id"
                 );
             ServiceData.DataContext = DTOrderService;
 
+            //DataTable DTOrderTask = WPFHelper.Select("SELECT a.order_id, a.projcet_name, c.client_name, a.created_at, a.suppose_days, " +
+            //                                         "a.comment, b.emp_name, b.emp_surname FROM OrderTask a inner join Employee b on a.added_by = b.emp_id inner join Client c on a.client_id = c.client_id");
         }
 
         private void BtnAddProject_Click(object sender, RoutedEventArgs e)

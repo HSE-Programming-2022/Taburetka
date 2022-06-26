@@ -51,11 +51,18 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="id" Binding="{Binding Path='order_id'}" IsReadOnly="True" Width="Auto" SortDirection="Ascending" CanUserSort="True" />
                                 <DataGridTextColumn Header="Название" Binding="{Binding 'project_name'}" Width="150" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Клиент" Binding="{Binding 'client_id'}"  Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Клиент" Binding="{Binding 'client_name'}"  Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Создан" Binding="{Binding Path='created_at'}" Width="100" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Пред.время" Binding="{Binding Path='suppode_days'}" Width="100" CanUserSort="True"/>
+                                <DataGridTextColumn Header="Пред.время" Binding="{Binding Path='suppose_days'}" Width="100" CanUserSort="True"/>
                                 <DataGridTextColumn Header="Комментарий" Binding="{Binding Path='comment'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Добавил" Binding="{Binding Path='added_by'}" Width="*" CanUserSort="True"/>
+                                <DataGridTextColumn Header="Добавил" Width="*" CanUserSort="True">
+                                    <DataGridTextColumn.Binding>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path='emp_name'/>
+                                            <Binding Path='emp_surname'/>
+                                        </MultiBinding>
+                                    </DataGridTextColumn.Binding>
+                                </DataGridTextColumn>
                                 <DataGridTextColumn Header="Д" Binding="{Binding Path='design_link'}" Width="60" CanUserSort="False"/>
                                 <DataGridTextColumn Header="Р" Binding="{Binding Path='measures_link'}" Width="60" CanUserSort="False"/>
                                 <DataGridTextColumn Header="!!!" Binding="{Binding Path='order_emergency'}" Width="60" CanUserSort="True"/>
@@ -96,11 +103,18 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="id" Binding="{Binding Path='order_id'}" IsReadOnly="True" Width="Auto" SortDirection="Ascending" CanUserSort="True" />
                                 <DataGridTextColumn Header="Название" Binding="{Binding 'project_name'}" Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Клиент" Binding="{Binding 'client_id'}"  Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Клиент" Binding="{Binding 'client_name'}"  Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Создан" Binding="{Binding Path='created_at'}" Width="100" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Пред.время" Binding="{Binding Path='suppode_days'}" Width="Auto" CanUserSort="True"/>
+                                <DataGridTextColumn Header="Пред.время" Binding="{Binding Path='suppose_days'}" Width="Auto" CanUserSort="True"/>
                                 <DataGridTextColumn Header="Комментарий" Binding="{Binding Path='comment'}" Width="150" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Добавил" Binding="{Binding Path='added_by'}" Width="Auto" CanUserSort="True"/>
+                                <DataGridTextColumn Header="Добавил" Width="*" CanUserSort="True">
+                                    <DataGridTextColumn.Binding>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path='emp_name'/>
+                                            <Binding Path='emp_surname'/>
+                                        </MultiBinding>
+                                    </DataGridTextColumn.Binding>
+                                </DataGridTextColumn>
                                 <DataGridTextColumn Header="Срочность" Binding="{Binding Path='order_emergency'}" Width="Auto" CanUserSort="True"/>
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
                                     <DataGridTemplateColumn.CellTemplate>
