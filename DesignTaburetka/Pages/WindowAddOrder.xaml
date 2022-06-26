@@ -1,0 +1,52 @@
+﻿<Window x:Class="DesignTaburetka.Pages.WindowAddOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesignTaburetka.Pages"
+        mc:Ignorable="d"
+        Title="WindowAddOrder" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row ="0" Grid.Column="0" Content="Наименование заказа" Margin="5"/>
+        <Label Grid.Row ="1" Grid.Column="0" Content="ID клиента" Margin="5"/>
+        <Label Grid.Row ="2" Grid.Column="0" Content="Предполагаемое время выполнения" Margin="5"/>
+        <Label Grid.Row ="3" Grid.Column="0" Content="Комментарий" Margin="5"/>
+        <Label Grid.Row ="4" Grid.Column="0" Content="Ваш ID" Margin="5"/>
+        <Label Grid.Row ="5" Grid.Column="0" Content="Тип заказа" Margin="5"/>
+        <Label Grid.Row ="6" Grid.Column="0" Content="Срочность" Margin="5"/>
+        <Label Grid.Row ="7" Grid.Column="0" Content="" Margin="5"/>
+
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="OrderName" Margin="5" ></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="Client_id" Margin="5"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="SupposeTime" Margin="5"/>
+        <TextBox Grid.Row="3" Grid.Column="1" x:Name="Comment" Margin="5"/>
+        <TextBox Grid.Row="4" Grid.Column="1" x:Name="emp_id" Margin="5"/>
+        <ComboBox x:Name="ClientType" Grid.Row="5" Grid.Column="1" Margin="5" SelectionChanged="orderType_SelectionChanged">
+            <TextBlock>Draft</TextBlock>
+            <TextBlock>Real</TextBlock>
+        </ComboBox>
+        <ComboBox x:Name="emergencyType" Grid.Row="6" Grid.Column="1" Margin="5" SelectionChanged="emergencyType_SelectionChanged">
+            <TextBlock>Yes</TextBlock>
+            <TextBlock>No</TextBlock>
+        </ComboBox>
+
+        <Button Grid.Row="7" Grid.Column="1" Content="OK" Margin="5" Click="Button_Click"/>
+
+    </Grid>
+</Window>
