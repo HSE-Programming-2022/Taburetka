@@ -27,7 +27,18 @@ namespace DesignTaburetka
 
         private void btnAddOrder_Click(object sender, RoutedEventArgs e)
         {
-            
+            //WindowAddClient addClient = new WindowAddClient();
+
+            //addClient.ShowDialog();
+            //// check input
+
+            //string insertCommand = String.Format(
+            //    "INSERT INTO dbo.Client (CompanyName, ClientName, Phones, Adresses, Comment, ClientType)" +
+            //    " VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
+            //    addClient.CompanyIdentificator, addClient.ClientName, addClient.ClientPhones, addClient.ClientAdresses, addClient.ClientComment, addClient.TypeClient
+            //    );
+            //WPFHelper.Insert(insertCommand);
+            //ClientsData.DataContext = WPFHelper.Select("SELECT * FROM [dbo].[Client]");
         }
 
         private void btnAddContract_Click(object sender, RoutedEventArgs e)

@@ -35,5 +35,16 @@ namespace DesignTaburetka.Helpers
             sqlConnection.Close();
 
         }
+        public static void Delete(string deleteSQL)
+        {
+            SqlConnection sqlConnection = new SqlConnection(@"Server=34.174.111.94;Database=testProject;User ID=sqlserver;Password=@dm1n@dm1n");
+
+            sqlConnection.Open();
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
+            sqlCommand.CommandText = deleteSQL;                             // присваиваем команде текст
+            sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+
+        }
     }
 }

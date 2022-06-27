@@ -28,13 +28,12 @@
                 <DataGridTextColumn Header="Телефоны" Binding="{Binding Path='client_phone'}" Width="*" CanUserSort="True"/>
                 <DataGridTextColumn Header="Адрес" Binding="{Binding Path='client_address'}" Width="*" CanUserSort="True"/>
                 <DataGridTextColumn Header="Тип клиента" Binding="{Binding Path='ClientType'}" Width="*" CanUserSort="True"/>
-                <DataGridTextColumn Header="Комментарий" Binding="{Binding Path='Comment'}" Width="*" CanUserSort="False"/>
                 <DataGridTemplateColumn Width="Auto" CanUserSort="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Name="BtnDeleteClient" Click="BtnDeleteClient_Click" Style="{StaticResource IconButtonsStyle}" 
-                                    Tag="IsCloseButton" Cursor="Hand" Content="{f:Icon MinusCircle}">
-                                
+                                    Tag="IsCloseButton" Cursor="Hand" 
+                                    CommandParameter="{Binding Path=id}" Content="{f:Icon MinusCircle}">
                             </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
