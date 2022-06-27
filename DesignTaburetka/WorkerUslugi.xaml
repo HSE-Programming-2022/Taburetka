@@ -159,7 +159,6 @@
                        Name="fContainer2"
                        Margin="20 10"
                        NavigationUIVisibility="Hidden">
-
                 </Frame>
             </Grid>
         </Grid>
