@@ -104,9 +104,9 @@ namespace DesignTaburetka
             else if (table1.Rows.Count == 1 & table3.Rows[0]["rank_name"].ToString() == "Worker")
             {
                 WorkerUslugi workerUslugi = new WorkerUslugi();
-                //workerUslugi.UserFullName.Text = $"{table2.Rows[0]["emp_name"].ToString()}\n{table2.Rows[0]["emp_surname"].ToString()}";
-                //workerUslugi.Department.Text = $"Отдел: {table2.Rows[0]["dep_name"].ToString()}";
-                //workerUslugi.Position.Text = $"Должность: {table3.Rows[0]["rank_name"].ToString()}";
+                workerUslugi.UserFullName.Text = $"{table2.Rows[0]["emp_name"].ToString()}\n{table2.Rows[0]["emp_surname"].ToString()}";
+                workerUslugi.Department.Text = $"Отдел: {table2.Rows[0]["dep_name"].ToString()}";
+                workerUslugi.Position.Text = $"Должность: {table3.Rows[0]["rank_name"].ToString()}";
                 workerUslugi.Show();
                 this.Close();
             }

@@ -56,8 +56,9 @@
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Margin="87 0 5 0" >
-                        <TextBlock x:Name="Department" Text="Отдел: Услуги" Style="{StaticResource Text}" FontSize="10" Margin="0 5" FontWeight="Light" Opacity="0.6"/>
+                        <TextBlock x:Name="Department" Text="Отдел: Услуги" Style="{StaticResource Text}" FontSize="10" Margin="0" FontWeight="Light" Opacity="0.6"/>
                         <TextBlock x:Name="Position" Text="Должность: Менеджер" Style="{StaticResource Text}" FontSize="10" FontWeight="Light" Opacity="0.6"/>
+                        <!--<TextBlock x:Name="Sphere" Text="Специальность: Менеджер" Style="{StaticResource Text}" FontSize="10" FontWeight="Light" Opacity="0.6"/>-->
                     </StackPanel>
                     <Separator Height="10"  Margin="15"/>
                 </StackPanel>
