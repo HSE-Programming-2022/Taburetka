@@ -37,13 +37,13 @@
         <TextBox Grid.Row="2" Grid.Column="1" x:Name="SupposeTime" Margin="5"/>
         <TextBox Grid.Row="3" Grid.Column="1" x:Name="Comment" Margin="5"/>
         <TextBox Grid.Row="4" Grid.Column="1" x:Name="emp_id" Margin="5"/>
-        <ComboBox x:Name="ClientType" Grid.Row="5" Grid.Column="1" Margin="5" SelectionChanged="orderType_SelectionChanged">
-            <TextBlock>Draft</TextBlock>
-            <TextBlock>Real</TextBlock>
+        <ComboBox x:Name="OrderType" Grid.Row="5" Grid.Column="1" Margin="5" SelectionChanged="orderType_SelectionChanged">
+            <ComboBoxItem>Draft</ComboBoxItem>
+            <ComboBoxItem>Real</ComboBoxItem>
         </ComboBox>
         <ComboBox x:Name="emergencyType" Grid.Row="6" Grid.Column="1" Margin="5" SelectionChanged="emergencyType_SelectionChanged">
-            <TextBlock>Yes</TextBlock>
-            <TextBlock>No</TextBlock>
+            <ComboBoxItem>Yes</ComboBoxItem>
+            <ComboBoxItem>No</ComboBoxItem>
         </ComboBox>
 
         <Button Grid.Row="7" Grid.Column="1" Content="OK" Margin="5" Click="Button_Click"/>
