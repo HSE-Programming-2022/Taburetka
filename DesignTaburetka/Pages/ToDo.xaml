@@ -12,11 +12,11 @@
 
     <Page.Resources>
         <ContextMenu x:Key="itemMenu">
-            <MenuItem Header="_Edit Item" Name="EditItem" Click="EditItem_Click"/>
-            <MenuItem Header="Open Image" Name="OpenImage" Click="OpenImage_Click"/>
-            <MenuItem Header="_Open File" Name="OpenFile" Click="OpenFile_Click"/>
-            <MenuItem Header="_Mark as done" Name="MarkAsDone" Click="MarkAsDone_Click"/>
-            <MenuItem Header="_Delete" Name="DeleteItem" Click="DeleteItem_Click"/>
+            <MenuItem Header="Редактировать" Name="EditItem" Click="EditItem_Click"/>
+            <MenuItem Header="Открыть фото" Name="OpenImage" Click="OpenImage_Click"/>
+            <MenuItem Header="Открыть файл" Name="OpenFile" Click="OpenFile_Click"/>
+            <MenuItem Header="Отметить как выполнено" Name="MarkAsDone" Click="MarkAsDone_Click"/>
+            <MenuItem Header="Удалить" Name="DeleteItem" Click="DeleteItem_Click"/>
         </ContextMenu>
     </Page.Resources>
     <Border CornerRadius="8" Background="#003B46">
@@ -29,30 +29,30 @@
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" Width="auto" Height="auto" HorizontalAlignment="Center">
                 <Grid>
-                    <ListView Style="{DynamicResource ListViewStyle}" Background="#003B46" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" MinWidth="650" Grid.Row="1" Grid.ColumnSpan="3" MouseDoubleClick="lvToDo_MouseDoubleClick" 
+                    <ListView Style="{DynamicResource ListViewStyle}" Background="#003B46" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="800" Grid.Row="1" Grid.ColumnSpan="3" MouseDoubleClick="lvToDo_MouseDoubleClick" 
                           ContextMenu="{StaticResource itemMenu}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="Description:" FontWeight="Bold"/>
+                                    <TextBlock Text="Описание:" FontWeight="Bold"/>
                                     <TextBlock Name="Description" Text="{Binding Description}"/>
-                                    <TextBlock Text="Deadline:" FontWeight="Bold"/>
+                                    <TextBlock Text="Срок:" FontWeight="Bold"/>
                                     <TextBlock Name="Deadline" Text="{Binding Deadline}"/>
-                                    <TextBlock Text="Image:" FontWeight="Bold"/>
+                                    <TextBlock Text="Изображение:" FontWeight="Bold"/>
                                     <TextBlock Name="Image" Text="{Binding ImageSource}"/>
-                                    <TextBlock Text="File:" FontWeight="Bold"/>
+                                    <TextBlock Text="Файл:" FontWeight="Bold"/>
                                     <TextBlock Name="File" Text="{Binding FileSource}"/>
                                     <TextBlock Name="IsDone" FontWeight="Bold" Grid.Column="2" HorizontalAlignment="Left" Text="{Binding IsDone}"/>
-                                    <Separator Height="0.8" Background="#66A5AD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="620"/>
+                                    <Separator Height="0.8" Background="#66A5AD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="770"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <CheckBox Style="{DynamicResource CheckBoxStyle}" x:Name="chkShowNotDone" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Show not done items" FontSize="10" Foreground="white" Checked="chkShowNotDone_Checked" Unchecked="chkShowNotDone_Unchecked" Margin="0,0,5,2"/>
+                    <CheckBox Style="{DynamicResource CheckBoxStyle}" x:Name="chkShowNotDone" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Показать невыполненные задачи" FontSize="10" Foreground="white" Checked="chkShowNotDone_Checked" Unchecked="chkShowNotDone_Unchecked" Margin="0,0,8,4"/>
                 </Grid>
             </StackPanel>
 
-            <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" TextWrapping="Wrap" FontSize="30" FontWeight="Bold" Foreground="#F5F5F5" Width="80" Height="35" Margin="0,20,0,0">To do</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" TextWrapping="Wrap" FontSize="30" FontWeight="Bold" Foreground="#F5F5F5" Width="82" Height="35" Margin="0,20,0,0">To Do</TextBlock>
 
             <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Bottom" Margin="10" Width="600" HorizontalAlignment="Stretch">
                 <!--Titles-->

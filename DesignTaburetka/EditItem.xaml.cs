@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using DesignTaburetka.Models;
 using System.IO;
 using System.Windows.Forms;
@@ -25,15 +24,19 @@ namespace DesignTaburetka
         public ToDoItem editItem = new ToDoItem();
 
         string fullImagePath;
+        string oldDescription;
+        string oldDeadline;
         string fullFilePath;
         string oldFileFource;
         string oldImageSource;
         string folderFiles = "../../ToDoData/Files/";
         string folderImages = "../../ToDoData/Images/";
-        public EditItem(ToDoItem item, string oldfilesource, string oldimagesource)
+        public EditItem(ToDoItem item, string olddescription, string olddeadline, string oldfilesource, string oldimagesource)
         {
             InitializeComponent();
             editItem = item;
+            oldDescription = olddescription;
+            oldDeadline = olddeadline;
             oldFileFource = oldfilesource;
             oldImageSource = oldimagesource;
             DataContext = item;
@@ -41,13 +44,13 @@ namespace DesignTaburetka
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (Description.Text != "" && Deadline.Text != "")
+            if ((!string.IsNullOrEmpty(Description.Text)) && (!string.IsNullOrEmpty(Deadline.Text)))
             {
 
                 if ((!string.IsNullOrEmpty(ImageSource.Text)) && (oldImageSource != ImageSource.Text))
                 {
                     editItem.ImageSource = ImageSource.Text;
-                    File.Copy(fullImagePath, System.IO.Path.Combine(folderImages, ImageSource.Text));
+                    File.Copy(fullImagePath, Path.Combine(folderImages, ImageSource.Text));
                 }
 
 
@@ -55,7 +58,7 @@ namespace DesignTaburetka
                 {
 
                     editItem.FileSource = FileSource.Text;
-                    File.Copy(fullFilePath, System.IO.Path.Combine(folderFiles, FileSource.Text));
+                    File.Copy(fullFilePath, Path.Combine(folderFiles, FileSource.Text));
                 }
 
 
@@ -67,7 +70,16 @@ namespace DesignTaburetka
                 if ((!string.IsNullOrEmpty(oldFileFource)) && (oldFileFource != FileSource.Text))
                     File.Delete(folderFiles + oldFileFource);
 
-                System.Windows.MessageBox.Show("Saved successfully", "Edit Page", MessageBoxButton.OK);
+                System.Windows.MessageBox.Show("Изменения сохранены", "Edit Page", MessageBoxButton.OK);
+            }
+            else
+            {
+                editItem.Description = oldDescription;
+                editItem.Deadline = oldDeadline;
+                editItem.FileSource = oldFileFource;
+                editItem.ImageSource = oldImageSource;
+                System.Windows.MessageBox.Show("Нет данных для поля «описание» или «срок», поэтому изменения не могут быть сохранены.", "Edit Page", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
             Close();
         }
@@ -86,15 +98,15 @@ namespace DesignTaburetka
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (File.Exists(System.IO.Path.Combine(folderFiles, System.IO.Path.GetFileName(openFileDialog.FileName))))
+                if (File.Exists(Path.Combine(folderFiles, Path.GetFileName(openFileDialog.FileName))))
                 {
-                    System.Windows.MessageBox.Show($"File with name {System.IO.Path.GetFileName(openFileDialog.FileName)} exists. Rename it and try again to upload", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.MessageBox.Show($"Файл с названием {Path.GetFileName(openFileDialog.FileName)} существует. Переименуйте его и загрузите снова.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
                     fullFilePath = openFileDialog.FileName;
-                    FileSource.Text = System.IO.Path.GetFileName(openFileDialog.FileName);
-                    System.Windows.MessageBox.Show($"File {FileSource.Text} uploaded", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
+                    FileSource.Text = Path.GetFileName(openFileDialog.FileName);
+                    System.Windows.MessageBox.Show($"Файл {FileSource.Text} загружен", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -106,15 +118,15 @@ namespace DesignTaburetka
             openDialog.FilterIndex = 1;
             if (openDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (File.Exists(System.IO.Path.Combine(folderImages, System.IO.Path.GetFileName(openDialog.FileName))))
+                if (File.Exists(Path.Combine(folderImages, Path.GetFileName(openDialog.FileName))))
                 {
-                    System.Windows.MessageBox.Show($"Image with name {System.IO.Path.GetFileName(openDialog.FileName)} exists. Rename it and try again to upload", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.MessageBox.Show($"Изображение с названием {Path.GetFileName(openDialog.FileName)} существует. Переименуйте его и загрузите снова.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
                     fullImagePath = openDialog.FileName;
-                    ImageSource.Text = System.IO.Path.GetFileName(openDialog.FileName);
-                    MessageBoxResult done = System.Windows.MessageBox.Show($"Image uploaded", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ImageSource.Text = Path.GetFileName(openDialog.FileName);
+                    System.Windows.MessageBox.Show($"Изображение загружено", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }

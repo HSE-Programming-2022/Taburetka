@@ -49,7 +49,7 @@ namespace TaburetkaProject
             txtNote.Focus();
         }
 
-        private void txtNote_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void txtNote_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNote.Text) && txtNote.Text.Length > 0)
             {
@@ -65,7 +65,7 @@ namespace TaburetkaProject
         {
             if (!string.IsNullOrEmpty(txtNote.Text))
             {
-                ToDoItem item = new ToDoItem(txtNote.Text, imagePath.Text, fileName.Text, "Not done");
+                ToDoItem item = new ToDoItem(txtNote.Text, imagePath.Text, fileName.Text, "Не выполнено");
 
                 tdl.Insert(0, item);
 
@@ -86,16 +86,16 @@ namespace TaburetkaProject
             openDialog.FilterIndex = 1;
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
-                if (File.Exists(System.IO.Path.Combine(folderImages, System.IO.Path.GetFileName(openDialog.FileName))))
+                if (File.Exists(Path.Combine(folderImages, Path.GetFileName(openDialog.FileName))))
                 {
-                    System.Windows.MessageBox.Show($"Image with name {System.IO.Path.GetFileName(openDialog.FileName)} exists. Rename it and try again to upload", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.MessageBox.Show($"Изображение с названием {Path.GetFileName(openDialog.FileName)} существует. Переименуйте его и загрузите снова.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
 
-                    imagePath.Text = System.IO.Path.GetFileName(openDialog.FileName);
-                    File.Copy(openDialog.FileName, System.IO.Path.Combine(folderImages, imagePath.Text));
-                    MessageBoxResult done = System.Windows.MessageBox.Show($"Image uploaded", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
+                    imagePath.Text = Path.GetFileName(openDialog.FileName);
+                    File.Copy(openDialog.FileName, Path.Combine(folderImages, imagePath.Text));
+                    System.Windows.MessageBox.Show($"Изображение загружено", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -108,22 +108,22 @@ namespace TaburetkaProject
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (File.Exists(System.IO.Path.Combine(folderFiles, System.IO.Path.GetFileName(openFileDialog.FileName))))
+                if (File.Exists(Path.Combine(folderFiles, Path.GetFileName(openFileDialog.FileName))))
                 {
-                    System.Windows.MessageBox.Show($"File with name {System.IO.Path.GetFileName(openFileDialog.FileName)} exists. Rename it and try again to upload", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.MessageBox.Show($"Файл с названием {Path.GetFileName(openFileDialog.FileName)} существует. Переименуйте его и загрузите снова.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
-                    fileName.Text = System.IO.Path.GetFileName(openFileDialog.FileName);
-                    File.Copy(openFileDialog.FileName, System.IO.Path.Combine(folderFiles, fileName.Text));
-                    System.Windows.MessageBox.Show($"File {fileName.Text} uploaded", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
+                    fileName.Text = Path.GetFileName(openFileDialog.FileName);
+                    File.Copy(openFileDialog.FileName, Path.Combine(folderFiles, fileName.Text));
+                    System.Windows.MessageBox.Show($"Файл {fileName.Text} загружен", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
 
         private void chkShowNotDone_Checked(object sender, RoutedEventArgs e)
         {
-            lvToDo.ItemsSource = tdl.Where(item => item.IsDone == "Not done");
+            lvToDo.ItemsSource = tdl.Where(item => item.IsDone == "Не выполнено");
         }
 
         private void chkShowNotDone_Unchecked(object sender, RoutedEventArgs e)
@@ -131,12 +131,11 @@ namespace TaburetkaProject
             lvToDo.ItemsSource = tdl;
         }
 
-
         private void DeleteItem_Click(object sender, RoutedEventArgs e)
         {
             if (lvToDo.SelectedItem != null)
             {
-                MessageBoxResult del = System.Windows.MessageBox.Show("Delete this item?", "Delete?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+                MessageBoxResult del = System.Windows.MessageBox.Show("Удалить это задание?", "Delete?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
                 if (del == MessageBoxResult.Yes)
                 {
                     tdl.Remove(lvToDo.SelectedItem as ToDoItem);
@@ -151,9 +150,10 @@ namespace TaburetkaProject
         {
             if (lvToDo.SelectedItem != null)
             {
+                string description = (lvToDo.SelectedItem as ToDoItem).Description;
                 string filmsource = (lvToDo.SelectedItem as ToDoItem).FileSource;
                 string imagesource = (lvToDo.SelectedItem as ToDoItem).ImageSource;
-                EditNote ep = new DesignTaburetka.EditNote(lvToDo.SelectedItem as ToDoItem, filmsource, imagesource);
+                EditNote ep = new EditNote(lvToDo.SelectedItem as ToDoItem, description, filmsource, imagesource);
 
                 ep.ShowDialog();
 
@@ -166,10 +166,9 @@ namespace TaburetkaProject
 
         private void OpenImage_Click(object sender, RoutedEventArgs e)
         {
-            string path = @"NotesData\Images\" + (lvToDo.SelectedItem as ToDoItem).FileSource;
+            string path = @"NotesData\Images\" + (lvToDo.SelectedItem as ToDoItem).ImageSource;
             string imagePath = Path.GetFullPath(path);
             imagePath = imagePath.Replace(@"\bin\Debug", "");
-            System.Windows.MessageBox.Show(imagePath);
             Process.Start(imagePath);
 
         }
@@ -179,11 +178,9 @@ namespace TaburetkaProject
             string path = @"NotesData\Files\" + (lvToDo.SelectedItem as ToDoItem).FileSource;
             string filePath = Path.GetFullPath(path);
             filePath = filePath.Replace(@"\bin\Debug", "");
-            System.Windows.MessageBox.Show(filePath);
             Process.Start(filePath);
         }
 
     }
 
-    
 }
