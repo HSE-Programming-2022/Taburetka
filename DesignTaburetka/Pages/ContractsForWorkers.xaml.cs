@@ -46,21 +46,16 @@ namespace DesignTaburetka.Pages
             //                                         "a.comment, b.emp_name, b.emp_surname FROM OrderTask a inner join Employee b on a.added_by = b.emp_id inner join Client c on a.client_id = c.client_id");
         }
 
-        private void BtnAddProject_Click(object sender, RoutedEventArgs e)
+        private void BtnMoveToCompleted_Click(object sender, RoutedEventArgs e)
         {
 
         }
-        private void BtnDeleteProject_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnDeleteService_Click(object sender, RoutedEventArgs e)
+        private void BtnMoveToInWork_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void BtnAddService_Click(object sender, RoutedEventArgs e)
+        private void BtnDeleteCompleted_Click(object sender, RoutedEventArgs e)
         {
 
         }
