@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DesignTaburetka.Helpers;
+using DesignTaburetka.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace DesignTaburetka
 {
@@ -27,18 +30,18 @@ namespace DesignTaburetka
 
         private void btnAddOrder_Click(object sender, RoutedEventArgs e)
         {
-            //WindowAddClient addClient = new WindowAddClient();
+            WindowAddOrder addOrder = new WindowAddOrder();
 
-            //addClient.ShowDialog();
+            addOrder.ShowDialog();
             //// check input
 
             //string insertCommand = String.Format(
             //    "INSERT INTO dbo.Client (CompanyName, ClientName, Phones, Adresses, Comment, ClientType)" +
             //    " VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
-            //    addClient.CompanyIdentificator, addClient.ClientName, addClient.ClientPhones, addClient.ClientAdresses, addClient.ClientComment, addClient.TypeClient
+            //    addOrder.CompanyIdentificator, addOrder.ClientName, addOrder.ClientPhones, addOrder.ClientAdresses, addOrder.ClientComment, addOrder.TypeClient
             //    );
             //WPFHelper.Insert(insertCommand);
-            //ClientsData.DataContext = WPFHelper.Select("SELECT * FROM [dbo].[Client]");
+            //OrderTaskData.DataContext = WPFHelper.Select("SELECT * FROM Client");
         }
 
         private void btnAddContract_Click(object sender, RoutedEventArgs e)

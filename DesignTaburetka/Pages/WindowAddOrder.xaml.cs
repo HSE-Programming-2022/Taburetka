@@ -39,13 +39,7 @@ namespace DesignTaburetka.Pages
         {
             get { return emp_id.Text; }
         }
-        public string TypeClient
-        {
-            get
-            {
-                return ClientType.Text;
-            }
-        }
+        public int OrderTypeId;
 
         public string TypeEmergency
         {
@@ -62,7 +56,16 @@ namespace DesignTaburetka.Pages
 
         private void orderType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string type = ((ComboBoxItem)OrderType.SelectedItem).Content.ToString();
 
+            if (type.ToString() == "Draft")
+            {
+                OrderTypeId = 1;
+            }
+            else
+            {
+                OrderTypeId = 2;
+            }
         }
 
         private void emergencyType_SelectionChanged(object sender, SelectionChangedEventArgs e)
