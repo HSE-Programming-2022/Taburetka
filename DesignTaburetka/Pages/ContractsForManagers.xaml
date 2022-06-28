@@ -49,7 +49,7 @@
                   Style="{StaticResource DataStyle}"
                   ColumnHeaderStyle="{StaticResource HeaderStyle}" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="id" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
+                                <DataGridTextColumn Header="ID работы" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
                                 <!--<DataGridTextColumn Header="Порядоковый номер" Binding="{Binding 'index_num'}" Width="Auto" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>-->
                                 <DataGridTextColumn Header="Дата получения" Binding="{Binding 'came_at'}"  Width="90" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Дата начала" Binding="{Binding Path='work_start'}" Width="90" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
@@ -81,16 +81,13 @@
                   Style="{StaticResource DataStyle}"
                   ColumnHeaderStyle="{StaticResource HeaderStyle}" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="id" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
+                                <DataGridTextColumn Header="ID работы" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
                                 <!--<DataGridTextColumn Header="Порядоковый номер" Binding="{Binding 'index_num'}" Width="Auto" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>-->
                                 <DataGridTextColumn Header="Дата получения" Binding="{Binding 'came_at'}"  Width="90" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Дата начала" Binding="{Binding Path='work_start'}" Width="90" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Департамент" Binding="{Binding Path='dep_id'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Работник" Binding="{Binding Path='emp_id'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='order_id'}" Width="90" CanUserSort="False"/>
-                                <DataGridTextColumn Header="Статус" Binding="{Binding Path='status_id'}" Width="90" CanUserSort="False"/>
+                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='project_name'}" Width="90" CanUserSort="False"/>
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
@@ -127,16 +124,13 @@
                   Style="{StaticResource DataStyle}"
                   ColumnHeaderStyle="{StaticResource HeaderStyle}" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="id" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
+                                <DataGridTextColumn Header="ID работы" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
                                 <!--<DataGridTextColumn Header="Порядоковый номер" Binding="{Binding 'index_num'}" Width="Auto" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>-->
                                 <DataGridTextColumn Header="Дата получения" Binding="{Binding 'came_at'}"  Width="90" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Дата начала" Binding="{Binding Path='work_start'}" Width="90" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Департамент" Binding="{Binding Path='dep_id'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Работник" Binding="{Binding Path='emp_id'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='order_id'}" Width="90" CanUserSort="False"/>
-                                <DataGridTextColumn Header="Статус" Binding="{Binding Path='status_id'}" Width="90" CanUserSort="False"/>
+                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='project_name'}" Width="90" CanUserSort="False"/>
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>

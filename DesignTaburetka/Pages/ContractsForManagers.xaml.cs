@@ -25,19 +25,19 @@ namespace DesignTaburetka.Pages
         public ContractsForManagers()
         {
             InitializeComponent();
-            DataTable DTInWorkData = WPFHelper.Select("SELECT work_id, came_at, work_start, DW.suppose_days, fact_days, project_name " +
+            DataTable DTInWorkData = WPFHelper.Select("SELECT work_id, CONVERT(varchar, came_at, 23) came_at, CONVERT(varchar, work_start, 23) work_start, DW.suppose_days, fact_days, project_name " +
                 "FROM DepartmentWork DW INNER JOIN OrderTask OT ON DW.order_id = OT.order_id " +
                 $"WHERE emp_id = {Login.emp_id} AND status_id = 2"
                 );
             InWorkData.DataContext = DTInWorkData;
 
-            DataTable DTPlannedData = WPFHelper.Select("SELECT work_id, came_at, work_start, DW.suppose_days, fact_days, project_name " +
+            DataTable DTPlannedData = WPFHelper.Select("SELECT work_id, CONVERT(varchar, came_at, 23) came_at, CONVERT(varchar, work_start, 23) work_start, DW.suppose_days, fact_days, project_name " +
                 "FROM DepartmentWork DW INNER JOIN OrderTask OT ON DW.order_id = OT.order_id " +
                 $"WHERE emp_id = {Login.emp_id} AND status_id = 3"
                 );
             PlannedData.DataContext = DTPlannedData;
 
-            DataTable DTCompletedData = WPFHelper.Select("SELECT work_id, came_at, work_start, DW.suppose_days, fact_days, project_name " +
+            DataTable DTCompletedData = WPFHelper.Select("SELECT work_id, CONVERT(varchar, came_at, 23) came_at, CONVERT(varchar, work_start, 23) work_start, DW.suppose_days, fact_days, project_name " +
                 "FROM DepartmentWork DW INNER JOIN OrderTask OT ON DW.order_id = OT.order_id " +
                 $"WHERE emp_id = {Login.emp_id} AND status_id = 1"
                 );
