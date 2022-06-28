@@ -44,8 +44,11 @@ namespace DesignTaburetka.Pages
             CompletedData.DataContext = DTCompletedData;
         }
 
+
         private void BtnMoveToCompleted1_Click(object sender, RoutedEventArgs e)
         {
+            //WPFHelper.DMLSQL("UPDATE FROM ");
+            //DataTable DTCompletedData = 
 
         }
         private void BtnMoveToInWork1_Click(object sender, RoutedEventArgs e)

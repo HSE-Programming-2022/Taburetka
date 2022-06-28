@@ -34,7 +34,7 @@ namespace DesignTaburetka.Helpers
             return dataTable;
         }
 
-        public static void Insert(string insertSQL)
+        public static void DMLSQL(string SQLCommand)
         {
             try
             {
@@ -42,29 +42,21 @@ namespace DesignTaburetka.Helpers
 
                 sqlConnection.Open();
                 SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
-                sqlCommand.CommandText = insertSQL;                             // присваиваем команде текст
+                sqlCommand.CommandText = SQLCommand;                             // присваиваем команде текст
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
             }
-            catch
-            {
+            catch{
                 string message = "Не удалось обновить данные или подключиться к базе данных. \n" +
-                    "Проверьте корректность введенных данных и работоспособность базы данных на сервере";
+                   "Проверьте корректность введенных данных и работоспособность базы данных на сервере\n" +
+                   "Текст SQL-запроса, вызвашего ошибку:\n" + SQLCommand;
                 MessageBox.Show(message);
             }
             
 
         }
-        public static void Delete(string deleteSQL)
-        {
-            SqlConnection sqlConnection = new SqlConnection(@"Server=34.174.111.94;Database=testProject;User ID=sqlserver;Password=@dm1n@dm1n");
 
-            sqlConnection.Open();
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
-            sqlCommand.CommandText = deleteSQL;                             // присваиваем команде текст
-            sqlCommand.ExecuteNonQuery();
-            sqlConnection.Close();
-
+        public static void Update(string updateSQL) { 
         }
     }
 }
