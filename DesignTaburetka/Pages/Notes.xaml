@@ -38,7 +38,7 @@
                                     <TextBlock Name="Image" Text="{Binding ImageSource}"/>
                                     <TextBlock Text="Файл:" FontWeight="Bold"/>
                                     <TextBlock Name="File" Text="{Binding FileSource}"/>
-                                    <Separator Height="0.8" Background="#66A5AD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="770"/>
+                                    <Separator Height="0.8" Background="#66A5AD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="752"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

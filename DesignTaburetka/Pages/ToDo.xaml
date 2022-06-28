@@ -30,7 +30,7 @@
             <StackPanel Orientation="Horizontal" Grid.Row="1" Width="auto" Height="auto" HorizontalAlignment="Center">
                 <Grid>
                     <ListView Style="{DynamicResource ListViewStyle}" Background="#003B46" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="800" Grid.Row="1" Grid.ColumnSpan="3" MouseDoubleClick="lvToDo_MouseDoubleClick" 
-                          ContextMenu="{StaticResource itemMenu}">
+                          ContextMenu="{StaticResource itemMenu}" d:ItemsSource="{d:SampleData ItemCount=5}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -43,12 +43,12 @@
                                     <TextBlock Text="Файл:" FontWeight="Bold"/>
                                     <TextBlock Name="File" Text="{Binding FileSource}"/>
                                     <TextBlock Name="IsDone" FontWeight="Bold" Grid.Column="2" HorizontalAlignment="Left" Text="{Binding IsDone}"/>
-                                    <Separator Height="0.8" Background="#66A5AD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="770"/>
+                                    <Separator Height="0.8" Background="#66A5AD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="752"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <CheckBox Style="{DynamicResource CheckBoxStyle}" x:Name="chkShowNotDone" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Показать невыполненные задачи" FontSize="10" Foreground="white" Checked="chkShowNotDone_Checked" Unchecked="chkShowNotDone_Unchecked" Margin="0,0,8,4"/>
+                    <CheckBox Style="{DynamicResource CheckBoxStyle}" x:Name="chkShowNotDone" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Показать невыполненные задачи" FontSize="10" Foreground="white" Checked="chkShowNotDone_Checked" Unchecked="chkShowNotDone_Unchecked" Margin="0,0,25,5"/>
                 </Grid>
             </StackPanel>
 
