@@ -25,21 +25,21 @@ namespace DesignTaburetka.Pages
         public ContractsForManagers()
         {
             InitializeComponent();
-            DataTable DTInWorkData = WPFHelper.Select("SELECT a.work_id, a.came_at, a.work_start, a.suppose_days, a.fact_days, b.status_name, c.dep_name, d.emp_name, d.emp_surname, f.project_name " +
-                "FROM DepartmentWork a INNER JOIN OrderStatus b ON a.status_id = b.status_id " +
-                "INNER JOIN Department c ON a.dep_id = c.dep_id INNER JOIN Employee d ON a.emp_id = d.emp_id INNER JOIN OrderTask f ON a.order_id = f.order_id"
+            DataTable DTInWorkData = WPFHelper.Select("SELECT work_id, came_at, work_start, DW.suppose_days, fact_days, project_name " +
+                "FROM DepartmentWork DW INNER JOIN OrderTask OT ON DW.order_id = OT.order_id " +
+                $"WHERE emp_id = {Login.emp_id} AND status_id = 2"
                 );
             InWorkData.DataContext = DTInWorkData;
 
-            DataTable DTPlannedData = WPFHelper.Select("SELECT a.work_id, a.came_at, a.work_start, a.suppose_days, a.fact_days, b.status_name, c.dep_name, d.emp_name, d.emp_surname, f.project_name " +
-                "FROM DepartmentWork a INNER JOIN OrderStatus b ON a.status_id = b.status_id " +
-                "INNER JOIN Department c ON a.dep_id = c.dep_id INNER JOIN Employee d ON a.emp_id = d.emp_id INNER JOIN OrderTask f ON a.order_id = f.order_id"
+            DataTable DTPlannedData = WPFHelper.Select("SELECT work_id, came_at, work_start, DW.suppose_days, fact_days, project_name " +
+                "FROM DepartmentWork DW INNER JOIN OrderTask OT ON DW.order_id = OT.order_id " +
+                $"WHERE emp_id = {Login.emp_id} AND status_id = 3"
                 );
             PlannedData.DataContext = DTPlannedData;
 
-            DataTable DTCompletedData = WPFHelper.Select("SELECT a.work_id, a.came_at, a.work_start, a.suppose_days, a.fact_days, b.status_name, c.dep_name, d.emp_name, d.emp_surname, f.project_name " +
-                "FROM DepartmentWork a INNER JOIN OrderStatus b ON a.status_id = b.status_id " +
-                "INNER JOIN Department c ON a.dep_id = c.dep_id INNER JOIN Employee d ON a.emp_id = d.emp_id INNER JOIN OrderTask f ON a.order_id = f.order_id"
+            DataTable DTCompletedData = WPFHelper.Select("SELECT work_id, came_at, work_start, DW.suppose_days, fact_days, project_name " +
+                "FROM DepartmentWork DW INNER JOIN OrderTask OT ON DW.order_id = OT.order_id " +
+                $"WHERE emp_id = {Login.emp_id} AND status_id = 1"
                 );
             CompletedData.DataContext = DTCompletedData;
         }
