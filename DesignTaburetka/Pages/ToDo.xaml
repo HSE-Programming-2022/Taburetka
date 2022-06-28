@@ -30,7 +30,7 @@
             <StackPanel Orientation="Horizontal" Grid.Row="1" Width="auto" Height="auto" HorizontalAlignment="Center">
                 <Grid>
                     <ListView Style="{DynamicResource ListViewStyle}" Background="#003B46" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="800" Grid.Row="1" Grid.ColumnSpan="3" MouseDoubleClick="lvToDo_MouseDoubleClick" 
-                          ContextMenu="{StaticResource itemMenu}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                          ContextMenu="{StaticResource itemMenu}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -79,7 +79,7 @@
                                 </Grid.RowDefinitions>
 
                                 <fa:ImageAwesome Icon="Pencil" Margin="0" Width="15"/>
-                                <TextBlock Text="Добавить заметку" x:Name="leblNote" Style="{StaticResource ResourceKey=txtHint}" MouseDown="lblNote_MouseDown" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,0,0" HorizontalAlignment="Left" Width="459"/>
+                                <TextBlock Text="Добавить заметку" x:Name="leblNote" Style="{StaticResource ResourceKey=txtHint}" MouseDown="lblNote_MouseDown" Grid.Column="1" Grid.ColumnSpan="2" Margin="12.5,0,0,0" HorizontalAlignment="Left" Width="459"/>
                                 <TextBox x:Name="textNote" Style="{StaticResource ResourceKey=textBox}" TextChanged="txtNote_TextChanged" Width="459"/>
                             </Grid>
 
@@ -96,7 +96,7 @@
                                 <fa:ImageAwesome Icon="Bell" Margin="0" Width="15"/>
 
                                 <DatePicker Style="{DynamicResource DatePickerStyle}" Height="25" Name="datePicker1"  Background="Transparent" DisplayDateStart="{x:Static sys:DateTime.Now}" 
-                                            VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" Width="150" Margin="10,0,0,0" HorizontalAlignment="Left" IsDropDownOpen="False" 
+                                            VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" Width="146" Margin="10,0,0,0" HorizontalAlignment="Left" IsDropDownOpen="False" 
                                             SelectedDateFormat="Short" IsTodayHighlighted="True"/>
 
                             </Grid>

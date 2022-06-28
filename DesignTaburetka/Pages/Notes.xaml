@@ -66,8 +66,8 @@
                                 </Grid.ColumnDefinitions>
 
                                 <fa:ImageAwesome Icon="Pencil" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35"/>
-                                <TextBlock x:Name="lblNote" Style="{StaticResource ResourceKey=txtHint}" MouseDown="lblNote_MouseDown" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Text="Добавить заметку" Margin="10,10,0,0"/>
-                                <TextBox x:Name="txtNote" Style="{StaticResource ResourceKey=textBox}" TextChanged="txtNote_TextChanged" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="10,10,14,0"/>
+                                <TextBlock x:Name="lblNote" Style="{StaticResource ResourceKey=txtHint}" MouseDown="lblNote_MouseDown" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Text="Добавить заметку" Margin="12.5,10,0,0"/>
+                                <TextBox x:Name="txtNote" Style="{StaticResource ResourceKey=textBox}" TextChanged="txtNote_TextChanged" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="12.5,10,14,0"/>
 
                             </Grid>
                         </StackPanel>

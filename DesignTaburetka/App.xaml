@@ -593,10 +593,11 @@
         </Style>
 
         <Style x:Key="DatePickerStyle" TargetType="{x:Type DatePicker}">
+            <Setter Property="Background" Value="#66A5AD"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="IsTodayHighlighted" Value="True"/>
             <Setter Property="SelectedDateFormat" Value="Short"/>
-            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Padding" Value="2.5"/>
             <Setter Property="BorderBrush">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint=".5,0" StartPoint=".5,1">
