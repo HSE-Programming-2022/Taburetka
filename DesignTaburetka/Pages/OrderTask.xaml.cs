@@ -36,6 +36,21 @@ namespace DesignTaburetka.Pages
 
         private void BtnAddOrder_Click(object sender, RoutedEventArgs e)
         {
+            WindowAddOrder addOrder = new WindowAddOrder();
+
+            addOrder.ShowDialog();
+            // check input
+
+            string createdAt = DateTime.Today.ToString("yyyy'-'MM'-'dd");
+            string insertCommand = String.Format(
+                "INSERT INTO [dbo].[OrderTask] (created_at, comment, order_emergency, project_name," +
+                "suppose_days, client_id, order_type_id, added_by)" +
+                " VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')",
+                createdAt, addOrder.ClientComment, addOrder.TypeEmergency, addOrder.NameOrder,
+                addOrder.TimeSuppose, addOrder.ClientID, addOrder.OrderTypeId, addOrder.EmpId
+                );
+            WPFHelper.Insert(insertCommand);
+            OrderTaskData.DataContext = WPFHelper.Select("SELECT * FROM [dbo].[OrderTask]");
 
         }
     }

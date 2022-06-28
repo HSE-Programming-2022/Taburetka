@@ -11,10 +11,10 @@
 
     <Page.Resources>
         <ContextMenu x:Key="itemMenu">
-            <MenuItem Header="_Edit Item" Name="EditItem" Click="EditItem_Click"/>
-            <MenuItem Header="Open Image" Name="OpenImage" Click="OpenImage_Click"/>
-            <MenuItem Header="_Open File" Name="OpenFile" Click="OpenFile_Click"/>
-            <MenuItem Header="_Delete" Name="DeleteItem" Click="DeleteItem_Click"/>
+            <MenuItem Header="Редактировать" Name="EditItem" Click="EditItem_Click"/>
+            <MenuItem Header="Открыть фото" Name="OpenImage" Click="OpenImage_Click"/>
+            <MenuItem Header="Открыть файл" Name="OpenFile" Click="OpenFile_Click"/>
+            <MenuItem Header="Удалить" Name="DeleteItem" Click="DeleteItem_Click"/>
         </ContextMenu>
     </Page.Resources>
     <Border CornerRadius="8" Background="#003B46">
@@ -25,20 +25,20 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10" Width="auto" Height="auto" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Grid.Row="1"  Width="auto" Height="auto" HorizontalAlignment="Center">
                 <Grid>
-                    <ListView Style="{DynamicResource ListViewStyle}" Background="#003B46" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="650" Grid.Row="1" Grid.ColumnSpan="3" 
+                    <ListView Style="{DynamicResource ListViewStyle}" Background="#003B46" Name="lvToDo" Height="auto" HorizontalAlignment="Left" Width="800" 
                           ContextMenu="{StaticResource itemMenu}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="Description:" FontWeight="Bold"/>
+                                    <TextBlock Text="Описание:" FontWeight="Bold"/>
                                     <TextBlock Name="Description" Text="{Binding Description}"/>
-                                    <TextBlock Text="Image:" FontWeight="Bold"/>
+                                    <TextBlock Text="Изображение:" FontWeight="Bold"/>
                                     <TextBlock Name="Image" Text="{Binding ImageSource}"/>
-                                    <TextBlock Text="File:" FontWeight="Bold"/>
+                                    <TextBlock Text="Файл:" FontWeight="Bold"/>
                                     <TextBlock Name="File" Text="{Binding FileSource}"/>
-                                    <Separator Height="0.8" Background="#66A5AD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="620"/>
+                                    <Separator Height="0.8" Background="#66A5AD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="770"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

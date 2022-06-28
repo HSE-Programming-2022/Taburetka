@@ -25,7 +25,8 @@ namespace DesignTaburetka
         {
             InitializeComponent();
             // Я без понятия, что тут должно быть
-            fContainer2.Navigate(new System.Uri("Pages/MainPageUslugi.xaml", UriKind.RelativeOrAbsolute));
+            fContainerWorker.Navigate(new System.Uri("Pages/MainPageUslugi.xaml", UriKind.RelativeOrAbsolute));
+
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -63,7 +64,7 @@ namespace DesignTaburetka
         // End: Button Close | Restore | Minimize
         private void btnHome_Checked(object sender, RoutedEventArgs e)
         {
-            fContainer2.Navigate(new System.Uri("Pages/MainPageUslugi.xaml", UriKind.RelativeOrAbsolute));
+            fContainerWorker.Navigate(new System.Uri("Pages/MainPageWorker.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnLogOut_Checked(object sender, RoutedEventArgs e)
@@ -75,17 +76,17 @@ namespace DesignTaburetka
 
         private void btnContracts_Checked(object sender, RoutedEventArgs e)
         {
-            fContainer2.Navigate(new System.Uri("Pages/ContractsForWorkers.xaml", UriKind.RelativeOrAbsolute));
+            fContainerWorker.Navigate(new System.Uri("Pages/ContractsForWorkers.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnToDo_Checked(object sender, RoutedEventArgs e)
         {
-            fContainer2.Navigate(new System.Uri("Pages/ToDo.xaml", UriKind.RelativeOrAbsolute));
+            fContainerWorker.Navigate(new System.Uri("Pages/ToDo.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnNotes_Checked(object sender, RoutedEventArgs e)
         {
-            fContainer2.Navigate(new System.Uri("Pages/Notes.xaml", UriKind.RelativeOrAbsolute));
+            fContainerWorker.Navigate(new System.Uri("Pages/Notes.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

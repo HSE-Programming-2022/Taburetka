@@ -41,13 +41,7 @@ namespace DesignTaburetka.Pages
         }
         public int OrderTypeId;
 
-        public string TypeEmergency
-        {
-            get
-            {
-                return emergencyType.Text;
-            }
-        }
+        public string TypeEmergency;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -56,9 +50,9 @@ namespace DesignTaburetka.Pages
 
         private void orderType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string type = ((ComboBoxItem)OrderType.SelectedItem).Content.ToString();
+            string ordertype = ((ComboBoxItem)OrderType.SelectedItem).Content.ToString();
 
-            if (type.ToString() == "Draft")
+            if (ordertype.ToString() == "Draft")
             {
                 OrderTypeId = 1;
             }
@@ -70,7 +64,7 @@ namespace DesignTaburetka.Pages
 
         private void emergencyType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            TypeEmergency = ((ComboBoxItem)emergencyType.SelectedItem).Content.ToString();
         }
 
         public WindowAddOrder()

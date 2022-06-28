@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DesignTaburetka.Helpers
 {
@@ -13,26 +14,45 @@ namespace DesignTaburetka.Helpers
         public static DataTable Select(string selectSQL) // функция подключения к базе данных и обработка запросов
         {
             DataTable dataTable = new DataTable("dataBase");                // создаём таблицу в приложении
-                                                                            // подключаемся к базе данных
-            SqlConnection sqlConnection = new SqlConnection(@"Server=34.174.111.94;Database=testProject;User ID=sqlserver;Password=@dm1n@dm1n");
-            sqlConnection.Open();                                           // открываем базу данных
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
-            sqlCommand.CommandText = selectSQL;                             // присваиваем команде текст
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand); // создаём обработчик
-            sqlDataAdapter.Fill(dataTable);
-            sqlConnection.Close();
+            try
+            {
+                SqlConnection DBConnection = new SqlConnection(@"Server=34.174.111.94;Database=testProject;User ID=sqlserver;Password=@dm1n@dm1n");
+                DBConnection.Open();                                           // открываем базу данных
+                SqlCommand DbCommand = DBConnection.CreateCommand();          // создаём команду
+                DbCommand.CommandText = selectSQL;                             // присваиваем команде текст
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(DbCommand); // создаём обработчик
+                sqlDataAdapter.Fill(dataTable);
+                DBConnection.Close();
+            }
+            catch
+            {
+                string message = "Невозможно подключиться к базе данных.\n" +
+                    "Проверьте работоспособность сервера.";
+                MessageBox.Show(message);
+            }
+            
             return dataTable;
         }
 
         public static void Insert(string insertSQL)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Server=34.174.111.94;Database=testProject;User ID=sqlserver;Password=@dm1n@dm1n");
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(@"Server=34.174.111.94;Database=testProject;User ID=sqlserver;Password=@dm1n@dm1n");
 
-            sqlConnection.Open();
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
-            sqlCommand.CommandText = insertSQL;                             // присваиваем команде текст
-            sqlCommand.ExecuteNonQuery();
-            sqlConnection.Close();
+                sqlConnection.Open();
+                SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
+                sqlCommand.CommandText = insertSQL;                             // присваиваем команде текст
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch
+            {
+                string message = "Не удалось обновить данные или подключиться к базе данных. \n" +
+                    "Проверьте корректность введенных данных и работоспособность базы данных на сервере";
+                MessageBox.Show(message);
+            }
+            
 
         }
         public static void Delete(string deleteSQL)

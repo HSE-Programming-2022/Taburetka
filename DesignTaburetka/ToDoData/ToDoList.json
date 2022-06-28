@@ -1,37 +1,9 @@
 [
   {
-    "Description": "авы",
-    "Deadline": "10.07.2022",
-    "ImageSource": "Снимок экрана (3).png",
-    "FileSource": "",
-    "IsDone": "Not done"
-  },
-  {
-    "Description": "авы",
-    "Deadline": "10.07.2022",
+    "Description": "yes",
+    "Deadline": "27.06.2022",
     "ImageSource": "",
     "FileSource": "",
-    "IsDone": "Not done"
-  },
-  {
-    "Description": "тип клиента и комментарий",
-    "Deadline": "25.06.2022",
-    "ImageSource": "",
-    "FileSource": "",
-    "IsDone": "Not done"
-  },
-  {
-    "Description": "пренос заказов TEMP в контракты",
-    "Deadline": "25.06.2022",
-    "ImageSource": "",
-    "FileSource": "",
-    "IsDone": "Not done"
-  },
-  {
-    "Description": "сделать кнопки \"Добавить заказ\", \"Добавить контракт\" рабочими",
-    "Deadline": "25.06.2022",
-    "ImageSource": "",
-    "FileSource": "",
-    "IsDone": "Not done"
+    "IsDone": "Не выполнено"
   }
 ]

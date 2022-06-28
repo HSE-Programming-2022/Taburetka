@@ -22,7 +22,7 @@ namespace DesignTaburetka.Pages
     {
         public string ClientName
         {
-            get { return Name.Text; }
+            get { return clientName.Text; }
         }
         public string ClientPhones
         {
