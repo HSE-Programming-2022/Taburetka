@@ -90,6 +90,7 @@ namespace DesignTaburetka
                 adminUslugi.UserFullName.Text = $"{table2.Rows[0]["emp_name"].ToString()}\n{table2.Rows[0]["emp_surname"].ToString()}";
                 adminUslugi.Department.Text = $"Отдел: {table2.Rows[0]["dep_name"].ToString()}";
                 adminUslugi.Position.Text = $"Должность: {table3.Rows[0]["rank_name"].ToString()}";
+                adminUslugi.UserNameLetters.Text = $"{table2.Rows[0]["emp_name"].ToString().Substring(0, 1).ToUpper()}" + $"{table2.Rows[0]["emp_surname"].ToString().Substring(0, 1).ToUpper()}";
                 //adminUslugi.UserFullName.Text = $"{table4.Rows[0]["emp_name"].ToString()}\n{table4.Rows[0]["emp_surname"].ToString()}";
                 adminUslugi.Show();
                 this.Close();
@@ -100,6 +101,7 @@ namespace DesignTaburetka
                 managerUslugi.UserFullName.Text = $"{table2.Rows[0]["emp_name"].ToString()}\n{table2.Rows[0]["emp_surname"].ToString()}";
                 managerUslugi.Department.Text = $"Отдел: {table2.Rows[0]["dep_name"].ToString()}";
                 managerUslugi.Position.Text = $"Должность: {table3.Rows[0]["rank_name"].ToString()}";
+                managerUslugi.UserNameLetters.Text = $"{table2.Rows[0]["emp_name"].ToString().Substring(0, 1).ToUpper()}" + $"{table2.Rows[0]["emp_surname"].ToString().Substring(0, 1).ToUpper()}";
                 managerUslugi.Show();
                 this.Close();
             }
@@ -109,6 +111,7 @@ namespace DesignTaburetka
                 workerUslugi.UserFullName.Text = $"{table2.Rows[0]["emp_name"].ToString()}\n{table2.Rows[0]["emp_surname"].ToString()}";
                 workerUslugi.Department.Text = $"Отдел: {table2.Rows[0]["dep_name"].ToString()}";
                 workerUslugi.Position.Text = $"Должность: {table3.Rows[0]["rank_name"].ToString()}";
+                workerUslugi.UserNameLetters.Text = $"{table2.Rows[0]["emp_name"].ToString().Substring(0, 1).ToUpper()}" + $"{table2.Rows[0]["emp_surname"].ToString().Substring(0, 1).ToUpper()}";
                 workerUslugi.Show();
                 this.Close();
             }

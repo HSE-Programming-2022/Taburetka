@@ -140,9 +140,6 @@
     <Compile Include="Pages\Contracts.xaml.cs">
       <DependentUpon>Contracts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ContractsForManager.xaml.cs">
-      <DependentUpon>ContractsForManager.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\ContractsForWorkers.xaml.cs">
       <DependentUpon>ContractsForWorkers.xaml</DependentUpon>
     </Compile>
@@ -186,10 +183,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Contracts.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ContractsForManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
