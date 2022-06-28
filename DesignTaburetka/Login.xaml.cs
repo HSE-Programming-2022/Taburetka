@@ -95,9 +95,9 @@ namespace DesignTaburetka
             else if (table1.Rows.Count == 1 & table3.Rows[0]["rank_name"].ToString() == "Manager")
             {
                 ManagerUslugi managerUslugi = new ManagerUslugi();
-                //managerUslugi.UserFullName.Text = $"{table2.Rows[0]["emp_name"].ToString()}\n{table2.Rows[0]["emp_surname"].ToString()}";
-                //managerUslugi.Department.Text = $"Отдел: {table2.Rows[0]["dep_name"].ToString()}";
-                //managerUslugi.Position.Text = $"Должность: {table3.Rows[0]["rank_name"].ToString()}";
+                managerUslugi.UserFullName.Text = $"{table2.Rows[0]["emp_name"].ToString()}\n{table2.Rows[0]["emp_surname"].ToString()}";
+                managerUslugi.Department.Text = $"Отдел: {table2.Rows[0]["dep_name"].ToString()}";
+                managerUslugi.Position.Text = $"Должность: {table3.Rows[0]["rank_name"].ToString()}";
                 managerUslugi.Show();
                 this.Close();
             }

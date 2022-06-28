@@ -24,7 +24,7 @@ namespace DesignTaburetka
         public ManagerUslugi()
         {
             InitializeComponent();
-            fContainer3.Navigate(new System.Uri("Pages/MainPageUslugi.xaml", UriKind.RelativeOrAbsolute));
+            //fContainerManager.Navigate(new System.Uri("Pages/MainPageManager.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -62,7 +62,7 @@ namespace DesignTaburetka
         // End: Button Close | Restore | Minimize
         private void btnHome_Checked(object sender, RoutedEventArgs e)
         {
-            fContainer3.Navigate(new System.Uri("Pages/MainPageUslugi.xaml", UriKind.RelativeOrAbsolute));
+            fContainerManager.Navigate(new System.Uri("Pages/MainPageManager.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnLogOut_Checked(object sender, RoutedEventArgs e)
@@ -72,29 +72,24 @@ namespace DesignTaburetka
             this.Close();
         }
 
-        private void btnOrderTemp_Checked(object sender, RoutedEventArgs e)
-        {
-            fContainer3.Navigate(new System.Uri("Pages/OrderTask.xaml", UriKind.RelativeOrAbsolute));
-        }
-
         private void btnContracts_Checked(object sender, RoutedEventArgs e)
         {
-            fContainer3.Navigate(new System.Uri("Pages/Contracts.xaml", UriKind.RelativeOrAbsolute));
+            fContainerManager.Navigate(new System.Uri("Pages/ContractsForManager.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnToDo_Checked(object sender, RoutedEventArgs e)
         {
-            fContainer3.Navigate(new System.Uri("Pages/ToDo.xaml", UriKind.RelativeOrAbsolute));
+            fContainerManager.Navigate(new System.Uri("Pages/ToDo.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnNotes_Checked(object sender, RoutedEventArgs e)
         {
-            fContainer3.Navigate(new System.Uri("Pages/Notes.xaml", UriKind.RelativeOrAbsolute));
+            fContainerManager.Navigate(new System.Uri("Pages/Notes.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnTeam_Checked(object sender, RoutedEventArgs e)
         {
-            fContainer3.Navigate(new System.Uri("Pages/Team.xaml", UriKind.RelativeOrAbsolute));
+            fContainerManager.Navigate(new System.Uri("Pages/TeamDepartment.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }
