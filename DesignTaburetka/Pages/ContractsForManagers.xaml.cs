@@ -52,7 +52,6 @@ namespace DesignTaburetka.Pages
         {
 
         }
-
         private void BtnDeleteCompleted1_Click(object sender, RoutedEventArgs e)
         {
 

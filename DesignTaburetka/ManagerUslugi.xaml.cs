@@ -74,9 +74,7 @@ namespace DesignTaburetka
 
         private void btnContracts_Checked(object sender, RoutedEventArgs e)
         {
-
-            fContainer3.Navigate(new System.Uri("Pages/ContractsForManagers.xaml", UriKind.RelativeOrAbsolute));
-
+            fContainerManager.Navigate(new System.Uri("Pages/ContractsForManagers.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnToDo_Checked(object sender, RoutedEventArgs e)
