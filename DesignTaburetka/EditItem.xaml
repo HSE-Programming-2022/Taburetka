@@ -19,7 +19,7 @@
             <TextBox Grid.ColumnSpan="2" Name="Description" Text="{Binding Path=Description, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
 
             <TextBlock Text="Срок:" FontWeight="Bold" Foreground="white"/>
-            <DatePicker Name="Deadline" Text="{Binding Path=Deadline, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
+            <DatePicker Style="{DynamicResource DatePickerStyle}" Name="Deadline" Text="{Binding Path=Deadline, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
 
             <TextBlock Text="Изображение:" Grid.Column="0" Width="100" HorizontalAlignment="Left" FontWeight="Bold" Foreground="white"/>
             <Button Style="{StaticResource button}" Width="25" Height="35" VerticalAlignment="Top" Name="ImageUpload" HorizontalAlignment="Right" Click="ImageUpload_Click" Margin="12,0,12,8">

@@ -38,7 +38,7 @@ namespace DesignTaburetka.Models
                 string folderFiles = "../../NotesData/Files/";
                 File.Delete(folderFiles + item.FileSource);
             }
-            if (!string.IsNullOrEmpty(item.FileSource))
+            if (!string.IsNullOrEmpty(item.ImageSource))
             {
                 string folderImages = "../../NotesData/Images/";
                 File.Delete(folderImages + item.ImageSource);
