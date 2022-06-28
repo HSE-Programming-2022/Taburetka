@@ -27,7 +27,7 @@ namespace DesignTaburetka.Pages
             InitializeComponent();
             DataTable DTInWorkData = WPFHelper.Select("SELECT a.work_id, a.came_at, a.work_start, a.suppose_days, a.fact_days, b.status_name, c.dep_name, d.emp_name, d.emp_surname, f.project_name " +
                 "FROM DepartmentWork a INNER JOIN OrderStatus b ON a.status_id = b.status_id " +
-                $"INNER JOIN Department c ON a.dep_id = c.dep_id INNER JOIN Employee d ON a.emp_id = d.emp_id INNER JOIN OrderTask f ON a.order_id = f.order_id WHERE c.dep_name = {}"
+                "INNER JOIN Department c ON a.dep_id = c.dep_id INNER JOIN Employee d ON a.emp_id = d.emp_id INNER JOIN OrderTask f ON a.order_id = f.order_id"
                 );
             InWorkData.DataContext = DTInWorkData;
 
