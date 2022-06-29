@@ -28,6 +28,36 @@ namespace DesignTaburetka.Pages
             InitializeComponent();
         }
 
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private new void DragMove()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lblNote_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            workerID.Focus();
+        }
+
+        private void txtNote_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(workerID.Text) && workerID.Text.Length > 0)
+            {
+                leblNote.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                leblNote.Visibility = Visibility.Visible;
+            }
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

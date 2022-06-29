@@ -71,5 +71,90 @@ namespace DesignTaburetka.Pages
         {
             InitializeComponent();
         }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private new void DragMove()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lblNote_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            OrderName.Focus();
+            Client_id.Focus();
+            SupposeTime.Focus();
+            Comment.Focus();
+            emp_id.Focus();
+            OrderType.Focus();
+            emergencyType.Focus();
+        }
+
+        private void txtNote_TextChanged_OrderName(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(OrderName.Text) && OrderName.Text.Length > 0)
+            {
+                TxtBlockNameOrder.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                TxtBlockNameOrder.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void txtNote_TextChanged_Client_id(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Client_id.Text) && Client_id.Text.Length > 0)
+            {
+                TxtBlockClientID.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                TxtBlockClientID.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void txtNote_TextChanged_SupposeTime(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SupposeTime.Text) && SupposeTime.Text.Length > 0)
+            {
+                TxtBlockSupposeTime.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                TxtBlockSupposeTime.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void txtNote_TextChanged_Comment(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Comment.Text) && Comment.Text.Length > 0)
+            {
+                TxtBlockComment.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                TxtBlockComment.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void txtNote_TextChanged_emp_id(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(emp_id.Text) && emp_id.Text.Length > 0)
+            {
+                TxtBlockEmp_id.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                TxtBlockEmp_id.Visibility = Visibility.Visible;
+            }
+        }
+
     }
 }
