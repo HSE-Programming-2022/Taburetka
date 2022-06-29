@@ -71,7 +71,7 @@
                 </WrapPanel>
             </TabItem>
 
-            <TabItem Header="Запланнированные"  FontSize="15">
+            <TabItem Header="Запланированные"  FontSize="15">
                 <WrapPanel >
                     <Grid Background="Transparent" >
                         <DataGrid Name="PlannedData" 
@@ -114,7 +114,7 @@
 
             </TabItem>
 
-            <TabItem Header="Завершённые"  FontSize="15">
+            <TabItem Header="Завершенные"  FontSize="15">
                 <WrapPanel >
                     <Grid Background="Transparent" >
                         <DataGrid Name="CompletedData" 
@@ -130,6 +130,7 @@
                                 <DataGridTextColumn Header="Дата начала" Binding="{Binding Path='work_start'}" Width="90" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='project_name'}" Width="90" CanUserSort="False"/>
                                 <DataGridTextColumn Header="Заказ" Binding="{Binding Path='project_name'}" Width="90" CanUserSort="False"/>
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
                                     <DataGridTemplateColumn.CellTemplate>
