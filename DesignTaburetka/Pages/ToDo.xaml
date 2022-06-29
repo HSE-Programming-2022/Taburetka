@@ -19,7 +19,15 @@
             <MenuItem Header="Удалить" Name="DeleteItem" Click="DeleteItem_Click"/>
         </ContextMenu>
     </Page.Resources>
-    <Border CornerRadius="8" Background="#003B46">
+    <Border CornerRadius="8">
+        
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0.4,0" EndPoint="0.5,1">
+                <GradientStop Color="#003b46" Offset="0"></GradientStop>
+                <GradientStop Color="#66a5ad" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </Border.Background>
+        
         <Grid>
 
             <Grid.RowDefinitions>
@@ -29,7 +37,7 @@
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" Width="auto" Height="auto" HorizontalAlignment="Center">
                 <Grid>
-                    <ListView Style="{DynamicResource ListViewStyle}" Background="#003B46" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="800" Grid.Row="1" Grid.ColumnSpan="3" MouseDoubleClick="lvToDo_MouseDoubleClick" 
+                    <ListView Style="{DynamicResource ListViewStyle}" Background="Transparent" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="800" Grid.Row="1" Grid.ColumnSpan="3" MouseDoubleClick="lvToDo_MouseDoubleClick" 
                           ContextMenu="{StaticResource itemMenu}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -43,7 +51,7 @@
                                     <TextBlock Text="Файл:" FontWeight="Bold"/>
                                     <TextBlock Name="File" Text="{Binding FileSource}"/>
                                     <TextBlock Name="IsDone" FontWeight="Bold" Grid.Column="2" HorizontalAlignment="Left" Text="{Binding IsDone}"/>
-                                    <Separator Height="0.8" Background="#66A5AD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="752"/>
+                                    <Separator Height="0.8" Background="#003b46" HorizontalAlignment="Center" VerticalAlignment="Center" Width="752"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
