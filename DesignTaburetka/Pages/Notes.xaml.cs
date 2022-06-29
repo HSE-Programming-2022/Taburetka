@@ -20,6 +20,10 @@ namespace TaburetkaProject
         private string folderImages = "../../NotesData/Images/";
 
         private string folderFiles = "../../NotesData/Files/";
+        
+        private string fullFilePath;
+
+        private string fullImagePath;
 
         List<ToDoItem> tdl = new List<ToDoItem>();
         public Notes()
@@ -65,11 +69,14 @@ namespace TaburetkaProject
         {
             if (!string.IsNullOrEmpty(txtNote.Text))
             {
-                ToDoItem item = new ToDoItem(txtNote.Text, imagePath.Text, fileName.Text, "Не выполнено");
+                ToDoItem item = new ToDoItem(txtNote.Text, imagePath.Text, fileName.Text);
 
                 tdl.Insert(0, item);
 
                 StorageNotes.SaveItem(tdl);
+                if (!string.IsNullOrEmpty(imagePath.Text)) File.Copy(fullImagePath, Path.Combine(folderImages, imagePath.Text));
+                if (!string.IsNullOrEmpty(fileName.Text)) File.Copy(fullFilePath, Path.Combine(folderFiles, fileName.Text));
+            
             }
 
             txtNote.Text = "";
@@ -94,7 +101,7 @@ namespace TaburetkaProject
                 {
 
                     imagePath.Text = Path.GetFileName(openDialog.FileName);
-                    File.Copy(openDialog.FileName, Path.Combine(folderImages, imagePath.Text));
+                    fullImagePath = openDialog.FileName;        
                     System.Windows.MessageBox.Show($"Изображение загружено", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
@@ -103,7 +110,6 @@ namespace TaburetkaProject
         private void FileUpload_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
             openFileDialog.Filter = "Text files (*.txt)|*.txt|Pdf files (*.pdf)|*.pdf|Docx files (*.docx)|*.docx|Pptx files (*.pptx)|*.pptx|Xlsx files (*.xlsx)|*.xlsx";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -115,15 +121,10 @@ namespace TaburetkaProject
                 else
                 {
                     fileName.Text = Path.GetFileName(openFileDialog.FileName);
-                    File.Copy(openFileDialog.FileName, Path.Combine(folderFiles, fileName.Text));
+                    fullFilePath = openFileDialog.FileName;
                     System.Windows.MessageBox.Show($"Файл {fileName.Text} загружен", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
-        }
-
-        private void chkShowNotDone_Checked(object sender, RoutedEventArgs e)
-        {
-            lvToDo.ItemsSource = tdl.Where(item => item.IsDone == "Не выполнено");
         }
 
         private void chkShowNotDone_Unchecked(object sender, RoutedEventArgs e)
