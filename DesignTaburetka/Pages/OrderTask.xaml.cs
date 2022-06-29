@@ -49,7 +49,7 @@ namespace DesignTaburetka.Pages
                 createdAt, addOrder.ClientComment, addOrder.TypeEmergency, addOrder.NameOrder,
                 addOrder.TimeSuppose, addOrder.ClientID, addOrder.OrderTypeId, addOrder.EmpId
                 );
-            WPFHelper.Insert(insertCommand);
+            WPFHelper.DMLSQL(insertCommand);
             OrderTaskData.DataContext = WPFHelper.Select("SELECT * FROM [dbo].[OrderTask]");
 
         }

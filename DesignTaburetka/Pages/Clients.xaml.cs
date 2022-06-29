@@ -60,7 +60,7 @@ namespace DesignTaburetka.Pages
                 " VALUES ('{0}', '{1}', '{2}', '{3}')",
                 addClient.ClientName, addClient.ClientAdresses, addClient.ClientPhones, addClient.TypeClientId
                 );
-            WPFHelper.Insert(insertCommand);
+            WPFHelper.DMLSQL(insertCommand);
             ClientsData.DataContext = WPFHelper.Select("SELECT * FROM [dbo].[Client]");
         }
 
@@ -73,7 +73,7 @@ namespace DesignTaburetka.Pages
             string id = dataRowView[0].ToString();
 
             string deleteCommand = $"delete from Client where client_id = {int.Parse(id)}";
-            WPFHelper.Delete(deleteCommand);
+            WPFHelper.DMLSQL(deleteCommand);
             ClientsData.DataContext = WPFHelper.Select("SELECT * FROM [dbo].[Client]");
         }
     }

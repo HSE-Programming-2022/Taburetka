@@ -72,7 +72,7 @@
                 </WrapPanel>
             </TabItem>
 
-            <TabItem Header="Запланнированные"  FontSize="15">
+            <TabItem Header="Запланированные"  FontSize="15">
                 <WrapPanel >
                     <Grid Background="Transparent" >
                         <DataGrid Name="PlannedData" 
@@ -115,15 +115,19 @@
 
             </TabItem>
 
-            <TabItem Header="Завершённые"  FontSize="15">
+            <TabItem Header="Завершенные"  FontSize="15">
                 <WrapPanel >
                     <Grid Background="Transparent" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="179*"/>
+                            <ColumnDefinition Width="411*"/>
+                        </Grid.ColumnDefinitions>
                         <DataGrid Name="CompletedData" 
                 Margin="0,0,0,50" Height="Auto" 
                 ItemsSource="{Binding }"  RowStyle="{StaticResource DataRowStyle}"
                   CellStyle="{StaticResource DataCellStyle}"
                   Style="{StaticResource DataStyle}"
-                  ColumnHeaderStyle="{StaticResource HeaderStyle}" >
+                  ColumnHeaderStyle="{StaticResource HeaderStyle}" Grid.ColumnSpan="2" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="ID работы" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
                                 <!--<DataGridTextColumn Header="Порядоковый номер" Binding="{Binding 'index_num'}" Width="Auto" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>-->
