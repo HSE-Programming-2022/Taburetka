@@ -67,7 +67,7 @@ namespace DesignTaburetka.Pages
 
             string insertCommand = String.Format(
                 "INSERT INTO dbo.WorkerTeam (team_id, worker_id)" +
-                " VALUES ('{0}', '{1}')",
+                " VALUES ('{0}', '{1}') ",
                 team_id, int.Parse(addWorker.WorkerID)
                 );
             WPFHelper.DMLSQL(insertCommand);
