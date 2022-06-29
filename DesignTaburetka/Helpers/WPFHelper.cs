@@ -55,8 +55,5 @@ namespace DesignTaburetka.Helpers
             
 
         }
-
-        public static void Update(string updateSQL) { 
-        }
     }
 }
