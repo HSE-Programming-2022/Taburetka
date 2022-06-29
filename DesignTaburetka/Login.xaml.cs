@@ -22,6 +22,9 @@ namespace DesignTaburetka
     public partial class Login : Window
     {
         public static int emp_id;
+
+        public static string dep_name;
+
         public Login()
         {
             InitializeComponent();
@@ -83,6 +86,8 @@ namespace DesignTaburetka
             //DataTable table4 = WPFHelper.Select(queryString4);
 
             emp_id = int.Parse(table1.Rows[0]["emp_id"].ToString());
+
+            dep_name = table2.Rows[0]["dep_name"].ToString();
 
             if (table1.Rows.Count == 1 & (table3.Rows[0]["rank_name"].ToString() == "Director" || table3.Rows[0]["rank_name"].ToString() == "Designer"))
             {
