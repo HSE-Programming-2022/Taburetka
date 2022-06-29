@@ -24,8 +24,7 @@ namespace DesignTaburetka
         public WorkerUslugi()
         {
             InitializeComponent();
-            // Я без понятия, что тут должно быть
-            fContainerWorker.Navigate(new System.Uri("Pages/MainPageUslugi.xaml", UriKind.RelativeOrAbsolute));
+            fContainerWorker.Navigate(new System.Uri("Pages/ContractsForWorkers.xaml", UriKind.RelativeOrAbsolute));
 
         }
 

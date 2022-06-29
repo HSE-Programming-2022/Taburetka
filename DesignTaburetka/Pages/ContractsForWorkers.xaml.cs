@@ -37,7 +37,7 @@ namespace DesignTaburetka.Pages
         {
             DataTable WorkData = WPFHelper.Select("SELECT work_id, CONVERT(varchar, came_at, 23) came_at, CONVERT(varchar, work_start, 23) work_start, DW.suppose_days, fact_days, project_name, DW.order_id, CONCAT ( emp_name, ' ', emp_surname) AS manager_name " +
                 "FROM DepartmentWork DW INNER JOIN OrderTask OT ON DW.order_id = OT.order_id INNER JOIN Teams ON Teams.manager_id = DW.emp_id INNER JOIN WorkerTeam WT ON WT.team_id = Teams.team_id INNER JOIN Employee E ON DW.emp_id = E.emp_id " +
-                $"WHERE worker_id = {Login.emp_id} AND status_id = {status_id}"
+                $"WHERE worker_id = {Login.Emp_id} AND status_id = {status_id}"
                 );
             return WorkData;
         }
