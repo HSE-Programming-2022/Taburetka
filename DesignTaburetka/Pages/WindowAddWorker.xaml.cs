@@ -22,10 +22,17 @@ namespace DesignTaburetka.Pages
     public partial class WindowAddWorker : Window
     {
         public string WorkerID;
+        
+        public WindowAddWorker()
+        {
+            InitializeComponent();
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WorkerID = workerID.Text;
+            this.Close();
         }
     }
 }
