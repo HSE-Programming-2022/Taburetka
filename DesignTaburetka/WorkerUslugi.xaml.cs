@@ -62,10 +62,6 @@ namespace DesignTaburetka
             WindowState = WindowState.Minimized;
         }
         // End: Button Close | Restore | Minimize
-        private void btnHome_Checked(object sender, RoutedEventArgs e)
-        {
-            fContainerWorker.Navigate(new System.Uri("Pages/MainPageWorker.xaml", UriKind.RelativeOrAbsolute));
-        }
 
         private void btnLogOut_Checked(object sender, RoutedEventArgs e)
         {

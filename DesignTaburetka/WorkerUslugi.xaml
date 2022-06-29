@@ -65,13 +65,6 @@
 
                 <!--меню-->
                 <StackPanel Grid.Row="1">
-                    <RadioButton Style="{StaticResource MenuButton}" x:Name="btnHome" Checked="btnHome_Checked" >
-                        <!--Начальная страница-->
-                        <StackPanel Orientation="Horizontal" >
-                            <fa:IconImage Icon="Home" Style="{StaticResource MenuIcon}"/>
-                            <TextBlock Text="Начальная страница" Style="{StaticResource MenuText}"></TextBlock>
-                        </StackPanel>
-                    </RadioButton>
 
                     <!--Контракты-->
                     <RadioButton Style="{StaticResource MenuButton}" Checked="btnContracts_Checked" >
