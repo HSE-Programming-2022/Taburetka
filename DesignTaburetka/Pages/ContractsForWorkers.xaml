@@ -38,7 +38,7 @@
                     </Setter>
                 </Style>
             </TabControl.Resources>
-            <TabItem Header="Текущие" FontSize="15">
+            <TabItem Header="Текущие заказы" FontSize="15">
                 <WrapPanel >
                     <Grid Background="Transparent" >
                         <DataGrid Name="InWorkData" 
@@ -48,24 +48,16 @@
                                       Style="{StaticResource DataStyle}"
                                       ColumnHeaderStyle="{StaticResource HeaderStyle}" >        
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="id" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
+                                <DataGridTextColumn Header="ID заказа" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
                                 <!--<DataGridTextColumn Header="Порядоковый номер" Binding="{Binding 'index_num'}" Width="Auto" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>-->
                                 <DataGridTextColumn Header="Дата получения" Binding="{Binding 'came_at'}"  Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Дата начала" Binding="{Binding Path='work_start'}" Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Департамент" Binding="{Binding Path='dep_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Работник" Binding="{Binding Path='emp_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Менеджер" Binding="{Binding Path='emp_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Заказ" Binding="{Binding Path='order_id'}" Width="*" CanUserSort="False"/>
-                                <DataGridTextColumn Header="Статус" Binding="{Binding Path='status_id'}" Width="*" CanUserSort="False"/>
+
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Name="BtnMoveToCompleted" Click="BtnMoveToCompleted_Click" Style="{StaticResource IconButtonsStyle}" 
-                                    Tag="IsCloseButton" Cursor="Hand" Content="{f:Icon MinusCircle}">
-                                            </Button>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
@@ -83,24 +75,16 @@
                                       Style="{StaticResource DataStyle}"
                                       ColumnHeaderStyle="{StaticResource HeaderStyle}" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="id" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
+                                <DataGridTextColumn Header="ID заказа" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
                                 <!--<DataGridTextColumn Header="Порядоковый номер" Binding="{Binding 'index_num'}" Width="Auto" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>-->
                                 <DataGridTextColumn Header="Дата получения" Binding="{Binding 'came_at'}"  Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Дата начала" Binding="{Binding Path='work_start'}" Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Департамент" Binding="{Binding Path='dep_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Работник" Binding="{Binding Path='emp_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Менеджер" Binding="{Binding Path='emp_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Заказ" Binding="{Binding Path='order_id'}" Width="*" CanUserSort="False"/>
-                                <DataGridTextColumn Header="Статус" Binding="{Binding Path='status_id'}" Width="*" CanUserSort="False"/>
+
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Name="BtnMoveToInWork" Click="BtnMoveToInWork_Click" Style="{StaticResource IconButtonsStyle}" 
-                                    Tag="IsCloseButton" Cursor="Hand" Content="{f:Icon MinusCircle}">
-                                            </Button>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
@@ -129,24 +113,15 @@
                   Style="{StaticResource DataStyle}"
                   ColumnHeaderStyle="{StaticResource HeaderStyle}" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="id" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
+                                <DataGridTextColumn Header="ID заказа" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
                                 <!--<DataGridTextColumn Header="Порядоковый номер" Binding="{Binding 'index_num'}" Width="Auto" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>-->
                                 <DataGridTextColumn Header="Дата получения" Binding="{Binding 'came_at'}"  Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Дата начала" Binding="{Binding Path='work_start'}" Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Департамент" Binding="{Binding Path='dep_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Работник" Binding="{Binding Path='emp_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='order_id'}" Width="*" CanUserSort="False"/>
-                                <DataGridTextColumn Header="Статус" Binding="{Binding Path='status_id'}" Width="*" CanUserSort="False"/>
+                                <DataGridTextColumn Header="Менеджер" Binding="{Binding Path='manager_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='project_name'}" Width="*" CanUserSort="False"/>
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Name="BtnDeleteCompleted" Click="BtnDeleteCompleted_Click" Style="{StaticResource IconButtonsStyle}" 
-                                    Tag="IsCloseButton" Cursor="Hand" Content="{f:Icon MinusCircle}">
-                                            </Button>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>

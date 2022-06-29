@@ -23,41 +23,24 @@ namespace DesignTaburetka.Pages
     {
         public ContractsForWorkers()
         {
+            
             InitializeComponent();
-            DataTable DTInWorkData = WPFHelper.Select("SELECT a.work_id, a.came_at, a.work_start, a.suppose_days, a.fact_days, b.status_name, c.dep_name, d.emp_name, d.emp_surname, f.project_name " +
-                "FROM DepartmentWork a INNER JOIN OrderStatus b ON a.status_id = b.status_id " +
-                $"INNER JOIN Department c ON a.dep_id = c.dep_id INNER JOIN Employee d ON a.emp_id = d.emp_id INNER JOIN OrderTask f ON a.order_id = f.order_id WHERE (a.emp_id = {Login.emp_id}) and (b.status_name = 'In work')"
-                );
-            InWorkData.DataContext = DTInWorkData;
+            //2 - tasks in progress, 3 - planned, 1 - completed
+            InWorkData.DataContext = RefreshTable(2);
 
-            DataTable DTPlannedData = WPFHelper.Select("SELECT a.work_id, a.came_at, a.work_start, a.suppose_days, a.fact_days, b.status_name, c.dep_name, d.emp_name, d.emp_surname, f.project_name " +
-                "FROM DepartmentWork a INNER JOIN OrderStatus b ON a.status_id = b.status_id " +
-                $"INNER JOIN Department c ON a.dep_id = c.dep_id INNER JOIN Employee d ON a.emp_id = d.emp_id INNER JOIN OrderTask f ON a.order_id = f.order_id WHERE (a.emp_id = {Login.emp_id}) and (b.status_name = 'Planned')"
-                );
-            PlannedData.DataContext = DTPlannedData;
+            PlannedData.DataContext = RefreshTable(3);
 
-            DataTable DTCompletedData = WPFHelper.Select("SELECT a.work_id, a.came_at, a.work_start, a.suppose_days, a.fact_days, b.status_name, c.dep_name, d.emp_name, d.emp_surname, f.project_name " +
-                "FROM DepartmentWork a INNER JOIN OrderStatus b ON a.status_id = b.status_id " +
-                $"INNER JOIN Department c ON a.dep_id = c.dep_id INNER JOIN Employee d ON a.emp_id = d.emp_id INNER JOIN OrderTask f ON a.order_id = f.order_id WHERE (a.emp_id = {Login.emp_id} and (b.status_name = 'Completed'))"
-                );
-            CompletedData.DataContext = DTCompletedData;
-
-            //DataTable DTOrderTask = WPFHelper.Select("SELECT a.order_id, a.projcet_name, c.client_name, a.created_at, a.suppose_days, " +
-            //                                         "a.comment, b.emp_name, b.emp_surname FROM OrderTask a inner join Employee b on a.added_by = b.emp_id inner join Client c on a.client_id = c.client_id");
+            CompletedData.DataContext = RefreshTable(1);
         }
 
-        private void BtnMoveToCompleted_Click(object sender, RoutedEventArgs e)
+        private DataTable RefreshTable(int status_id)
         {
-
+            DataTable WorkData = WPFHelper.Select("SELECT work_id, CONVERT(varchar, came_at, 23) came_at, CONVERT(varchar, work_start, 23) work_start, DW.suppose_days, fact_days, project_name, DW.order_id, CONCAT ( emp_name, ' ', emp_surname) AS manager_name " +
+                "FROM DepartmentWork DW INNER JOIN OrderTask OT ON DW.order_id = OT.order_id INNER JOIN Teams ON Teams.manager_id = DW.emp_id INNER JOIN WorkerTeam WT ON WT.team_id = Teams.team_id INNER JOIN Employee E ON DW.emp_id = E.emp_id " +
+                $"WHERE worker_id = {Login.emp_id} AND status_id = {status_id}"
+                );
+            return WorkData;
         }
-        private void BtnMoveToInWork_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void BtnDeleteCompleted_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
