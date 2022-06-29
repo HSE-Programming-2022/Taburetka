@@ -181,6 +181,40 @@
             </Setter>
         </Style>
 
+        <Style x:Key="IconButtonsStyleCompleted" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#003b46"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="bd" CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter Name="ico" Content="{TemplateBinding Content}"  Height="25" Width="25" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="WhiteSmoke"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                    <Condition Property="Tag" Value="IsCloseButton"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" Value="#3CB371"/>
+                                <Setter Property="Foreground" Value="WhiteSmoke"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Foreground" Value="#003b46"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="AuthoTextBox" TargetType="Control">
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Margin" Value="10"/>
@@ -754,7 +788,7 @@
         </Style>
 
         <SolidColorBrush x:Key="ListBox.Static.Background" Color="#FFFFFFFF"/>
-        <SolidColorBrush x:Key="ListBox.Static.Border" Color="#66A5AD"/>
+        <SolidColorBrush x:Key="ListBox.Static.Border" Color="#003b46"/>
         <SolidColorBrush x:Key="ListBox.Disabled.Background" Color="#FFFFFFFF"/>
         <SolidColorBrush x:Key="ListBox.Disabled.Border" Color="#FFD9D9D9"/>
         
@@ -816,14 +850,14 @@
             </Setter>
         </Style>
         
-        <SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF"/>
-        <SolidColorBrush x:Key="OptionMark.Static.Border" Color="#66A5AD"/>
-        <SolidColorBrush x:Key="OptionMark.Static.Glyph" Color="White"/>
-        <SolidColorBrush x:Key="OptionMark.MouseOver.Background" Color="#66A5AD"/>
-        <SolidColorBrush x:Key="OptionMark.MouseOver.Border" Color="white"/>
-        <SolidColorBrush x:Key="OptionMark.MouseOver.Glyph" Color="#FF212121"/>
+        <SolidColorBrush x:Key="OptionMark.Static.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="OptionMark.Static.Border" Color="#003b46"/>
+        <SolidColorBrush x:Key="OptionMark.Static.Glyph" Color="#003b46"/>
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Background" Color="White"/>
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Border" Color="WhiteSmoke"/>
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Glyph" Color="#003b46"/>
         <SolidColorBrush x:Key="OptionMark.Pressed.Background" Color="Transparent"/>
-        <SolidColorBrush x:Key="OptionMark.Pressed.Border" Color="#66A5AD"/>
+        <SolidColorBrush x:Key="OptionMark.Pressed.Border" Color="#003b46"/>
         <SolidColorBrush x:Key="OptionMark.Pressed.Glyph" Color="White"/>
         <SolidColorBrush x:Key="OptionMark.Disabled.Background" Color="#FFE6E6E6"/>
         <SolidColorBrush x:Key="OptionMark.Disabled.Border" Color="#FFBCBCBC"/>
@@ -905,7 +939,7 @@
         <Style x:Key="ButtonStyleEdit" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="#66a5ad"/>
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="BorderBrush" Value="WhiteSmoke"/>
             <Setter Property="Foreground" Value="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type RadioButton}}}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>

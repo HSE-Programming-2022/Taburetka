@@ -8,39 +8,50 @@
         mc:Ignorable="d"
         Title="EditItem" Height="310" Width="300">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="2" Background="#003B46">
+    <Border>
+        
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0.4,0" EndPoint="0.5,1">
+                <GradientStop Color="#003b46" Offset="0"></GradientStop>
+                <GradientStop Color="#66a5ad" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </Border.Background>
 
-            <TextBlock Text="Описание:" FontWeight="Bold" Foreground="white"/>
-            <TextBox Grid.ColumnSpan="2" Name="Description" Text="{Binding Path=Description, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.ColumnSpan="2">
 
-            <TextBlock Text="Срок:" FontWeight="Bold" Foreground="white"/>
-            <DatePicker Style="{DynamicResource DatePickerStyle}" Name="Deadline" Text="{Binding Path=Deadline, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
+                <TextBlock Text="Описание:" FontWeight="Bold" Foreground="white"/>
+                <TextBox Grid.ColumnSpan="2" Name="Description" Text="{Binding Path=Description, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
 
-            <TextBlock Text="Изображение:" Grid.Column="0" Width="100" HorizontalAlignment="Left" FontWeight="Bold" Foreground="white"/>
-            <Button Style="{StaticResource button}" Width="25" Height="35" VerticalAlignment="Top" Name="ImageUpload" HorizontalAlignment="Right" Click="ImageUpload_Click" Margin="12,0,12,8">
-                <fa:ImageAwesome Icon="image" Height="25" Width="18"/>
-            </Button>
-            <TextBox Name="ImageSource" Text="{Binding Path=ImageSource, Mode=TwoWay}" Background="#66A5AD" Foreground="White"/>
+                <TextBlock Text="Срок:" FontWeight="Bold" Foreground="white"/>
+                <DatePicker Style="{DynamicResource DatePickerStyle}" Name="Deadline" Text="{Binding Path=Deadline, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
 
-            <TextBlock Text="Файл:" FontWeight="Bold" Grid.ColumnSpan="1" Grid.Column="0" Foreground="white"/>
-            <Button Style="{StaticResource button}" Name="FileUpload" Grid.ColumnSpan="1" Grid.Column="1" Width="25" Height="35" HorizontalAlignment="Right"  Click="FileUpload_Click" Margin="12,0,12,8">
-                <fa:ImageAwesome x:Name="fileUpload" Icon="PaperClip" Height="18" Width="19"/>
-            </Button>
-            <TextBox Name="FileSource" Text="{Binding Path=FileSource, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
-            <Grid HorizontalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Button Style="{DynamicResource ButtonStyleEdit}" IsDefault="True" Name="Save" Grid.Column="0" Click="Save_Click" Margin="8,8,0,0">OK</Button>
-                <Button Style="{DynamicResource ButtonStyleEdit}" IsCancel="True" Name="Cancel" Grid.Column="2" Click="Cancel_Click" Margin="0,8,8,0">Cancel</Button>
-            </Grid>
-        </StackPanel>
-    </Grid>
+                <TextBlock Text="Изображение:" Grid.Column="0" Width="100" HorizontalAlignment="Left" FontWeight="Bold" Foreground="white"/>
+                <Button Style="{StaticResource button}" Width="25" Height="35" VerticalAlignment="Top" Name="ImageUpload" HorizontalAlignment="Right" Click="ImageUpload_Click" Margin="12,0,12,8">
+                    <fa:ImageAwesome Icon="image" Height="25" Width="18"/>
+                </Button>
+                <TextBox Name="ImageSource" Text="{Binding Path=ImageSource, Mode=TwoWay}" Background="#66A5AD" Foreground="White"/>
+
+                <TextBlock Text="Файл:" FontWeight="Bold" Grid.ColumnSpan="1" Grid.Column="0" Foreground="white"/>
+                <Button Style="{StaticResource button}" Name="FileUpload" Grid.ColumnSpan="1" Grid.Column="1" Width="25" Height="35" HorizontalAlignment="Right"  Click="FileUpload_Click" Margin="12,0,12,8">
+                    <fa:ImageAwesome x:Name="fileUpload" Icon="PaperClip" Height="18" Width="19"/>
+                </Button>
+                <TextBox Name="FileSource" Text="{Binding Path=FileSource, Mode=TwoWay}" Background="#66A5AD" Foreground="white"/>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Style="{DynamicResource ButtonStyleEdit}" IsDefault="True" Name="Save" Grid.Column="0" Click="Save_Click" Margin="8,8,0,0">OK</Button>
+                    <Button Style="{DynamicResource ButtonStyleEdit}" IsCancel="True" Name="Cancel" Grid.Column="2" Click="Cancel_Click" Margin="0,8,8,0">Cancel</Button>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Border>
+    
 </Window>
