@@ -26,9 +26,7 @@
                 <DataGridTextColumn Header="id" Binding="{Binding Path='worker_id'}" IsReadOnly="True" Width="100" SortDirection="Ascending" CanUserSort="True"/>
                 <DataGridTextColumn Header="Имя работника" Binding="{Binding Path='emp_name'}" Width="*" CanUserSort="True"/>
                 <DataGridTextColumn Header="Фамилия работника" Binding="{Binding Path='emp_surname'}" Width="*" CanUserSort="True"/>
-                <DataGridTextColumn Header="Отдел" Binding="{Binding Path='dep_name'}" Width="*" CanUserSort="True"/>
-                <DataGridTextColumn Header="Должность" Binding="{Binding Path='rank_name'}" Width="*" CanUserSort="True"/>
-                
+                <DataGridTextColumn Header="Должность" Binding="{Binding Path='dep_name'}" Width="*" CanUserSort="True"/>
                 <DataGridTemplateColumn Width="Auto" CanUserSort="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

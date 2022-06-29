@@ -1,7 +1,5 @@
-﻿using DesignTaburetka.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,16 +15,16 @@ using System.Windows.Shapes;
 namespace DesignTaburetka.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для WindowAddWorker.xaml
+    /// Логика взаимодействия для WindowAddWorkerInTeam.xaml
     /// </summary>
-    public partial class WindowAddWorker : Window
+    public partial class WindowAddWorkerInTeam : Window
     {
-        public string WorkerID;
-        
-        public WindowAddWorker()
+        public WindowAddWorkerInTeam()
         {
             InitializeComponent();
         }
+
+        public string WorkerID;
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -41,8 +39,23 @@ namespace DesignTaburetka.Pages
             throw new NotImplementedException();
         }
 
+        private void lblNote_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            workerID.Focus();
+        }
 
-        // Start: Button Close | Restore | Minimize 
+        private void txtNote_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(workerID.Text) && workerID.Text.Length > 0)
+            {
+                workerID.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                workerID.Visibility = Visibility.Visible;
+            }
+        }
+
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -52,20 +65,12 @@ namespace DesignTaburetka.Pages
         {
             WindowState = WindowState.Minimized;
         }
-        private void btnAddWorker_Click(object sender, RoutedEventArgs e)
+
+
+        private void btnAddWorkerInTeam_Click(object sender, RoutedEventArgs e)
         {
-
+            WorkerID = workerID.Text;
+            this.Close();
         }
-
-        private void depType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void rankType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
     }
 }

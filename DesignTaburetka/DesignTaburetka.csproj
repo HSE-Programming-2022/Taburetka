@@ -162,6 +162,9 @@
     <Compile Include="Pages\WindowAddWorker.xaml.cs">
       <DependentUpon>WindowAddWorker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\WindowAddWorkerInTeam.xaml.cs">
+      <DependentUpon>WindowAddWorkerInTeam.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WorkerUslugi.xaml.cs">
       <DependentUpon>WorkerUslugi.xaml</DependentUpon>
     </Compile>
@@ -248,6 +251,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\WindowAddWorker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WindowAddWorkerInTeam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

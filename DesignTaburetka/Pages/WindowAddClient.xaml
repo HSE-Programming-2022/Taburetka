@@ -3,9 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DesignTaburetka.Pages"
+        xmlns:local="clr-namespace:DesignTaburetka.Pages" xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
-        Title="WindowAddClient" Height="500" Width="450"
+        Title="WindowAddClient" Width="500" Height="350"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -35,34 +37,34 @@
             </Setter>
         </Style>
         <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="#66a5ad" Offset="0.0"/>
-            <GradientStop Color="#66a5ad" Offset="1.0"/>
+            <GradientStop Color="#FFF0F0F0" Offset="0.0"/>
+            <GradientStop Color="#FFE5E5E5" Offset="1.0"/>
         </LinearGradientBrush>
-        <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#003b46"/>
-        <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="WhiteSmoke"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FFACACAC"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="#FF606060"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="#FFFFFFFF"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="#FFABADB3"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="Transparent"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Border" Color="Transparent"/>
         <LinearGradientBrush x:Key="ComboBox.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Transparent" Offset="0.0"/>
-            <GradientStop Color="Transparent" Offset="1.0"/>
+            <GradientStop Color="#FFECF4FC" Offset="0.0"/>
+            <GradientStop Color="#FFDCECFC" Offset="1.0"/>
         </LinearGradientBrush>
-        <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="WhiteSmoke"/>
-        <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="WhiteSmoke"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="#FF000000"/>
         <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Background" Color="#FFFFFFFF"/>
-        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Border" Color="WhiteSmoke"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Border" Color="#FF7EB4EA"/>
         <LinearGradientBrush x:Key="ComboBox.MouseOver.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Transparent" Offset="0.0"/>
-            <GradientStop Color="Transparent" Offset="1.0"/>
+            <GradientStop Color="#FFEBF4FC" Offset="0.0"/>
+            <GradientStop Color="#FFDCECFC" Offset="1.0"/>
         </LinearGradientBrush>
-        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Button.Border" Color="#66a5ad"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Button.Border" Color="#FF7EB4EA"/>
         <LinearGradientBrush x:Key="ComboBox.Pressed.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Transparent" Offset="0.0"/>
-            <GradientStop Color="Transparent" Offset="1.0"/>
+            <GradientStop Color="#FFDAECFC" Offset="0.0"/>
+            <GradientStop Color="#FFC4E0FC" Offset="1.0"/>
         </LinearGradientBrush>
-        <SolidColorBrush x:Key="ComboBox.Pressed.Border" Color="WhiteSmoke"/>
-        <SolidColorBrush x:Key="ComboBox.Pressed.Glyph" Color="WhiteSmoke"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Border" Color="#FF569DE5"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Glyph" Color="#FF000000"/>
         <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Background" Color="#FFFFFFFF"/>
         <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Border" Color="#FF569DE5"/>
         <LinearGradientBrush x:Key="ComboBox.Pressed.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
@@ -85,7 +87,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
-                        <Border CornerRadius="8" x:Name="templateRoot" Background="{StaticResource ComboBox.Static.Background}" BorderBrush="{StaticResource ComboBox.Static.Border}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                        <Border CornerRadius="5" x:Name="templateRoot" Background="{StaticResource ComboBox.Static.Background}" BorderBrush="#003b46" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
                             <Border x:Name="splitBorder" BorderBrush="Transparent" BorderThickness="1" HorizontalAlignment="Right" Margin="0" SnapsToDevicePixels="true" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
                                 <Path x:Name="arrow" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z" Fill="{StaticResource ComboBox.Static.Glyph}" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
                             </Border>
@@ -201,7 +203,7 @@
                     <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                 </Trigger>
                 <Trigger Property="IsKeyboardFocusWithin" Value="true">
-                    <Setter Property="Foreground" Value="white"/>
+                    <Setter Property="Foreground" Value="Black"/>
                 </Trigger>
                 <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
                     <Setter Property="Margin" TargetName="shadow" Value="0,0,5,5"/>
@@ -267,7 +269,7 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
-        <Style x:Key="ComboBoxStyleAdd" TargetType="{x:Type ComboBox}">
+        <Style x:Key="ComboBoxStyleTypeOrder" TargetType="{x:Type ComboBox}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource ComboBox.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>
@@ -289,44 +291,65 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-
-    <Border>
-
+    <Border CornerRadius="10" MouseDown="Border_MouseDown" Height="Auto" >
         <Border.Background>
             <LinearGradientBrush StartPoint="0.4,0" EndPoint="0.5,1">
-                <GradientStop Color="#003b46" Offset="0"></GradientStop>
-                <GradientStop Color="#66a5ad" Offset="1"></GradientStop>
+                <GradientStop Color="#003b46" Offset="1"></GradientStop>
+                <GradientStop Color="#66a5ad" Offset="0"></GradientStop>
             </LinearGradientBrush>
         </Border.Background>
 
-        <Grid>
+        <Grid Height="Auto">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition  Height="Auto"/>
             </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" >
+                <Button x:Name="btnClose" Click="btnClose_Click" Style="{StaticResource IconButtonsStyle}"  Tag="IsCloseButton" Cursor="Hand" Content="{fa:Icon WindowClose}"/>
 
-            <TextBox Style="{DynamicResource TextBoxStyleAddWorker}" x:Name="clientName" Grid.Row="0" TextChanged="txtNote_TextChanged_clientName" Width="400" Height="26"/>
-            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Имя клиента" Grid.Row="0" x:Name="TxtBlockclientName" MouseDown="lblNote_MouseDown"/>
+                <Button x:Name="btnMinimize" Click="btnMinimize_Click" Style="{DynamicResource IconButtonsStyle}" Content="{fa:Icon WindowMinimize}"  Cursor="Hand"/>
+            </StackPanel>
+            <ScrollViewer Grid.Row="1">
+                <Grid Margin="20" Grid.Row="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
 
-            <TextBox Style="{DynamicResource TextBoxStyleAddWorker}" x:Name="Phones" Grid.Row="1" TextChanged="txtNote_TextChanged_Phones" Width="400" Height="26"/>
-            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Телефоны клиента" Grid.Row="1" x:Name="TxtBlockPhones" MouseDown="lblNote_MouseDown"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-            <TextBox Style="{DynamicResource TextBoxStyleAddWorker}" x:Name="Adresses" Grid.Row="2" TextChanged="txtNote_TextChanged_Adresses" Width="400" Height="26"/>
-            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Адреса клиента" Grid.Row="2" x:Name="TxtBlockAdresses" MouseDown="lblNote_MouseDown"/>
+                    <Label Grid.Row ="0" Grid.Column="0" Style="{StaticResource Text}" FontSize="15"  Foreground="WhiteSmoke" Content="Имя клиента"  />
+                    <Label Grid.Row ="1" Grid.Column="0" Content="Телефоны клиента" Style="{StaticResource Text}" FontSize="15"  Foreground="WhiteSmoke"/>
+                    <Label Grid.Row ="2" Grid.Column="0" Content="Адрес клиента" Style="{StaticResource Text}" FontSize="15"  Foreground="WhiteSmoke"/>
+                    <Label Grid.Row ="3" Grid.Column="0" Content="Тип заказа" Style="{StaticResource Text}" FontSize="15"  Foreground="WhiteSmoke"/>
 
-            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="*Тип клиента:" Grid.Row="3" x:Name="TxtBlockemergencyType" MouseDown="lblNote_MouseDown" VerticalAlignment="Top" Margin="0,6,0,0"/>
-            <ComboBox Style="{DynamicResource ComboBoxStyleAdd}" x:Name="ClientType" Grid.Row="3" SelectionChanged="clientType_SelectionChanged" Foreground="White" Width="400" Height="26">
-                <ComboBoxItem Foreground="Black">Компания</ComboBoxItem>
-                <ComboBoxItem Foreground="Black">Физическое лицо</ComboBoxItem>
-            </ComboBox>
+                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource AuthoTextBox}" HorizontalAlignment="Left" x:Name="clientName" Margin="5,5,0,5" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="150"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource AuthoTextBox}" HorizontalAlignment="Left" x:Name="Phones" Margin="5,5,0,5" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="150"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource AuthoTextBox}" HorizontalAlignment="Left" x:Name="Adresses" Margin="5,5,0,5" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="150"/>
+                    <ComboBox Style="{DynamicResource ComboBoxStyleTypeOrder}" x:Name="ClientType" Grid.Row="3" Width="100" HorizontalAlignment="Left" Grid.Column="1" Margin="5,5,0,5" SelectionChanged="clientType_SelectionChanged" >
+                        <ComboBoxItem>Физическое лицо</ComboBoxItem>
+                        <ComboBoxItem>Юридическое лицо</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+            </ScrollViewer>
 
-            <Button Style="{StaticResource ButtonStyleEdit}" Grid.Row="4" Content="OK" Margin="5" Click="Button_Click" Width="100" Height="40" />
-
+            <Button Grid.Row="2"  Click="btnAddClient_Click" Style="{StaticResource btnLogIn}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource MenuText}" Margin="31,0,0,0">Ок</TextBlock>
+                </Button.Content>
+            </Button>
         </Grid>
 
     </Border>
-    
+
 </Window>
