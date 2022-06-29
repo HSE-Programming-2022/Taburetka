@@ -26,7 +26,7 @@
                 <DataGridTextColumn Header="Название" Binding="{Binding 'project_name'}" Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                 <DataGridTextColumn Header="Клиент" Binding="{Binding 'client_name'}"  Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                 <DataGridTextColumn Header="Создан" Binding="{Binding Path='created_at'}" Width="100" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
-                <DataGridTextColumn Header="Пред.время" Binding="{Binding Path='suppode_days'}" Width="Auto" CanUserSort="True"/>
+                <DataGridTextColumn Header="Пред.время" Binding="{Binding Path='suppose_days'}" Width="Auto" CanUserSort="True"/>
                 <DataGridTextColumn Header="Комментарий" Binding="{Binding Path='comment'}" Width="150" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
                 <DataGridTextColumn Header="Добавил" Binding="{Binding Path='emp_name'}" Width="Auto" CanUserSort="True"/>
                 <DataGridTextColumn Header="Тип заказа" Binding="{Binding Path='order_type_id'}" Width="Auto" CanUserSort="True"/>
