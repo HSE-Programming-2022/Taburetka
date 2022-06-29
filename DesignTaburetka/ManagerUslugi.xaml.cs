@@ -24,7 +24,7 @@ namespace DesignTaburetka
         public ManagerUslugi()
         {
             InitializeComponent();
-            //fContainerManager.Navigate(new System.Uri("Pages/MainPageManager.xaml", UriKind.RelativeOrAbsolute));
+            fContainerManager.Navigate(new System.Uri("Pages/ContractsForManagers.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)

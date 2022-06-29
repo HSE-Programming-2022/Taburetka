@@ -21,7 +21,12 @@ namespace DesignTaburetka
     /// </summary>
     public partial class Login : Window
     {
-        public static int emp_id;
+        private static int emp_id;
+        private static string dep_name;
+
+        public static int Emp_id { get => emp_id; set => emp_id = value; }
+        public static string Dep_name { get => dep_name; set => dep_name = value; }
+
         public Login()
         {
             InitializeComponent();
@@ -75,6 +80,11 @@ namespace DesignTaburetka
 
 
             DataTable table1 = WPFHelper.Select(queryString1);
+            if (table1.Rows.Count == 0)
+            {
+                MessageBox.Show("Данные не найдены. Проверьте логин и пароль.");
+                return;
+            }
 
             DataTable table2 = WPFHelper.Select(queryString2);
 
@@ -82,7 +92,9 @@ namespace DesignTaburetka
 
             //DataTable table4 = WPFHelper.Select(queryString4);
 
-            emp_id = int.Parse(table1.Rows[0]["emp_id"].ToString());
+            Emp_id = int.Parse(table1.Rows[0]["emp_id"].ToString());
+
+            Dep_name = table2.Rows[0]["dep_name"].ToString();
 
             if (table1.Rows.Count == 1 & (table3.Rows[0]["rank_name"].ToString() == "Director" || table3.Rows[0]["rank_name"].ToString() == "Designer"))
             {
