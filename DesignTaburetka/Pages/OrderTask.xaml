@@ -40,6 +40,17 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="50" CanUserSort="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnCheckOrder" Click="BtnCheckOrder_Click" Style="{StaticResource IconButtonsStyle}" 
+                                    Tag="IsCloseButton" Cursor="Hand" Content="{f:Icon Check}">
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
             </DataGrid.Columns>
         </DataGrid>
         <Button Name="BtnAddOrder" Content="Добавить" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2" 

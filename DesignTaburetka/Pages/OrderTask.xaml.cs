@@ -58,5 +58,10 @@ namespace DesignTaburetka.Pages
             OrderTaskData.DataContext = DTOrderTask;
 
         }
+
+        private void BtnCheckOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
