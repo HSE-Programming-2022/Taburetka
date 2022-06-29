@@ -75,8 +75,7 @@ namespace DesignTaburetka.Pages
                                                    "INNER JOIN Employee c ON b.worker_id = c.emp_id " +
                                                    "INNER JOIN Department d ON c.emp_dep_id = d.dep_id " +
                                                    "INNER JOIN EmployeeRank ER ON c.rank_id = ER.rank_id " +
-                                                   $"WHERE a.manager_id = {Login.emp_id}"
-                                                   );
+                                                   $"WHERE a.manager_id = {Login.emp_id}");
         }
 
         private void BtnDeleteWorker_Click(object sender, RoutedEventArgs e)
@@ -89,9 +88,10 @@ namespace DesignTaburetka.Pages
 
             string deleteCommand = $"delete from WorkerTeam where worker_id = {int.Parse(id)}";
             WPFHelper.DMLSQL(deleteCommand);
-            TeamData.DataContext = WPFHelper.Select("SELECT b.worker_id, c.emp_name, c.emp_surname, d.dep_name FROM Teams a INNER JOIN WorkerTeam b ON a.team_id = b.team_id " +
+            TeamData.DataContext = WPFHelper.Select("SELECT b.worker_id, c.emp_surname, emp_name, d.dep_name, a.team_id, ER.rank_name FROM Teams a INNER JOIN WorkerTeam b ON a.team_id = b.team_id " +
                                                    "INNER JOIN Employee c ON b.worker_id = c.emp_id " +
                                                    "INNER JOIN Department d ON c.emp_dep_id = d.dep_id " +
+                                                   "INNER JOIN EmployeeRank ER ON c.rank_id = ER.rank_id " +
                                                    $"WHERE a.manager_id = {Login.emp_id}"
                                                    );
         }
