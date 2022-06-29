@@ -22,7 +22,9 @@ namespace DesignTaburetka.Pages
     /// </summary>
     public partial class TeamDepartment : Page
     {
-        public int team_id;
+        private int team_id;
+
+        public int Team_id { get => team_id; set => team_id = value; }
 
         public TeamDepartment()
         {
@@ -39,7 +41,7 @@ namespace DesignTaburetka.Pages
                                                    $"WHERE manager_id = {Login.emp_id}"
                 );
 
-            team_id = int.Parse(DTTeam_ID.Rows[0]["team_id"].ToString());
+            Team_id = int.Parse(DTTeam_ID.Rows[0]["team_id"].ToString());
 
         }
 
@@ -68,7 +70,7 @@ namespace DesignTaburetka.Pages
 
             string insertCommand =
                 "INSERT INTO dbo.WorkerTeam (team_id, worker_id)" +
-                $" VALUES ('{team_id}', '{addWorker.WorkerID}') ";
+                $" VALUES ('{Team_id}', '{addWorker.WorkerID}') ";
                 
             WPFHelper.DMLSQL(insertCommand);
             TeamData.DataContext = WPFHelper.Select("SELECT b.worker_id, c.emp_surname, emp_name, d.dep_name, a.team_id, ER.rank_name FROM Teams a INNER JOIN WorkerTeam b ON a.team_id = b.team_id " +
