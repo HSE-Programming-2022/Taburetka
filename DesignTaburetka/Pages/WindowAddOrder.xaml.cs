@@ -78,7 +78,7 @@ namespace DesignTaburetka.Pages
         // Start: Button Close | Restore | Minimize 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)

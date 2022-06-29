@@ -58,7 +58,7 @@ namespace DesignTaburetka.Pages
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
