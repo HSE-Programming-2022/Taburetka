@@ -92,8 +92,8 @@
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="BtnMoveToInWork" Click="BtnMoveToInWork1_Click" Style="{StaticResource IconButtonsStyle}" 
-                                    Tag="IsCloseButton" Cursor="Hand" Content="{f:Icon MinusCircle}">
+                                            <Button Name="BtnMoveToInWork" Click="BtnMoveToInWork1_Click" Style="{StaticResource IconButtonsStyleStart}" 
+                                    Tag="IsCloseButton" Cursor="Hand" Content="{f:Icon Hammer}">
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

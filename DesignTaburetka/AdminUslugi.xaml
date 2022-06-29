@@ -50,7 +50,7 @@
                                 </LinearGradientBrush>
                             </Border.Background>
                             <!--UserName and details-->
-                            <TextBlock x:Name="UserNameLetters" Text="MX" FontSize="30" Margin="8 0 6 4" Style="{StaticResource Text}"></TextBlock>
+                            <TextBlock x:Name="UserNameLetters" Text="MX" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource Text}"></TextBlock>
                         </Border>
                         <StackPanel >
                             <TextBlock x:Name="UserFullName" Width="100" TextWrapping="Wrap" Text="Mister Hummer" FontSize="20" Margin="15 20 20 20" TextAlignment="Left" Style="{StaticResource Text}"/>
