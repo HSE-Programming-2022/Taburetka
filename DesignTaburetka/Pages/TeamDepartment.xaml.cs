@@ -26,6 +26,8 @@ namespace DesignTaburetka.Pages
 
         public int Team_id { get => team_id; set => team_id = value; }
 
+        public string dep_worker_name;
+
         public TeamDepartment()
         {
             InitializeComponent();
@@ -42,6 +44,8 @@ namespace DesignTaburetka.Pages
                 );
 
             Team_id = int.Parse(DTTeam_ID.Rows[0]["team_id"].ToString());
+
+
 
         }
 
@@ -68,12 +72,25 @@ namespace DesignTaburetka.Pages
             addWorker.ShowDialog();
             // check input
 
-            string insertCommand =
-                "INSERT INTO dbo.WorkerTeam (team_id, worker_id)" +
-                $" VALUES ('{Team_id}', '{addWorker.WorkerID}') ";
-                
-            WPFHelper.DMLSQL(insertCommand);
-            TeamData.DataContext = WPFHelper.Select("SELECT b.worker_id, c.emp_surname, emp_name, d.dep_name, a.team_id, ER.rank_name FROM Teams a INNER JOIN WorkerTeam b ON a.team_id = b.team_id " +
+            DataTable DTDep_worker_name = WPFHelper.Select("SELECT dep_name FROM Employee a INNER JOIN Department b ON a.emp_dep_id = b.dep_id " +
+                                                         $"WHERE emp_id = {int.Parse(addWorker.WorkerID)}"
+            );
+
+            if (DTDep_worker_name.Rows[0]["dep_name"].ToString() == $"{Login.dep_name}")
+            {
+                string insertCommand =
+               "INSERT INTO dbo.WorkerTeam (team_id, worker_id)" +
+               $" VALUES ('{team_id}', '{int.Parse(addWorker.WorkerID)}') ";
+
+                WPFHelper.DMLSQL(insertCommand);
+            }
+            else
+            {
+                MessageBox.Show("Данный сотрудник не из Вашего отдела");
+            }   
+            
+            TeamData.DataContext = WPFHelper.Select("SELECT b.worker_id, c.emp_name, c.emp_surname, d.dep_name FROM Teams a INNER JOIN WorkerTeam b ON a.team_id = b.team_id " +
+
                                                    "INNER JOIN Employee c ON b.worker_id = c.emp_id " +
                                                    "INNER JOIN Department d ON c.emp_dep_id = d.dep_id " +
                                                    "INNER JOIN EmployeeRank ER ON c.rank_id = ER.rank_id " +
