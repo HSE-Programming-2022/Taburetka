@@ -25,7 +25,9 @@ namespace DesignTaburetka.Pages
         public OrderTask()
         {
             InitializeComponent();
-            DataTable DTOrderTask = WPFHelper.Select("SELECT * FROM OrderTask");
+            DataTable DTOrderTask = WPFHelper.Select("SELECT a.order_id, a.project_name, d.client_name, a.created_at, a.suppose_days, a.comment, c.emp_name, c.emp_surname, order_emergency, order_type_id,  " +
+                "b.design_link, b.measures_link FROM OrderTask a inner join OrderProject b on a.order_id = b.order_id inner join Employee c on a.added_by = c.emp_id inner join Client d on a.client_id = d.client_id"
+                );
             OrderTaskData.DataContext = DTOrderTask;
         }
 
@@ -50,7 +52,10 @@ namespace DesignTaburetka.Pages
                 addOrder.TimeSuppose, addOrder.ClientID, addOrder.OrderTypeId, addOrder.EmpId
                 );
             WPFHelper.DMLSQL(insertCommand);
-            OrderTaskData.DataContext = WPFHelper.Select("SELECT * FROM [dbo].[OrderTask]");
+            DataTable DTOrderTask = WPFHelper.Select("SELECT a.order_id, a.project_name, d.client_name, a.created_at, a.suppose_days, a.comment, c.emp_name, c.emp_surname, order_emergency, order_type_id,  " +
+                "b.design_link, b.measures_link FROM OrderTask a inner join OrderProject b on a.order_id = b.order_id inner join Employee c on a.added_by = c.emp_id inner join Client d on a.client_id = d.client_id"
+                );
+            OrderTaskData.DataContext = DTOrderTask;
 
         }
     }

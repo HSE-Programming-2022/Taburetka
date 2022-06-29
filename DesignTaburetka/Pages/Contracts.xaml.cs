@@ -25,7 +25,7 @@ namespace DesignTaburetka.Pages
         public Contracts()
         {
             InitializeComponent();
-            DataTable DTOrderProject = WPFHelper.Select("SELECT a.order_id, a.project_name, d.client_name, a.created_at, a.suppose_days, a.comment, c.emp_name, c.emp_surname,  " +
+            DataTable DTOrderProject = WPFHelper.Select("SELECT a.order_id, a.project_name, d.client_name, a.created_at, a.suppose_days, a.comment, c.emp_name, c.emp_surname, order_emergency, " +
                 "b.design_link, b.measures_link FROM OrderTask a inner join OrderProject b on a.order_id = b.order_id inner join Employee c on a.added_by = c.emp_id inner join Client d on a.client_id = d.client_id" 
                 );
             ProjectData.DataContext = DTOrderProject;
