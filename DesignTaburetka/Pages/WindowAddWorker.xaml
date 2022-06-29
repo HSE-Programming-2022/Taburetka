@@ -3,32 +3,70 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DesignTaburetka.Pages"
-        mc:Ignorable="d"
+        xmlns:local="clr-namespace:DesignTaburetka.Pages" xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        mc:Ignorable="d" Background="Transparent" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True"
         Title="WindowAddWorker" Height="350" Width="450">
 
-    <Border>
-
+    <Border CornerRadius="10" MouseDown="Border_MouseDown" Height="Auto" >
         <Border.Background>
             <LinearGradientBrush StartPoint="0.4,0" EndPoint="0.5,1">
-                <GradientStop Color="#003b46" Offset="0"></GradientStop>
-                <GradientStop Color="#66a5ad" Offset="1"></GradientStop>
+                <GradientStop Color="#003b46" Offset="1"></GradientStop>
+                <GradientStop Color="#66a5ad" Offset="0"></GradientStop>
             </LinearGradientBrush>
         </Border.Background>
 
-        <Grid>
+        <Grid Height="Auto">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition  Height="Auto"/>
             </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" >
+                <Button x:Name="btnClose" Click="btnClose_Click" Style="{StaticResource IconButtonsStyle}"  Tag="IsCloseButton" Cursor="Hand" Content="{fa:Icon WindowClose}"/>
 
-            <TextBox Style="{DynamicResource TextBoxStyleAddWorker}" x:Name="workerID" Grid.Row="0" TextChanged="txtNote_TextChanged" Width="400" Height="26"/>
+                <Button x:Name="btnMinimize" Click="btnMinimize_Click" Style="{DynamicResource IconButtonsStyle}" Content="{fa:Icon WindowMinimize}"  Cursor="Hand"/>
+            </StackPanel>
+            <ScrollViewer Grid.Row="1">
+                <Grid Margin="20" Grid.Row="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
 
-            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="ID работника" x:Name="leblNote" MouseDown="lblNote_MouseDown"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-            <Button Style="{StaticResource ButtonStyleEdit}" Grid.Row="4" Grid.Column="1" Content="OK" Margin="5" Click="Button_Click" Width="100" Height="40"/>
+                    <Label Grid.Row ="0" Grid.Column="0" Style="{StaticResource Text}" FontSize="15"  Foreground="WhiteSmoke" Content="Имя клиента"  />
+                    <Label Grid.Row ="1" Grid.Column="0" Content="Телефоны клиента" Style="{StaticResource Text}" FontSize="15"  Foreground="WhiteSmoke"/>
+                    <Label Grid.Row ="2" Grid.Column="0" Content="Адрес клиента" Style="{StaticResource Text}" FontSize="15"  Foreground="WhiteSmoke"/>
+                    <Label Grid.Row ="3" Grid.Column="0" Content="Тип заказа" Style="{StaticResource Text}" FontSize="15"  Foreground="WhiteSmoke"/>
 
+                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource AuthoTextBox}" HorizontalAlignment="Left" x:Name="clientName" Margin="5,5,0,5" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="150"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource AuthoTextBox}" HorizontalAlignment="Left" x:Name="Phones" Margin="5,5,0,5" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="150"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource AuthoTextBox}" HorizontalAlignment="Left" x:Name="Adresses" Margin="5,5,0,5" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="150"/>
+                    <ComboBox x:Name="ClientType" Grid.Row="3" Width="100" HorizontalAlignment="Left" Grid.Column="1" Margin="5,5,0,5" SelectionChanged="clientType_SelectionChanged" >
+                        <ComboBoxItem>Физическое лицо</ComboBoxItem>
+                        <ComboBoxItem>Юридическое лицо</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+            </ScrollViewer>
+
+            <Button Grid.Row="2"  Click="btnAddClient_Click" Style="{StaticResource btnLogIn}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource MenuText}" Margin="31,0,0,0">Ок</TextBlock>
+                </Button.Content>
+            </Button>
         </Grid>
+
     </Border>
 
 </Window>

@@ -64,5 +64,10 @@ namespace DesignTaburetka.Pages
             WorkerID = workerID.Text;
             this.Close();
         }
+
+        private void btnAddClient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

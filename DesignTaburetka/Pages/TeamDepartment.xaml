@@ -6,7 +6,6 @@
       xmlns:local="clr-namespace:DesignTaburetka.Pages"
       xmlns:f="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="TeamDepartment">
 
     <Grid Background="Transparent" >
@@ -14,19 +13,29 @@
             <RowDefinition Height="80"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Style="{StaticResource TextHello}" Grid.Row="0" >Команда</TextBlock >
-        <DataGrid Name="TeamData" Grid.Row="1" 
-                  Margin="5,5,5,50" 
-                  ItemsSource="{Binding }"  RowStyle="{StaticResource DataRowStyle}"
+
+        <TextBlock x:Name="teamMates" Style="{StaticResource TextHello}" Grid.Row="0" >Работники</TextBlock >
+        <DataGrid Name="TeamDepartmentData" Grid.Row="1"  Margin="0,0,0,50" Height="Auto" 
+                ItemsSource="{Binding }"  RowStyle="{StaticResource DataRowStyle}"
                   CellStyle="{StaticResource DataCellStyle}"
                   Style="{StaticResource DataStyle}"
-                  ColumnHeaderStyle="{StaticResource HeaderStyle}" 
-                 >
+                  ColumnHeaderStyle="{StaticResource HeaderStyle}" >
             <DataGrid.Columns>
+<<<<<<< HEAD
+                <DataGridTextColumn Header="id" Binding="{Binding Path='client_id'}" IsReadOnly="True" Width="Auto" SortDirection="Ascending" CanUserSort="True"/>
+                <DataGridTextColumn Header="Имя Работника" Binding="{Binding client_name}" Width="*" CanUserSort="True"/>
+                <DataGridTextColumn Header="Фамилия Работника" Binding="{Binding Path='client_phone'}" Width="*" CanUserSort="True"/>
+                <DataGridTextColumn Header="Дата Рождения" Binding="{Binding Path='client_address'}" Width="*" CanUserSort="True"/>
+                <DataGridTextColumn Header="Дата Принятия" Binding="{Binding Path='ClientType'}" Width="*" CanUserSort="True"/>
+                <DataGridTextColumn Header="Нынешний Проект" Binding="{Binding Path='ClientType'}" Width="*" CanUserSort="True"/>
+=======
                 <DataGridTextColumn Header="id" Binding="{Binding Path='worker_id'}" IsReadOnly="True" Width="100" SortDirection="Ascending" CanUserSort="True"/>
                 <DataGridTextColumn Header="Имя работника" Binding="{Binding Path='emp_name'}" Width="*" CanUserSort="True"/>
                 <DataGridTextColumn Header="Фамилия работника" Binding="{Binding Path='emp_surname'}" Width="*" CanUserSort="True"/>
-                <DataGridTextColumn Header="Должность" Binding="{Binding Path='dep_name'}" Width="*" CanUserSort="True"/>
+                <DataGridTextColumn Header="Отдел" Binding="{Binding Path='dep_name'}" Width="*" CanUserSort="True"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Path='rank_name'}" Width="*" CanUserSort="True"/>
+                
+>>>>>>> 48ffec6ada7a8b1b157081118d773ee4a7ebc4ed
                 <DataGridTemplateColumn Width="Auto" CanUserSort="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -39,8 +48,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Name="BtnAddWorker" Content="Добавить" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Grid.Row="2" 
-                Margin="10" Click="BtnAddWorker_Click"  Width="100" Height="30" Style="{StaticResource btnAddClient}" >
+        <!--<Button Name="BtnAddTeamMate" Content="Добавить" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Grid.Row="2" 
+                Margin="10" Click="BtnAddTeamMate_Click"  Width="100" Height="30" Style="{StaticResource btnAddClient}" >
             <Button.Template>
                 <ControlTemplate>
                     <Border CornerRadius="5" Background="{TemplateBinding Background}">
@@ -48,6 +57,6 @@
                     </Border>
                 </ControlTemplate>
             </Button.Template>
-        </Button>
+        </Button>-->
     </Grid>
 </Page>

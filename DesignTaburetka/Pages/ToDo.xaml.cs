@@ -28,6 +28,12 @@ namespace TaburetkaProject
         private string fullImagePath;
 
         List<ToDoItem> tdl = new List<ToDoItem>();
+
+        public string FolderImages { get => folderImages; set => folderImages = value; }
+        public string FolderFiles { get => folderFiles; set => folderFiles = value; }
+        public string FullFilePath { get => fullFilePath; set => fullFilePath = value; }
+        public string FullImagePath { get => fullImagePath; set => fullImagePath = value; }
+
         public ToDo()
         {
             Storage.ReadItems();
@@ -82,8 +88,8 @@ namespace TaburetkaProject
                 tdl.Insert(0, item);
 
                 Storage.SaveItem(tdl);
-                if (!string.IsNullOrEmpty(imagePath.Text)) File.Copy(fullImagePath, Path.Combine(folderImages, imagePath.Text));
-                if (!string.IsNullOrEmpty(fileName.Text)) File.Copy(fullFilePath, Path.Combine(folderFiles, fileName.Text));
+                if (!string.IsNullOrEmpty(imagePath.Text)) File.Copy(FullImagePath, Path.Combine(FolderImages, imagePath.Text));
+                if (!string.IsNullOrEmpty(fileName.Text)) File.Copy(FullFilePath, Path.Combine(FolderFiles, fileName.Text));
             
             }
 
@@ -102,7 +108,7 @@ namespace TaburetkaProject
             openDialog.FilterIndex = 1;
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
-                if (File.Exists(Path.Combine(folderImages, Path.GetFileName(openDialog.FileName))))
+                if (File.Exists(Path.Combine(FolderImages, Path.GetFileName(openDialog.FileName))))
                 {
                     System.Windows.MessageBox.Show($"Изображение с названием {Path.GetFileName(openDialog.FileName)} существует. Переименуйте его и загрузите снова.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -110,7 +116,7 @@ namespace TaburetkaProject
                 {
 
                     imagePath.Text = Path.GetFileName(openDialog.FileName);
-                    fullImagePath = openDialog.FileName;
+                    FullImagePath = openDialog.FileName;
                     System.Windows.MessageBox.Show($"Изображение загружено", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
@@ -124,14 +130,14 @@ namespace TaburetkaProject
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (File.Exists(Path.Combine(folderFiles, Path.GetFileName(openFileDialog.FileName))))
+                if (File.Exists(Path.Combine(FolderFiles, Path.GetFileName(openFileDialog.FileName))))
                 {
                     System.Windows.MessageBox.Show($"Файл с названием {Path.GetFileName(openFileDialog.FileName)} существует. Переименуйте его и загрузите снова.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
                     fileName.Text = Path.GetFileName(openFileDialog.FileName);
-                    fullFilePath = openFileDialog.FileName;
+                    FullFilePath = openFileDialog.FileName;
                     System.Windows.MessageBox.Show($"Файл {fileName.Text} загружен", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
@@ -171,10 +177,10 @@ namespace TaburetkaProject
                 if (del == MessageBoxResult.Yes)
                 {
                     if (!string.IsNullOrEmpty((lvToDo.SelectedItem as ToDoItem).ImageSource))
-                        File.Delete(folderImages + (lvToDo.SelectedItem as ToDoItem).ImageSource);
+                        File.Delete(FolderImages + (lvToDo.SelectedItem as ToDoItem).ImageSource);
 
                     if (!string.IsNullOrEmpty((lvToDo.SelectedItem as ToDoItem).FileSource))
-                        File.Delete(folderFiles + (lvToDo.SelectedItem as ToDoItem).FileSource);
+                        File.Delete(FolderFiles + (lvToDo.SelectedItem as ToDoItem).FileSource);
 
                     tdl.Remove(lvToDo.SelectedItem as ToDoItem);
                     Storage.DeleteItem(lvToDo.SelectedItem as ToDoItem);
