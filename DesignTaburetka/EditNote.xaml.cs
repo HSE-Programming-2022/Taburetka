@@ -23,21 +23,31 @@ namespace DesignTaburetka
     {
         public ToDoItem editItem = new ToDoItem();
 
-        string fullImagePath;
-        string fullFilePath;
+        private string fullImagePath;
+        private string fullFilePath;
 
-        string oldDescription;
-        string oldFileFource;
-        string oldImageSource;
-        string folderFiles = "../../NotesData/Files/";
-        string folderImages = "../../NotesData/Images/";
+        private string oldDescription;
+        private string oldFileFource;
+        private string oldImageSource;
+        private string folderFiles = "../../NotesData/Files/";
+        private string folderImages = "../../NotesData/Images/";
+
+        public string FullImagePath { get => fullImagePath; set => fullImagePath = value; }
+        public string FullFilePath { get => fullFilePath; set => fullFilePath = value; }
+        public string OldDescription { get => oldDescription; set => oldDescription = value; }
+        public string OldFileFource { get => oldFileFource; set => oldFileFource = value; }
+        public string OldImageSource { get => oldImageSource; set => oldImageSource = value; }
+        public string FolderFiles { get => folderFiles; set => folderFiles = value; }
+        public string FolderImages { get => folderImages; set => folderImages = value; }
+
+
         public EditNote(ToDoItem item, string olddescription, string oldfilesource, string oldimagesource)
         {
             InitializeComponent();
-            oldDescription = olddescription;
+            OldDescription = olddescription;
             editItem = item;
-            oldFileFource = oldfilesource;
-            oldImageSource = oldimagesource;
+            OldFileFource = oldfilesource;
+            OldImageSource = oldimagesource;
             DataContext = item;
         }
 
@@ -46,35 +56,35 @@ namespace DesignTaburetka
             if (!string.IsNullOrEmpty(Description.Text))
             {
 
-                if ((!string.IsNullOrEmpty(ImageSource.Text)) && (oldImageSource != ImageSource.Text))
+                if ((!string.IsNullOrEmpty(ImageSource.Text)) && (OldImageSource != ImageSource.Text))
                 {
                     editItem.ImageSource = ImageSource.Text;
-                    File.Copy(fullImagePath, Path.Combine(folderImages, ImageSource.Text));
+                    File.Copy(FullImagePath, Path.Combine(FolderImages, ImageSource.Text));
                 }
 
 
-                if (!(string.IsNullOrEmpty(FileSource.Text)) && (oldFileFource != FileSource.Text))
+                if (!(string.IsNullOrEmpty(FileSource.Text)) && (OldFileFource != FileSource.Text))
                 {
                     editItem.FileSource = FileSource.Text;
-                    File.Copy(fullFilePath, Path.Combine(folderFiles, FileSource.Text));
+                    File.Copy(FullFilePath, Path.Combine(FolderFiles, FileSource.Text));
                 }
 
 
-                if ((!string.IsNullOrEmpty(oldFileFource)) && (oldFileFource != FileSource.Text))
+                if ((!string.IsNullOrEmpty(OldFileFource)) && (OldFileFource != FileSource.Text))
                 {
-                    File.Delete(folderFiles + oldFileFource);
+                    File.Delete(FolderFiles + OldFileFource);
                 }
 
-                if ((!string.IsNullOrEmpty(oldImageSource)) && (oldImageSource != ImageSource.Text))
-                    File.Delete(folderImages + oldImageSource);
+                if ((!string.IsNullOrEmpty(OldImageSource)) && (OldImageSource != ImageSource.Text))
+                    File.Delete(FolderImages + OldImageSource);
 
                 System.Windows.MessageBox.Show("Изменения сохранены", "Edit Page", MessageBoxButton.OK);
             }
             else
             {
-                editItem.Description = oldDescription;
-                editItem.FileSource = oldFileFource;
-                editItem.ImageSource = oldImageSource;
+                editItem.Description = OldDescription;
+                editItem.FileSource = OldFileFource;
+                editItem.ImageSource = OldImageSource;
                 System.Windows.MessageBox.Show("Нет данных для поля «описание», поэтому изменения не могут быть сохранены.", "Edit Page", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             Close();
@@ -89,18 +99,17 @@ namespace DesignTaburetka
         private void FileUpload_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
             openFileDialog.Filter = "Text files (*.txt)|*.txt|Pdf files (*.pdf)|*.pdf|Docx files (*.docx)|*.docx|Pptx files (*.pptx)|*.pptx|Xlsx files (*.xlsx)|*.xlsx";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (File.Exists(Path.Combine(folderFiles, Path.GetFileName(openFileDialog.FileName))))
+                if (File.Exists(Path.Combine(FolderFiles, Path.GetFileName(openFileDialog.FileName))))
                 {
                     System.Windows.MessageBox.Show($"Файл с названием {Path.GetFileName(openFileDialog.FileName)} существует. Переименуйте его и загрузите снова.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
-                    fullFilePath = openFileDialog.FileName;
+                    FullFilePath = openFileDialog.FileName;
                     FileSource.Text = Path.GetFileName(openFileDialog.FileName);
                     System.Windows.MessageBox.Show($"Файл {FileSource.Text} загружен", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -114,13 +123,13 @@ namespace DesignTaburetka
             openDialog.FilterIndex = 1;
             if (openDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                if (File.Exists(Path.Combine(folderImages, Path.GetFileName(openDialog.FileName))))
+                if (File.Exists(Path.Combine(FolderImages, Path.GetFileName(openDialog.FileName))))
                 {
                     System.Windows.MessageBox.Show($"Изображение с названием {Path.GetFileName(openDialog.FileName)} существует. Переименуйте его и загрузите снова.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
-                    fullImagePath = openDialog.FileName;
+                    FullImagePath = openDialog.FileName;
                     ImageSource.Text = Path.GetFileName(openDialog.FileName);
                     System.Windows.MessageBox.Show($"Изображение загружено", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
