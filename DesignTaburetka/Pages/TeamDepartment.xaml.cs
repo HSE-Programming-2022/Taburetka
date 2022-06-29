@@ -35,12 +35,12 @@ namespace DesignTaburetka.Pages
                                                    "INNER JOIN Employee c ON b.worker_id = c.emp_id " +
                                                    "INNER JOIN Department d ON c.emp_dep_id = d.dep_id " +
                                                    "INNER JOIN EmployeeRank ER ON c.rank_id = ER.rank_id " +
-                                                   $"WHERE a.manager_id = {Login.emp_id}"
+                                                   $"WHERE a.manager_id = {Login.Emp_id}"
                 );
             TeamData.DataContext = DTWorkers;
 
             DataTable DTTeam_ID = WPFHelper.Select("SELECT team_id FROM Teams " +
-                                                   $"WHERE manager_id = {Login.emp_id}"
+                                                   $"WHERE manager_id = {Login.Emp_id}"
                 );
 
             Team_id = int.Parse(DTTeam_ID.Rows[0]["team_id"].ToString());
@@ -76,7 +76,7 @@ namespace DesignTaburetka.Pages
                                                          $"WHERE emp_id = {int.Parse(addWorker.WorkerID)}"
             );
 
-            if (DTDep_worker_name.Rows[0]["dep_name"].ToString() == $"{Login.emp_id}")
+            if (DTDep_worker_name.Rows[0]["dep_name"].ToString() == $"{Login.Emp_id}")
             {
                 string insertCommand =
                "INSERT INTO dbo.WorkerTeam (team_id, worker_id)" +
@@ -94,7 +94,7 @@ namespace DesignTaburetka.Pages
                                                    "INNER JOIN Employee c ON b.worker_id = c.emp_id " +
                                                    "INNER JOIN Department d ON c.emp_dep_id = d.dep_id " +
                                                    "INNER JOIN EmployeeRank ER ON c.rank_id = ER.rank_id " +
-                                                   $"WHERE a.manager_id = {Login.emp_id}");
+                                                   $"WHERE a.manager_id = {Login.Emp_id}");
         }
 
         private void BtnDeleteWorker_Click(object sender, RoutedEventArgs e)
@@ -111,7 +111,7 @@ namespace DesignTaburetka.Pages
                                                    "INNER JOIN Employee c ON b.worker_id = c.emp_id " +
                                                    "INNER JOIN Department d ON c.emp_dep_id = d.dep_id " +
                                                    "INNER JOIN EmployeeRank ER ON c.rank_id = ER.rank_id " +
-                                                   $"WHERE a.manager_id = {Login.emp_id}"
+                                                   $"WHERE a.manager_id = {Login.Emp_id}"
                                                    );
         }
     }
