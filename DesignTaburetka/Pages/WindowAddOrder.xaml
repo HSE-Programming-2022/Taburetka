@@ -321,22 +321,22 @@
             <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Предполагаемое время выполнения" Grid.Row="2" x:Name="TxtBlockSupposeTime" MouseDown="lblNote_MouseDown"/>
 
             <TextBox Style="{DynamicResource TextBoxStyleAddWorker}" x:Name="Comment" Grid.Row="3" TextChanged="txtNote_TextChanged_Comment" Width="400" Height="25"/>
-            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Комменатарий" Grid.Row="3" x:Name="TxtBlockComment" MouseDown="lblNote_MouseDown"/>
-
+            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Комментарий" Grid.Row="3" x:Name="TxtBlockComment" MouseDown="lblNote_MouseDown"/>
+            
             <TextBox Style="{DynamicResource TextBoxStyleAddWorker}" x:Name="emp_id" Grid.Row="4" TextChanged="txtNote_TextChanged_emp_id" Width="400" Height="25"/>
-            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Комменатарий" Grid.Row="4" x:Name="TxtBlockEmp_id" MouseDown="lblNote_MouseDown"/>
+            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Ваш ID" Grid.Row="4" x:Name="TxtBlockEmp_id" MouseDown="lblNote_MouseDown"/>
 
             <ComboBox Style="{DynamicResource ComboBoxStyleAdd}" x:Name="OrderType" Grid.Row="5" Grid.Column="1" Margin="5" SelectionChanged="orderType_SelectionChanged" Width="400" Height="25" Foreground="white" VerticalAlignment="Bottom">
                 <ComboBoxItem Foreground="Black">Draft</ComboBoxItem>
                 <ComboBoxItem Foreground="black">Real</ComboBoxItem>
             </ComboBox>
-            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Тип заказа:" Grid.Row="5" x:Name="TxtBlockOrderType" MouseDown="lblNote_MouseDown" VerticalAlignment="Top" Margin="0,2,0,0"/>
+            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Тип заказа:" Grid.Row="5" x:Name="TxtBlockOrderType" MouseDown="lblNote_MouseDown" VerticalAlignment="Top" Margin="0,6,0,0"/>
 
             <ComboBox Style="{DynamicResource ComboBoxStyleAdd}" x:Name="emergencyType" Grid.Row="6" Grid.Column="1" Margin="5" SelectionChanged="emergencyType_SelectionChanged" Width="400" Height="25" Foreground="white" VerticalAlignment="Bottom">
                 <ComboBoxItem Foreground="Black">Yes</ComboBoxItem>
                 <ComboBoxItem Foreground="Black">No</ComboBoxItem>
             </ComboBox>
-            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Срочность:" Grid.Row="6" x:Name="TxtBlockemergencyType" MouseDown="lblNote_MouseDown" VerticalAlignment="Top" Margin="0,2,0,0"/>
+            <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="Срочность:" Grid.Row="6" x:Name="TxtBlockemergencyType" MouseDown="lblNote_MouseDown" VerticalAlignment="Top" Margin="0,6,0,0"/>
 
             <Button Style="{StaticResource ButtonStyleEdit}" Grid.Row="7" Grid.Column="1" Content="OK" Margin="5" Click="Button_Click" Width="100" Height="40" />
             
