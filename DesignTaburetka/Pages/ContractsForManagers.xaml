@@ -117,12 +117,16 @@
             <TabItem Header="Завершенные"  FontSize="15">
                 <WrapPanel >
                     <Grid Background="Transparent" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="179*"/>
+                            <ColumnDefinition Width="411*"/>
+                        </Grid.ColumnDefinitions>
                         <DataGrid Name="CompletedData" 
                 Margin="0,0,0,50" Height="Auto" 
                 ItemsSource="{Binding }"  RowStyle="{StaticResource DataRowStyle}"
                   CellStyle="{StaticResource DataCellStyle}"
                   Style="{StaticResource DataStyle}"
-                  ColumnHeaderStyle="{StaticResource HeaderStyle}" >
+                  ColumnHeaderStyle="{StaticResource HeaderStyle}" Grid.ColumnSpan="2" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="ID работы" Binding="{Binding Path='work_id'}" IsReadOnly="True" Width="90" SortDirection="Ascending" CanUserSort="True" />
                                 <!--<DataGridTextColumn Header="Порядоковый номер" Binding="{Binding 'index_num'}" Width="Auto" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>-->
@@ -130,7 +134,6 @@
                                 <DataGridTextColumn Header="Дата начала" Binding="{Binding Path='work_start'}" Width="90" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="90" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='project_name'}" Width="90" CanUserSort="False"/>
                                 <DataGridTextColumn Header="Заказ" Binding="{Binding Path='project_name'}" Width="90" CanUserSort="False"/>
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
                                     <DataGridTemplateColumn.CellTemplate>
