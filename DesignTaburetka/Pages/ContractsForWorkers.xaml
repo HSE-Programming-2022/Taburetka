@@ -52,10 +52,10 @@
                                 <!--<DataGridTextColumn Header="Порядоковый номер" Binding="{Binding 'index_num'}" Width="Auto" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>-->
                                 <DataGridTextColumn Header="Дата получения" Binding="{Binding 'came_at'}"  Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Дата начала" Binding="{Binding Path='work_start'}" Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Менеджер" Binding="{Binding Path='emp_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='order_id'}" Width="*" CanUserSort="False"/>
+                                <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Менеджер" Binding="{Binding Path='manager_name'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='project_name'}" Width="*" CanUserSort="False"/>
 
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
                                 </DataGridTemplateColumn>
@@ -79,10 +79,10 @@
                                 <!--<DataGridTextColumn Header="Порядоковый номер" Binding="{Binding 'index_num'}" Width="Auto" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>-->
                                 <DataGridTextColumn Header="Дата получения" Binding="{Binding 'came_at'}"  Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Дата начала" Binding="{Binding Path='work_start'}" Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Менеджер" Binding="{Binding Path='emp_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='order_id'}" Width="*" CanUserSort="False"/>
+                                <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Менеджер" Binding="{Binding Path='manager_name'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Заказ" Binding="{Binding Path='project_name'}" Width="*" CanUserSort="False"/>
 
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
                                 </DataGridTemplateColumn>
@@ -117,9 +117,9 @@
                                 <!--<DataGridTextColumn Header="Порядоковый номер" Binding="{Binding 'index_num'}" Width="Auto" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>-->
                                 <DataGridTextColumn Header="Дата получения" Binding="{Binding 'came_at'}"  Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Дата начала" Binding="{Binding Path='work_start'}" Width="*" CanUserSort="True" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="60" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
-                                <DataGridTextColumn Header="Менеджер" Binding="{Binding Path='manager_id'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Ориент дни" Binding="{Binding Path='suppose_days'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Факт дни" Binding="{Binding Path='fact_days'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
+                                <DataGridTextColumn Header="Менеджер" Binding="{Binding Path='manager_name'}" Width="*" CanUserSort="False" ElementStyle="{StaticResource WrapText}"/>
                                 <DataGridTextColumn Header="Заказ" Binding="{Binding Path='project_name'}" Width="*" CanUserSort="False"/>
                                 <DataGridTemplateColumn Width="50" CanUserSort="False">
                                 </DataGridTemplateColumn>
