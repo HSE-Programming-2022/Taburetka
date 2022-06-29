@@ -26,7 +26,7 @@ namespace DesignTaburetka.Pages
         {
             InitializeComponent();
             DataTable DTClients = WPFHelper.Select("SELECT * FROM [dbo].[Client] full outer Join [dbo].[Physical] on [dbo].[Client].client_id = [dbo].[Physical].client_id " +
-                " full outer Join [dbo].[Legal] on [dbo].[Client].client_id = [dbo].[Legal].client_id"
+                " full outer Join [dbo].[Legal] on [dbo].[Client].client_id = [dbo].[Legal].client_id INNER JOIN ClientTypes CT ON CT.client_type_id = Client.client_type"
                 );
             ClientsData.DataContext = DTClients;
 

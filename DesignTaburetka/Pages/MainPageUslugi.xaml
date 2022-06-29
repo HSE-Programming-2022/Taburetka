@@ -26,12 +26,6 @@
                     </StackPanel>
                 </Button>
 
-                <Button Style="{StaticResource btnAddContract}" Margin="50 0" Click="btnAddContract_Click">
-                    <StackPanel Orientation="Vertical" Height="80" Margin="10,0,10,0">
-                        <fa:IconImage Icon="ArrowUp" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                        <TextBlock Style="{StaticResource btnAddText}" Margin="0 25 0 0">Добавить контракт</TextBlock>
-                    </StackPanel>
-                </Button>
             </StackPanel>
         </Grid>
         
