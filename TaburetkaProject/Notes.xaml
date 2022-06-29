@@ -13,7 +13,6 @@
             <MenuItem Header="Редактировать" Name="EditItem" Click="EditItem_Click"/>
             <MenuItem Header="Открыть фото" Name="OpenImage" Click="OpenImage_Click"/>
             <MenuItem Header="Открыть файл" Name="OpenFile" Click="OpenFile_Click"/>
-            <MenuItem Header="Отметить как выполнено" Name="MarkAsDone" Click="MarkAsDone_Click"/>
             <MenuItem Header="Удалить" Name="DeleteItem" Click="DeleteItem_Click"/>
         </ContextMenu>
     </Page.Resources>
@@ -25,15 +24,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10" Width="auto" Height="auto" HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal" Grid.Row="1"  Width="auto" Height="auto" HorizontalAlignment="Center">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <ListView Background="#003B46" Name="lvToDo" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="650" Grid.Row="1" Grid.ColumnSpan="3" MouseDoubleClick="lvToDo_MouseDoubleClick" 
+                    <ListView Style="{DynamicResource ListViewStyle}" Background="#003B46" Name="lvToDo" Height="auto" HorizontalAlignment="Left" Width="800" 
                           ContextMenu="{StaticResource itemMenu}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -44,12 +37,11 @@
                                     <TextBlock Name="Image" Text="{Binding ImageSource}"/>
                                     <TextBlock Text="Файл:" FontWeight="Bold"/>
                                     <TextBlock Name="File" Text="{Binding FileSource}"/>
-                                    <TextBlock Name="IsDone" FontWeight="Bold" Grid.Column="2" HorizontalAlignment="Right" Text="{Binding IsDone}"/>
+                                    <Separator Height="0.8" Background="#66A5AD" HorizontalAlignment="Center" VerticalAlignment="Center" Width="770"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <CheckBox x:Name="chkShowNotDone" Content="Показать невыполненные задачи" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Checked="chkShowNotDone_Checked" Unchecked="chkShowNotDone_Unchecked"/>
                 </Grid>
             </StackPanel>
 
@@ -72,28 +64,28 @@
                                     <ColumnDefinition Width="233*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <fa:ImageAwesome Icon="Pencil" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25"/>
+                                <fa:ImageAwesome Icon="Pencil" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35"/>
                                 <TextBlock x:Name="lblNote" Style="{StaticResource ResourceKey=txtHint}" MouseDown="lblNote_MouseDown" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Text="Добавить заметку" Margin="10,10,0,0"/>
                                 <TextBox x:Name="txtNote" Style="{StaticResource ResourceKey=textBox}" TextChanged="txtNote_TextChanged" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="10,10,14,0"/>
 
                             </Grid>
                         </StackPanel>
 
-                        <Button Style="{StaticResource button}" Width="35" Height="35" HorizontalAlignment="Right" Margin="0,0,55,0" Click="Button_Click">
+                        <Button Style="{StaticResource button}" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,75,0" Click="Button_Click">
                             <fa:ImageAwesome Icon="image" Height="25" Width="18"/>
                         </Button>
-                        <TextBlock HorizontalAlignment="Right" Margin="0,0,55,-15" >
+                        <TextBlock HorizontalAlignment="Right" Margin="0,36,81,-10" Width="13" >
                             <TextBox Visibility="Hidden" Name="imagePath"/>
                         </TextBlock>
 
-                        <Button Style="{StaticResource button}" Name="FileUpload" Width="35" Height="35" HorizontalAlignment="Right" Margin="0,0,28,0" Click="FileUpload_Click">
+                        <Button Style="{StaticResource button}" Name="FileUpload" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,42,0" Click="FileUpload_Click">
                             <fa:ImageAwesome x:Name="fileUpload" Icon="PaperClip" Height="18" Width="19"/>
                         </Button>
                         <TextBlock HorizontalAlignment="Right" Width="20" Height="20" Margin="0,50,28,0" >
                             <TextBox Visibility="Hidden" Name="fileName"/>
                         </TextBlock>
 
-                        <Button Style="{StaticResource button}" Name="BtnAdd" Width="35" Height="35" HorizontalAlignment="Right" Margin="12,0,0,0" Click="BtnAdd_Click">
+                        <Button Style="{StaticResource button}" Name="BtnAdd" Width="25" Height="35" HorizontalAlignment="Right" Margin="0,0,9,0" Click="BtnAdd_Click">
                             <fa:ImageAwesome Icon="PlusCircle" Width="18" Height="18"/>
                         </Button>
 

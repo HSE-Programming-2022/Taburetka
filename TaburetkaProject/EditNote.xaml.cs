@@ -17,7 +17,7 @@ namespace TaburetkaProject
         string fullFilePath;
 
         string oldDescription;
-        string oldFileFource;
+        string oldFileSource;
         string oldImageSource;
         string folderFiles = "../../NotesData/Files/";
         string folderImages = "../../NotesData/Images/";
@@ -26,7 +26,7 @@ namespace TaburetkaProject
             InitializeComponent();
             oldDescription = olddescription;
             editItem = item;
-            oldFileFource = oldfilesource;
+            oldFileSource = oldfilesource;
             oldImageSource = oldimagesource;
             DataContext = item;
         }
@@ -43,16 +43,16 @@ namespace TaburetkaProject
                 }
 
 
-                if (!(string.IsNullOrEmpty(FileSource.Text)) && (oldFileFource != FileSource.Text))
+                if (!(string.IsNullOrEmpty(FileSource.Text)) && (oldFileSource != FileSource.Text))
                 {
                     editItem.FileSource = FileSource.Text;
                     File.Copy(fullFilePath, Path.Combine(folderFiles, FileSource.Text));
                 }
 
 
-                if ((!string.IsNullOrEmpty(oldFileFource)) && (oldFileFource != FileSource.Text))
+                if ((!string.IsNullOrEmpty(oldFileSource)) && (oldFileSource != FileSource.Text))
                 {
-                    File.Delete(folderFiles + oldFileFource);
+                    File.Delete(folderFiles + oldFileSource);
                 }
 
                 if ((!string.IsNullOrEmpty(oldImageSource)) && (oldImageSource != ImageSource.Text))
@@ -63,7 +63,7 @@ namespace TaburetkaProject
             else
             {
                 editItem.Description = oldDescription;
-                editItem.FileSource = oldFileFource;
+                editItem.FileSource = oldFileSource;
                 editItem.ImageSource = oldImageSource;
                 System.Windows.MessageBox.Show("Нет данных для поля «описание», поэтому изменения не могут быть сохранены.", "Edit Page", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -79,7 +79,6 @@ namespace TaburetkaProject
         private void FileUpload_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
             openFileDialog.Filter = "Text files (*.txt)|*.txt|Pdf files (*.pdf)|*.pdf";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)

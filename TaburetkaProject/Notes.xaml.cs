@@ -20,6 +20,10 @@ namespace TaburetkaProject
 
         private string folderFiles = "../../NotesData/Files/";
 
+        private string fullFilePath;
+
+        private string fullImagePath;
+
         List<ToDoItem> tdl = new List<ToDoItem>();
         public Notes()
         {
@@ -62,7 +66,7 @@ namespace TaburetkaProject
 
         private void lvToDo_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            MarkAsDone_Click(sender, e);
+            DeleteItem_Click(sender, e);
         }
 
 
@@ -70,11 +74,13 @@ namespace TaburetkaProject
         {
             if (!string.IsNullOrEmpty(txtNote.Text))
             {
-                ToDoItem item = new ToDoItem(txtNote.Text, imagePath.Text, fileName.Text, "Не выполнено");
+                ToDoItem item = new ToDoItem(txtNote.Text, imagePath.Text, fileName.Text);
 
                 tdl.Insert(0, item);
 
                 StorageNotes.SaveItem(tdl);
+                if (!string.IsNullOrEmpty(imagePath.Text)) File.Copy(fullImagePath, Path.Combine(folderImages, imagePath.Text));
+                if (!string.IsNullOrEmpty(fileName.Text)) File.Copy(fullFilePath, Path.Combine(folderFiles, fileName.Text));
             }
 
             txtNote.Text = "";
@@ -99,7 +105,7 @@ namespace TaburetkaProject
                 {
 
                     imagePath.Text = Path.GetFileName(openDialog.FileName);
-                    File.Copy(openDialog.FileName, Path.Combine(folderImages, imagePath.Text));
+                    fullImagePath = openDialog.FileName;
                     System.Windows.MessageBox.Show($"Изображение загружено", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
@@ -108,7 +114,6 @@ namespace TaburetkaProject
         private void FileUpload_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
             openFileDialog.Filter = "Text files (*.txt)|*.txt|Pdf files (*.pdf)|*.pdf";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -120,37 +125,18 @@ namespace TaburetkaProject
                 else
                 {
                     fileName.Text = Path.GetFileName(openFileDialog.FileName);
-                    File.Copy(openFileDialog.FileName, Path.Combine(folderFiles, fileName.Text));
+                    fullFilePath = openFileDialog.FileName;
                     System.Windows.MessageBox.Show($"Файл {fileName.Text} загружен", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
 
-        private void chkShowNotDone_Checked(object sender, RoutedEventArgs e)
-        {
-            lvToDo.ItemsSource = tdl.Where(item => item.IsDone == "Не выполнено");
-        }
 
         private void chkShowNotDone_Unchecked(object sender, RoutedEventArgs e)
         {
             lvToDo.ItemsSource = tdl;
         }
 
-        private void MarkAsDone_Click(object sender, RoutedEventArgs e)
-        {
-            if (lvToDo.SelectedItem != null)
-            {
-                MessageBoxResult done = System.Windows.MessageBox.Show("Отметить как выполненное?", "Выполнено?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
-                if (done == MessageBoxResult.Yes)
-                {
-                    (lvToDo.SelectedItem as ToDoItem).IsDone = "Выполнено";
-                    lvToDo.ItemsSource = tdl;
-                    lvToDo.Items.Refresh();
-                    StorageNotes.SaveItem(tdl);
-
-                }
-            }
-        }
 
         private void DeleteItem_Click(object sender, RoutedEventArgs e)
         {
@@ -187,7 +173,7 @@ namespace TaburetkaProject
 
         private void OpenImage_Click(object sender, RoutedEventArgs e)
         {
-            string path = @"Notes\Images\" + (lvToDo.SelectedItem as ToDoItem).ImageSource;
+            string path = @"NotesData\Images\" + (lvToDo.SelectedItem as ToDoItem).ImageSource;
             string imagePath = Path.GetFullPath(path);
             imagePath = imagePath.Replace(@"\bin\Debug", "");
             Process.Start(imagePath);
@@ -196,7 +182,7 @@ namespace TaburetkaProject
 
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
-            string path = @"Notes\Files\" + (lvToDo.SelectedItem as ToDoItem).FileSource;
+            string path = @"NotesData\Files\" + (lvToDo.SelectedItem as ToDoItem).FileSource;
             string filePath = Path.GetFullPath(path);
             filePath = filePath.Replace(@"\bin\Debug", "");
             Process.Start(filePath);

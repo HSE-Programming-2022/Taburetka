@@ -32,12 +32,11 @@ namespace TaburetkaProject.Models
             FileSource = fileSource;
             IsDone = isDone;
         }
-        public ToDoItem(string description, string imageSource, string fileSource, string isDone)
+        public ToDoItem(string description, string imageSource, string fileSource)
         {
             Description = description;
             ImageSource = imageSource;
             FileSource = fileSource;
-            IsDone = isDone;
         }
 
     }

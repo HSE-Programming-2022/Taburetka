@@ -38,7 +38,7 @@ namespace TaburetkaProject.Models
                 string folderFiles = "../../ToDoData/Files/";
                 File.Delete(folderFiles + item.FileSource);
             }
-            if (!string.IsNullOrEmpty(item.FileSource))
+            if (!string.IsNullOrEmpty(item.ImageSource))
             {
                 string folderImages = "../../ToDoData/Images/";
                 File.Delete(folderImages + item.ImageSource);

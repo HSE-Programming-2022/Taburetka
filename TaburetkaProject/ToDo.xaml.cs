@@ -23,6 +23,10 @@ namespace TaburetkaProject
 
         private string folderFiles = "../../ToDoData/Files/";
 
+        private string fullFilePath;
+
+        private string fullImagePath;
+
         List<ToDoItem> tdl = new List<ToDoItem>();
         public ToDo()
         {
@@ -78,6 +82,9 @@ namespace TaburetkaProject
                 tdl.Insert(0, item);
 
                 Storage.SaveItem(tdl);
+
+                if (!string.IsNullOrEmpty(imagePath.Text)) File.Copy(fullImagePath, Path.Combine(folderImages, imagePath.Text));
+                if (!string.IsNullOrEmpty(fileName.Text)) File.Copy(fullFilePath, Path.Combine(folderFiles, fileName.Text));
             }
 
             textNote.Text = "";
@@ -103,7 +110,7 @@ namespace TaburetkaProject
                 {
 
                     imagePath.Text = Path.GetFileName(openDialog.FileName);
-                    File.Copy(openDialog.FileName, Path.Combine(folderImages, imagePath.Text));
+                    fullImagePath = openDialog.FileName;
                     System.Windows.MessageBox.Show($"Изображение загружено", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
@@ -112,7 +119,6 @@ namespace TaburetkaProject
         private void FileUpload_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
             openFileDialog.Filter = "Text files (*.txt)|*.txt|Pdf files (*.pdf)|*.pdf";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -124,7 +130,7 @@ namespace TaburetkaProject
                 else
                 {
                     fileName.Text = Path.GetFileName(openFileDialog.FileName);
-                    File.Copy(openFileDialog.FileName, Path.Combine(folderFiles, fileName.Text));
+                    fullFilePath = openFileDialog.FileName;
                     System.Windows.MessageBox.Show($"Файл {fileName.Text} загружен", "Successfully Upoladed", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
