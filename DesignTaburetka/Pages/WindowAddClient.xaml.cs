@@ -40,16 +40,12 @@ namespace DesignTaburetka.Pages
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
 
         private void clientType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string type = ((ComboBoxItem)ClientType.SelectedItem).Content.ToString();
 
-            if (type.ToString() == "Компания")
+            if (type.ToString() == "Юридическое лицо")
             {
                 TypeClientId = 1;
             }
@@ -66,6 +62,23 @@ namespace DesignTaburetka.Pages
                 this.DragMove();
             }
         }
+
+        // Start: Button Close | Restore | Minimize 
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btnAddClient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        // End: Button Close | Restore | Minimize
 
         private new void DragMove()
         {
@@ -84,11 +97,11 @@ namespace DesignTaburetka.Pages
         {
             if (!string.IsNullOrEmpty(clientName.Text) && clientName.Text.Length > 0)
             {
-                TxtBlockclientName.Visibility = Visibility.Collapsed;
+                clientName.Visibility = Visibility.Collapsed;
             }
             else
             {
-                TxtBlockclientName.Visibility = Visibility.Visible;
+                clientName.Visibility = Visibility.Visible;
             }
         }
 
@@ -96,11 +109,11 @@ namespace DesignTaburetka.Pages
         {
             if (!string.IsNullOrEmpty(Phones.Text) && Phones.Text.Length > 0)
             {
-                TxtBlockPhones.Visibility = Visibility.Collapsed;
+                Phones.Visibility = Visibility.Collapsed;
             }
             else
             {
-                TxtBlockPhones.Visibility = Visibility.Visible;
+                Phones.Visibility = Visibility.Visible;
             }
         }
 
@@ -108,13 +121,12 @@ namespace DesignTaburetka.Pages
         {
             if (!string.IsNullOrEmpty(Adresses.Text) && Adresses.Text.Length > 0)
             {
-                TxtBlockAdresses.Visibility = Visibility.Collapsed;
+                Adresses.Visibility = Visibility.Collapsed;
             }
             else
             {
-                TxtBlockAdresses.Visibility = Visibility.Visible;
+                Adresses.Visibility = Visibility.Visible;
             }
         }
-
     }
 }

@@ -43,16 +43,11 @@ namespace DesignTaburetka.Pages
 
         public string TypeEmergency;
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void orderType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string ordertype = ((ComboBoxItem)OrderType.SelectedItem).Content.ToString();
 
-            if (ordertype.ToString() == "Draft")
+            if (ordertype.ToString() == "Проект")
             {
                 OrderTypeId = 1;
             }
@@ -80,6 +75,24 @@ namespace DesignTaburetka.Pages
             }
         }
 
+        // Start: Button Close | Restore | Minimize 
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        // End: Button Close | Restore | Minimize
+
+
+        private void btnAddOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private new void DragMove()
         {
             throw new NotImplementedException();
@@ -100,11 +113,11 @@ namespace DesignTaburetka.Pages
         {
             if (!string.IsNullOrEmpty(OrderName.Text) && OrderName.Text.Length > 0)
             {
-                TxtBlockNameOrder.Visibility = Visibility.Collapsed;
+                OrderName.Visibility = Visibility.Collapsed;
             }
             else
             {
-                TxtBlockNameOrder.Visibility = Visibility.Visible;
+                OrderName.Visibility = Visibility.Visible;
             }
         }
 
@@ -112,11 +125,11 @@ namespace DesignTaburetka.Pages
         {
             if (!string.IsNullOrEmpty(Client_id.Text) && Client_id.Text.Length > 0)
             {
-                TxtBlockClientID.Visibility = Visibility.Collapsed;
+                Client_id.Visibility = Visibility.Collapsed;
             }
             else
             {
-                TxtBlockClientID.Visibility = Visibility.Visible;
+                Client_id.Visibility = Visibility.Visible;
             }
         }
 
@@ -124,11 +137,11 @@ namespace DesignTaburetka.Pages
         {
             if (!string.IsNullOrEmpty(SupposeTime.Text) && SupposeTime.Text.Length > 0)
             {
-                TxtBlockSupposeTime.Visibility = Visibility.Collapsed;
+                SupposeTime.Visibility = Visibility.Collapsed;
             }
             else
             {
-                TxtBlockSupposeTime.Visibility = Visibility.Visible;
+                SupposeTime.Visibility = Visibility.Visible;
             }
         }
 
@@ -136,11 +149,11 @@ namespace DesignTaburetka.Pages
         {
             if (!string.IsNullOrEmpty(Comment.Text) && Comment.Text.Length > 0)
             {
-                TxtBlockComment.Visibility = Visibility.Collapsed;
+                Comment.Visibility = Visibility.Collapsed;
             }
             else
             {
-                TxtBlockComment.Visibility = Visibility.Visible;
+                Comment.Visibility = Visibility.Visible;
             }
         }
 
@@ -148,11 +161,11 @@ namespace DesignTaburetka.Pages
         {
             if (!string.IsNullOrEmpty(emp_id.Text) && emp_id.Text.Length > 0)
             {
-                TxtBlockEmp_id.Visibility = Visibility.Collapsed;
+                emp_id.Visibility = Visibility.Collapsed;
             }
             else
             {
-                TxtBlockEmp_id.Visibility = Visibility.Visible;
+                emp_id.Visibility = Visibility.Visible;
             }
         }
 
