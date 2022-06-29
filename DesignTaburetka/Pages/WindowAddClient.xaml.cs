@@ -58,5 +58,63 @@ namespace DesignTaburetka.Pages
                 TypeClientId = 2;
             }
         }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private new void DragMove()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lblNote_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            clientName.Focus();
+            Phones.Focus();
+            Adresses.Focus();
+            ClientType.Focus();
+        }
+
+        private void txtNote_TextChanged_clientName(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(clientName.Text) && clientName.Text.Length > 0)
+            {
+                TxtBlockclientName.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                TxtBlockclientName.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void txtNote_TextChanged_Phones(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Phones.Text) && Phones.Text.Length > 0)
+            {
+                TxtBlockPhones.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                TxtBlockPhones.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void txtNote_TextChanged_Adresses(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Adresses.Text) && Adresses.Text.Length > 0)
+            {
+                TxtBlockAdresses.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                TxtBlockAdresses.Visibility = Visibility.Visible;
+            }
+        }
+
     }
 }

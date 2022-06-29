@@ -22,7 +22,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBox Style="{DynamicResource TextBoxStyleAddWorker}" x:Name="workerID" Grid.Row="0" TextChanged="txtNote_TextChanged" Width="400" Height="25"/>
+            <TextBox Style="{DynamicResource TextBoxStyleAddWorker}" x:Name="workerID" Grid.Row="0" TextChanged="txtNote_TextChanged" Width="400" Height="26"/>
 
             <TextBlock Style="{DynamicResource TextBlockStyleAddWorker}" Text="ID работника" x:Name="leblNote" MouseDown="lblNote_MouseDown"/>
 
